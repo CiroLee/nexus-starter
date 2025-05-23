@@ -4,5 +4,11 @@
       "dev": false,
       "feature/*": false
     }
-  }
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ]
 }
