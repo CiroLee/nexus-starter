@@ -1,0 +1,41 @@
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+/* basic semantic colors  base on tailwindcss colors */
+:root {
+  --background: #fff;
+  --foreground: var(--color-neutral-800);
+  --line: var(--color-neutral-200);
+  --description: var(--color-neutral-400);
+  /* semantic z-index */
+  --loading: 60;
+  --popup: 50;
+  --tooltip: 40;
+}
+
+[data-theme='dark'] {
+  --background: var(--color-neutral-800);
+  --foreground: var(--color-neutral-50);
+  --line: var(--color-neutral-700);
+  --description: var(--color-neutral-500);
+}
+
+@theme {
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --color-line: var(--line);
+  --color-description: var(--description);
+
+  --color-primary: var(--color-blue-500);
+  --color-primary-active: var(--color-blue-600);
+  --color-danger: var(--color-red-500);
+  --color-danger-active: var(--color-red-600);
+  --color-secondary: var(--color-green-500);
+  --color-secondary-active: var(--color-green-600);
+  --color-warning: var(--color-orange-500);
+  --color-warning-active: var(--color-orange-600);
+}
+
+body {
+  color: var(--foreground);
+  background-color: var(--background);
+}
