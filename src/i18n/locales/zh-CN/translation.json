@@ -1,6 +1,23 @@
 {
+  "common": {
+    "backHome": "回到首页",
+    "notFound": "您访问的页面不存在",
+    "forbidden": "您无权访问此页面",
+    "serverError": "服务器出了点问题，请稍后再试"
+  },
   "menus": {
     "dashboard": "仪表板",
-    "analysis": "分析"
+    "analysis": "分析",
+    "error": "异常页",
+    "403": "403",
+    "404": "404",
+    "500": "500"
+  },
+  "dashboard": {
+    "title": "统计数据",
+    "totalConsumers": "总消费人次",
+    "totalSales": "总销售额",
+    "orderPerDay": "每日订单量",
+    "transactionPerDay": "每日交易量"
   }
 }

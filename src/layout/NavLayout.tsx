@@ -1,18 +1,28 @@
 import { Outlet } from 'react-router-dom';
-import { Suspense } from 'react';
+import { Suspense, useMemo } from 'react';
 import { useLayoutStore } from '@/store/layout';
 import Header from './Header';
 import SideBar from './SideBar';
 import { cn } from '@/lib/utils';
+import { useMobile } from '@/hooks';
+import mainRoutes from '@/routes/main.routes';
+import { filterVisibleRoutes } from '@/utils/routes';
+import type { CustomRoute } from '@/types/route';
 
 export default function NavLayout() {
   const { isSideBarOpen } = useLayoutStore();
+  const isMobile = useMobile();
+  const menus = useMemo(() => {
+    const children = mainRoutes.children as CustomRoute[];
+    return filterVisibleRoutes(children);
+  }, [mainRoutes.children]);
   return (
     <div>
-      <SideBar />
-      <main className={cn('relative h-screen pl-0 transition-[padding]', { 'pl-70': isSideBarOpen })}>
-        <Header />
-        <section className="p-4">
+      <SideBar menus={menus} />
+      <Header className={cn({ 'w-[calc(100%_-_var(--sidebar-width))]': !isMobile && isSideBarOpen })} menus={menus} />
+      <main className={cn('relative min-h-screen pl-0 transition-[padding]', { 'pl-(--sidebar-width)': !isMobile && isSideBarOpen })}>
+        <div className="h-16"></div>
+        <section className="h-[calc(100vh_-_var(--header-height))] p-4">
           <Suspense>{<Outlet />}</Suspense>
         </section>
       </main>

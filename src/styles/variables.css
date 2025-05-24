@@ -1,0 +1,5 @@
+/* variables not about theme */
+:root {
+  --sidebar-width: 280px;
+  --header-height: calc(var(--spacing) * 16);
+}

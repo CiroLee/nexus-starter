@@ -1,6 +1,6 @@
 import NavLayout from '@/layout/NavLayout';
 import { CustomRoute } from '@/types/route';
-import { IconChartPie2Filled, IconLayoutDashboardFilled } from '@tabler/icons-react';
+import { IconChartPie2Filled, IconLayoutDashboardFilled, IconExclamationCircleFilled } from '@tabler/icons-react';
 import { lazy } from 'react';
 import { Navigate } from 'react-router-dom';
 const mainRoutes: CustomRoute = {
@@ -36,6 +36,45 @@ const mainRoutes: CustomRoute = {
         visible: true,
         icon: <IconChartPie2Filled size={20} />
       }
+    },
+    {
+      id: 'error',
+      path: '/error',
+      Component: lazy(() => import('@/pages/error')),
+      meta: {
+        name: 'error',
+        visible: true,
+        icon: <IconExclamationCircleFilled size={20} />
+      },
+      children: [
+        {
+          path: '/error/403',
+          id: 'error-403',
+          Component: lazy(() => import('@/pages/error/403')),
+          meta: {
+            name: '403',
+            visible: true
+          }
+        },
+        {
+          path: '/error/404',
+          id: 'error-404',
+          Component: lazy(() => import('@/pages/error/404')),
+          meta: {
+            name: '404',
+            visible: true
+          }
+        },
+        {
+          path: '/error/500',
+          id: 'error-500',
+          Component: lazy(() => import('@/pages/error/500')),
+          meta: {
+            name: '500',
+            visible: true
+          }
+        }
+      ]
     }
   ] as CustomRoute[]
 };
