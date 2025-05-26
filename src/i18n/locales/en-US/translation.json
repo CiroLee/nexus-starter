@@ -1,17 +1,32 @@
 {
   "common": {
     "backHome": "Back Home",
-    "notFound": "The page you visited does not exist",
-    "forbidden": "You are not authorized to access this page",
-    "serverError": "Something wen t wrong with the server, please try again later"
+    "print": "Print"
   },
   "menus": {
     "dashboard": "Dashboard",
     "analysis": "Analysis",
-    "error": "Error",
-    "403": "403",
-    "404": "404",
-    "500": "500"
+    "error": {
+      "title": "Error",
+      "403": "403",
+      "404": "404",
+      "500": "500"
+    },
+    "result": {
+      "title": "Result",
+      "success": "Success",
+      "fail": "Fail"
+    }
+  },
+  "error": {
+    "notFound": "The page you visited does not exist",
+    "forbidden": "You are not authorized to access this page",
+    "serverError": "Something wen t wrong with the server, please try again later"
+  },
+  "result": {
+    "submitSuccess": "Submit Success",
+    "submitFail": "Submit Fail",
+    "toModify": "To Modify"
   },
   "dashboard": {
     "title": "Statistic",

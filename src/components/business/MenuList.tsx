@@ -27,7 +27,7 @@ export default function MenuList({ menus, className }: MenuListProps) {
           <Collapsible
             key={menu.id}
             trigger={
-              <Button variant="light" colors="neutral" className="group w-full justify-between">
+              <Button variant="light" colors="neutral" className="group w-full justify-between text-sm">
                 <div className="flex items-center gap-1">
                   <i className="shrink-0">{menu.meta?.icon}</i>
                   <span>{transText(menu.meta?.name)}</span>

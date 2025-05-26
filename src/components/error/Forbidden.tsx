@@ -14,7 +14,7 @@ export default function Forbidden({ description, className }: { className?: stri
         403
       </Heading>
       <Show when={description}>
-        <p className="text-description mb-6">{description}</p>
+        <p className="text-description mb-12">{description}</p>
       </Show>
       <img src={img403} alt="403 forbidden" width={300} height={300} className="mb-12 size-70" />
       <Button asChild>

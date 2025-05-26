@@ -1,6 +1,6 @@
 import NavLayout from '@/layout/NavLayout';
 import { CustomRoute } from '@/types/route';
-import { IconChartPie2Filled, IconLayoutDashboardFilled, IconExclamationCircleFilled } from '@tabler/icons-react';
+import { IconChartPie2Filled, IconLayoutDashboardFilled, IconExclamationCircleFilled, IconCircleLetterRFilled } from '@tabler/icons-react';
 import { lazy } from 'react';
 import { Navigate } from 'react-router-dom';
 const mainRoutes: CustomRoute = {
@@ -39,10 +39,8 @@ const mainRoutes: CustomRoute = {
     },
     {
       id: 'error',
-      path: '/error',
-      Component: lazy(() => import('@/pages/error')),
       meta: {
-        name: 'error',
+        name: 'error.title',
         visible: true,
         icon: <IconExclamationCircleFilled size={20} />
       },
@@ -52,7 +50,7 @@ const mainRoutes: CustomRoute = {
           id: 'error-403',
           Component: lazy(() => import('@/pages/error/403')),
           meta: {
-            name: '403',
+            name: 'error.403',
             visible: true
           }
         },
@@ -61,7 +59,7 @@ const mainRoutes: CustomRoute = {
           id: 'error-404',
           Component: lazy(() => import('@/pages/error/404')),
           meta: {
-            name: '404',
+            name: 'error.404',
             visible: true
           }
         },
@@ -70,7 +68,35 @@ const mainRoutes: CustomRoute = {
           id: 'error-500',
           Component: lazy(() => import('@/pages/error/500')),
           meta: {
-            name: '500',
+            name: 'error.500',
+            visible: true
+          }
+        }
+      ]
+    },
+    {
+      id: 'result',
+      meta: {
+        name: 'result.title',
+        visible: true,
+        icon: <IconCircleLetterRFilled size={20} />
+      },
+      children: [
+        {
+          id: 'result-success',
+          path: '/result/success',
+          Component: lazy(() => import('@/pages/result/success')),
+          meta: {
+            name: 'result.success',
+            visible: true
+          }
+        },
+        {
+          id: 'result-fail',
+          path: '/result/fail',
+          Component: lazy(() => import('@/pages/result/fail')),
+          meta: {
+            name: 'result.fail',
             visible: true
           }
         }
