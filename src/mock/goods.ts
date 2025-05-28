@@ -1,7 +1,7 @@
 import TinyLorem from 'tiny-lorem';
 import type { Response } from '@/types/response';
 const lorem = new TinyLorem();
-const goodNames = ['apple', 'banana', 'orange'];
+const goodNames = ['expense', 'revenue'];
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 export interface SalesRes {
   key: string;
@@ -10,7 +10,7 @@ export interface SalesRes {
     data: number;
   }[];
 }
-export function getSalesMonthly(): Promise<Response<SalesRes[]>> {
+export function getSalesSummary(): Promise<Response<SalesRes[]>> {
   const data = months.map((item) => ({
     key: item,
     data: goodNames.map((good) => ({

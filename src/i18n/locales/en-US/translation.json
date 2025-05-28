@@ -1,7 +1,9 @@
 {
   "common": {
     "backHome": "Back Home",
-    "print": "Print"
+    "print": "Print",
+    "expense": "Expense",
+    "revenue": "Revenue"
   },
   "menus": {
     "dashboard": "Dashboard",
@@ -29,10 +31,11 @@
     "toModify": "To Modify"
   },
   "dashboard": {
-    "title": "Statistic",
+    "title": "Dashboard",
     "totalConsumers": "Total Consumers",
     "totalSales": "Total Sales",
     "orderPerDay": "Order Per Day",
-    "transactionPerDay": "Transaction Per Day"
+    "transactionPerDay": "Transaction Per Day",
+    "sales": "Sales"
   }
 }

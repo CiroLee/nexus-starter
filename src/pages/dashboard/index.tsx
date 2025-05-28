@@ -57,7 +57,7 @@ export default function Dashboard() {
           unit="%"
         />
       </div>
-      <SaleBartChart className="mt-4" />
+      <SaleBartChart className="mt-6" />
     </div>
   );
 }

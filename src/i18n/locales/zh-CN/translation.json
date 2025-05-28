@@ -1,8 +1,9 @@
 {
   "common": {
     "backHome": "回到首页",
-
-    "print": "打印"
+    "print": "打印",
+    "expense": "支出",
+    "revenue": "收入"
   },
   "menus": {
     "dashboard": "仪表板",
@@ -30,10 +31,11 @@
     "toModify": "去修改"
   },
   "dashboard": {
-    "title": "统计数据",
+    "title": "仪表板",
     "totalConsumers": "总消费人次",
     "totalSales": "总销售额",
     "orderPerDay": "每日订单量",
-    "transactionPerDay": "每日交易量"
+    "transactionPerDay": "每日交易量",
+    "sales": "销售额"
   }
 }
