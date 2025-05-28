@@ -15,7 +15,7 @@ export default function NavLayout() {
   const menus = useMemo(() => {
     const children = mainRoutes.children as CustomRoute[];
     return filterVisibleRoutes(children);
-  }, [mainRoutes.children]);
+  }, []);
   return (
     <div>
       <SideBar menus={menus} />

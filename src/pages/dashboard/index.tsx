@@ -2,6 +2,7 @@ import { IconUserFilled, IconCoinFilled, IconClipboardFilled, IconGiftFilled } f
 import { useTranslation } from 'react-i18next';
 import StatisticCard from './components/StatisticCard';
 import Heading from '@ui/Heading';
+import SaleBartChart from './components/SaleBartChart';
 export default function Dashboard() {
   const { t } = useTranslation();
   return (
@@ -56,6 +57,7 @@ export default function Dashboard() {
           unit="%"
         />
       </div>
+      <SaleBartChart className="mt-4" />
     </div>
   );
 }

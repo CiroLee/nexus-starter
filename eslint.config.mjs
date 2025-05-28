@@ -2,6 +2,7 @@ import globals from 'globals';
 import pluginJs from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import pluginReact from 'eslint-plugin-react';
+import reactHooks from 'eslint-plugin-react-hooks';
 
 export default [
   { files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },
@@ -9,6 +10,7 @@ export default [
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
+  reactHooks.configs['recommended-latest'],
   {
     rules: {
       'react/react-in-jsx-scope': 0,
@@ -24,7 +26,7 @@ export default [
         }
       ]
     },
-    ignores: ['/node_modules', 'dist'],
+    ignores: ['/node_modules', 'dist', '**/*.min.js', '**/vendor/**'],
     settings: {
       react: {
         version: 'detect'
