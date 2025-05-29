@@ -31,11 +31,13 @@
     "toModify": "去修改"
   },
   "dashboard": {
-    "title": "仪表板",
-    "totalConsumers": "总消费人次",
-    "totalSales": "总销售额",
-    "orderPerDay": "每日订单量",
-    "transactionPerDay": "每日交易量",
-    "sales": "销售额"
+    "analysis": {
+      "title": "分析",
+      "totalConsumers": "总消费人次",
+      "totalSales": "总销售额",
+      "orderPerDay": "每日订单量",
+      "transactionPerDay": "每日交易量",
+      "sales": "销售额($)"
+    }
   }
 }

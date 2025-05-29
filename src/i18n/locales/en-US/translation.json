@@ -31,11 +31,13 @@
     "toModify": "To Modify"
   },
   "dashboard": {
-    "title": "Dashboard",
-    "totalConsumers": "Total Consumers",
-    "totalSales": "Total Sales",
-    "orderPerDay": "Order Per Day",
-    "transactionPerDay": "Transaction Per Day",
-    "sales": "Sales"
+    "analysis": {
+      "title": "Analysis",
+      "totalConsumers": "Total Consumers",
+      "totalSales": "Total Sales",
+      "orderPerDay": "Order Per Day",
+      "transactionPerDay": "Transaction Per Day",
+      "sales": "Sales($)"
+    }
   }
 }

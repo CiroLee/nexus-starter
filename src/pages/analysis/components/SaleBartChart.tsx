@@ -3,11 +3,11 @@ import { useTranslation } from 'react-i18next';
 import { BarChart, BarSeries, Gradient, Bar, RangeLines, GuideBar } from 'reaviz';
 import { Card, CardBody, CardHeader, CardTitle } from '@/components/ui/Card';
 import { DiscreteLegends } from '@/components/business/ChartLegend';
-import { getSalesSummary, type SalesRes } from '@/mock/goods';
+import { getSalesSummary, type GoodsRes } from '@/mock/goods';
 import { statusCode } from '@/utils/constants';
 
 export default function SaleBartChart({ className }: { className?: string }) {
-  const [sales, setSales] = useState<SalesRes[]>([]);
+  const [sales, setSales] = useState<GoodsRes[]>([]);
   const { t } = useTranslation();
 
   const fetchSales = async () => {
@@ -28,17 +28,18 @@ export default function SaleBartChart({ className }: { className?: string }) {
   return (
     <Card className={className}>
       <CardHeader>
-        <CardTitle>{t('dashboard.sales')}</CardTitle>
+        <CardTitle>{t('dashboard.analysis.sales')}</CardTitle>
       </CardHeader>
-      <CardBody className="h-80">
+      <CardBody>
         <DiscreteLegends
           className="mb-3"
           legends={[
-            { label: t('common.expense'), color: '#4C86FF' },
-            { label: t('common.revenue'), color: '#40D3F4' }
+            { label: 'expense', color: '#4C86FF' },
+            { label: 'revenue', color: '#40D3F4' }
           ]}
         />
         <BarChart
+          height={260}
           data={sales}
           series={<BarSeries type="grouped" bar={<Bar gradient={<Gradient />} rangeLines={<RangeLines position="top" />} guide={<GuideBar />} />} colorScheme="unifyviz" padding={0.8} />}
         />

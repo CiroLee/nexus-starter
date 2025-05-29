@@ -25,6 +25,7 @@ export default function MenuList({ menus, className }: MenuListProps) {
         }
         return (
           <Collapsible
+            defaultOpen={menu.meta?.defaultOpen}
             key={menu.id}
             trigger={
               <Button variant="light" colors="neutral" className="group w-full justify-between text-sm">
