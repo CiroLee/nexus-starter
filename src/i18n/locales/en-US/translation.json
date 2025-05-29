@@ -37,7 +37,8 @@
       "totalSales": "Total Sales",
       "orderPerDay": "Order Per Day",
       "transactionPerDay": "Transaction Per Day",
-      "sales": "Sales($)"
+      "sales": "Sales($)",
+      "customerRegion": "Customer Region"
     }
   }
 }

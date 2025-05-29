@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { BarChart, BarSeries, Gradient, Bar, RangeLines, GuideBar } from 'reaviz';
 import { Card, CardBody, CardHeader, CardTitle } from '@/components/ui/Card';
 import { DiscreteLegends } from '@/components/business/ChartLegend';
-import { getSalesSummary, type GoodsRes } from '@/mock/goods';
+import { getSalesSummary, type GoodsRes } from '@/_mock/goods';
 import { statusCode } from '@/utils/constants';
 
 export default function SaleBartChart({ className }: { className?: string }) {

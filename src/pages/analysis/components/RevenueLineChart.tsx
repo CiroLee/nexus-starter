@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Line, LineChart, LineSeries } from 'reaviz';
 import { Card, CardHeader, CardTitle, CardBody } from '@/components/ui/Card';
-import { getRevenueContrast, GoodsRes } from '@/mock/goods';
+import { getRevenueContrast, GoodsRes } from '@/_mock/goods';
 
 import { statusCode } from '@/utils/constants';
 import { DiscreteLegends } from '@/components/business/ChartLegend';

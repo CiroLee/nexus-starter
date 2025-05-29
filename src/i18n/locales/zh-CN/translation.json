@@ -37,7 +37,8 @@
       "totalSales": "总销售额",
       "orderPerDay": "每日订单量",
       "transactionPerDay": "每日交易量",
-      "sales": "销售额($)"
+      "sales": "销售额($)",
+      "customerRegion": "用户分布"
     }
   }
 }
