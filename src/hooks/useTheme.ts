@@ -1,4 +1,4 @@
-import type { ThemeMode } from '@/types';
+import type { ThemeMode } from '@/types/theme';
 import { useEffect } from 'react';
 import { useMediaQuery, useLocalStorage } from 'usehooks-ts';
 

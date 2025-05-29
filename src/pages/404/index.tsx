@@ -1,3 +1,8 @@
-export default function NotFound() {
-  return <div className="bg-background text-red-400">404</div>;
+import NotFound from '@/components/error/NotFound';
+export default function NotFoundPage() {
+  return (
+    <div className="h-screen">
+      <NotFound />
+    </div>
+  );
 }

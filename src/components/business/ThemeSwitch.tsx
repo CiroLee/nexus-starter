@@ -3,7 +3,7 @@ import { DropdownMenu } from 'radix-ui';
 import Button from '../ui/Button';
 import { useTheme } from '@/hooks';
 import { IconSunFilled, IconMoonFilled, IconDeviceDesktop } from '@tabler/icons-react';
-import { ThemeMode } from '@/types';
+import { ThemeMode } from '@/types/theme';
 
 const item = cva('flex items-center outline-none gap-1 text-sm rounded p-2 cursor-default transition-colors focus:bg-primary focus:text-white');
 const themeMap = {

@@ -11,10 +11,10 @@ export const router = createBrowserRouter([
       mainRoutes,
       {
         path: '*',
-        element: <Navigate to="/error/404" replace />
+        element: <Navigate to="/404" replace />
       },
       {
-        path: '/error/404',
+        path: '/404',
         id: 'not-found',
         Component: lazy(() => import('@/pages/404'))
       }

@@ -1,0 +1,25 @@
+/* variables not about theme */
+:root {
+  --sidebar-width: 280px;
+  --header-height: calc(var(--spacing) * 16);
+
+  /* reaviz tooltip variables */
+  --tooltip-background: color-mix(in oklab, var(--color-stone-50) 94%, transparent);
+
+  --tooltip-color: var(--foreground);
+  --tooltip-border-radius: 5px;
+  --tooltip-spacing: 5px;
+
+  --chart-background: rgb(51, 51, 51);
+  --chart-color: #fff;
+
+  --chart-handle-fill: #2c343a;
+  --chart-handle-stroke: #67c2e4;
+  --chart-handle-drag-fill: transparent;
+  --chart-handle-dots: #67c2e4;
+  --chart-handle-line: #67c2e4;
+}
+
+:root[data-theme='dark'] {
+  --tooltip-background: color-mix(in oklab, var(--color-stone-900) 94%, transparent);
+}

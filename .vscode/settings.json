@@ -4,7 +4,6 @@
   },
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
   "editor.formatOnSave": true,
-  "cSpell.words": ["tailwindcss", "commitlint", "clsx", "tseslint", "languagedetector"],
-  "tailwindCSS.classFunctions": ["cva", "cn"],
-  "i18n-ally.localesPaths": ["src/i18n", "src/i18n/locales"]
+  "cSpell.words": ["tailwindcss", "commitlint", "clsx", "tseslint", "languagedetector", "reaviz"],
+  "tailwindCSS.classFunctions": ["cva", "cn"]
 }
