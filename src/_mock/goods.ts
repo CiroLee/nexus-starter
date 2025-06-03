@@ -1,7 +1,6 @@
-import TinyLorem from 'tiny-lorem';
+import { lorem } from './base';
 import type { Response } from '@/types/response';
 import { type ChartDataTypes } from 'reaviz';
-const lorem = new TinyLorem();
 
 // sales summary
 const goodNames = ['expense', 'revenue'];

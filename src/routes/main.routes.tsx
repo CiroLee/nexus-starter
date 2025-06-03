@@ -1,6 +1,6 @@
 import NavLayout from '@/layout/NavLayout';
 import { CustomRoute } from '@/types/route';
-import { IconLayoutDashboardFilled, IconExclamationCircleFilled, IconCircleLetterRFilled } from '@tabler/icons-react';
+import { IconLayoutDashboardFilled, IconExclamationCircleFilled, IconCircleLetterRFilled, IconBrandDenodo } from '@tabler/icons-react';
 import { lazy } from 'react';
 import { Navigate } from 'react-router-dom';
 const mainRoutes: CustomRoute = {
@@ -12,26 +12,34 @@ const mainRoutes: CustomRoute = {
     {
       index: true,
       id: 'replace-to-dashboard',
-      element: <Navigate to="/dashboard/analysis" replace />,
+      element: <Navigate to="/dashboard" replace />,
       meta: {
         visible: false
       }
     },
     {
       id: 'dashboard',
+      path: '/dashboard',
+      Component: lazy(() => import('@/pages/analysis')),
       meta: {
         name: 'dashboard',
         icon: <IconLayoutDashboardFilled size={20} />,
-        defaultOpen: true,
         visible: true
+      }
+    },
+    {
+      id: 'management',
+      meta: {
+        name: 'management.title',
+        icon: <IconBrandDenodo size={20} />
       },
       children: [
         {
-          path: '/dashboard/analysis',
-          id: 'analysis',
-          Component: lazy(() => import('@/pages/analysis')),
+          id: 'app-management',
+          path: '/management/app-management',
+          Component: lazy(() => import('@/pages/app-management')),
           meta: {
-            name: 'analysis',
+            name: 'management.appManagement',
             visible: true
           }
         }

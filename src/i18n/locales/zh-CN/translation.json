@@ -3,11 +3,23 @@
     "backHome": "回到首页",
     "print": "打印",
     "expense": "支出",
-    "revenue": "收入"
+    "revenue": "收入",
+    "view": "查看",
+    "edit": "编辑",
+    "active": "使用中",
+    "inactive": "未使用",
+    "disabled": "禁用",
+    "error": "错误",
+    "licensed": "已授权",
+    "unlicensed": "未授权"
   },
   "menus": {
     "dashboard": "仪表板",
     "analysis": "分析",
+    "management": {
+      "title": "管理",
+      "appManagement": "应用管理"
+    },
     "error": {
       "title": "异常页",
       "403": "403",
