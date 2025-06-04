@@ -6,16 +6,20 @@
     "revenue": "收入",
     "view": "查看",
     "edit": "编辑",
+    "config": "配置",
     "active": "使用中",
     "inactive": "未使用",
     "disabled": "禁用",
-    "error": "错误",
+    "error": "异常",
     "licensed": "已授权",
-    "unlicensed": "未授权"
+    "unlicensed": "未授权",
+    "noMoreContent": "没有更多内容了"
   },
   "menus": {
-    "dashboard": "仪表板",
-    "analysis": "分析",
+    "dashboard": {
+      "title": "仪表板",
+      "analysis": "分析"
+    },
     "management": {
       "title": "管理",
       "appManagement": "应用管理"

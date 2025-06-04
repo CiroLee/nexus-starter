@@ -66,7 +66,7 @@ export default function AppCard({ id, name, icon, description, status, className
                   {t('common.view')}
                 </DropdownMenu.Item>
                 <DropdownMenu.Item className={dropdownItem()} onSelect={() => handleMenuSelect(id, 'edit')}>
-                  {t('common.edit')}
+                  {t('common.config')}
                 </DropdownMenu.Item>
               </DropdownMenu.Content>
             </DropdownMenu.Portal>

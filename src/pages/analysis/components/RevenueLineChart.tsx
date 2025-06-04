@@ -1,28 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
 import { Line, LineChart, LineSeries } from 'reaviz';
 import { Card, CardHeader, CardTitle, CardBody } from '@/components/ui/Card';
-import { getRevenueContrast, GoodsRes } from '@/_mock/goods';
-
-import { statusCode } from '@/utils/constants';
+import { getRevenueContrast } from '@/_mock/goods';
 import { DiscreteLegends } from '@/components/business/ChartLegend';
 export default function RevenueLineChart({ className }: { className?: string }) {
-  const [revenues, setRevenues] = useState<GoodsRes[]>([]);
+  const { data: response } = useQuery({ queryKey: ['revenues'], queryFn: getRevenueContrast });
   const { t } = useTranslation();
-  const fetchData = async () => {
-    try {
-      const res = await getRevenueContrast();
-      if (res.code === statusCode.success) {
-        setRevenues(res.data);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
   return (
     <Card className={className}>
       <CardHeader>
@@ -36,7 +21,7 @@ export default function RevenueLineChart({ className }: { className?: string }) 
             { label: 'this month', color: '#F8A340' }
           ]}
         />
-        <LineChart height={260} data={revenues} series={<LineSeries type="grouped" line={<Line strokeWidth={2} />} colorScheme="unifyvizwarm" />} />
+        <LineChart height={260} data={response?.data} series={<LineSeries type="grouped" line={<Line strokeWidth={2} />} colorScheme="unifyvizwarm" />} />
       </CardBody>
     </Card>
   );

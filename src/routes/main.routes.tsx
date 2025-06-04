@@ -12,20 +12,30 @@ const mainRoutes: CustomRoute = {
     {
       index: true,
       id: 'replace-to-dashboard',
-      element: <Navigate to="/dashboard" replace />,
+      element: <Navigate to="/dashboard/analysis" replace />,
       meta: {
         visible: false
       }
     },
     {
       id: 'dashboard',
-      path: '/dashboard',
-      Component: lazy(() => import('@/pages/analysis')),
       meta: {
-        name: 'dashboard',
+        name: 'dashboard.title',
         icon: <IconLayoutDashboardFilled size={20} />,
-        visible: true
-      }
+        visible: true,
+        defaultOpen: true
+      },
+      children: [
+        {
+          id: 'analysis',
+          path: '/dashboard/analysis',
+          Component: lazy(() => import('@/pages/analysis')),
+          meta: {
+            name: 'dashboard.analysis',
+            visible: true
+          }
+        }
+      ]
     },
     {
       id: 'management',

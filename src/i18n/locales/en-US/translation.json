@@ -6,16 +6,20 @@
     "revenue": "Revenue",
     "view": "View",
     "edit": "Edit",
+    "config": "Config",
     "active": "Active",
     "inactive": "Inactive",
     "disabled": "Disabled",
     "error": "Error",
     "licensed": "Licensed",
-    "unlicensed": "Unlicensed"
+    "unlicensed": "Unlicensed",
+    "noMoreContent": "No more content"
   },
   "menus": {
-    "dashboard": "Dashboard",
-    "analysis": "Analysis",
+    "dashboard": {
+      "title": "Dashboard",
+      "analysis": "Analysis"
+    },
     "management": {
       "title": "Management",
       "appManagement": "App Management"
