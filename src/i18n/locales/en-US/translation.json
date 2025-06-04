@@ -3,11 +3,27 @@
     "backHome": "Back Home",
     "print": "Print",
     "expense": "Expense",
-    "revenue": "Revenue"
+    "revenue": "Revenue",
+    "view": "View",
+    "edit": "Edit",
+    "config": "Config",
+    "active": "Active",
+    "inactive": "Inactive",
+    "disabled": "Disabled",
+    "error": "Error",
+    "licensed": "Licensed",
+    "unlicensed": "Unlicensed",
+    "noMoreContent": "No more content"
   },
   "menus": {
-    "dashboard": "Dashboard",
-    "analysis": "Analysis",
+    "dashboard": {
+      "title": "Dashboard",
+      "analysis": "Analysis"
+    },
+    "management": {
+      "title": "Management",
+      "appManagement": "App Management"
+    },
     "error": {
       "title": "Error",
       "403": "403",
@@ -37,7 +53,8 @@
       "totalSales": "Total Sales",
       "orderPerDay": "Order Per Day",
       "transactionPerDay": "Transaction Per Day",
-      "sales": "Sales($)"
+      "sales": "Sales($)",
+      "customerRegion": "Customer Region"
     }
   }
 }

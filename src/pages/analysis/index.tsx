@@ -4,6 +4,7 @@ import StatisticCard from './components/StatisticCard';
 import Heading from '@ui/Heading';
 import SaleBartChart from './components/SaleBartChart';
 import RevenueLineChart from './components/RevenueLineChart';
+import RegionStats from './components/RegionStats';
 export default function AnalysisPage() {
   const { t } = useTranslation();
   return (
@@ -59,7 +60,20 @@ export default function AnalysisPage() {
         />
       </div>
       <SaleBartChart className="mt-6" />
-      <RevenueLineChart className="mt-6" />
+      <div className="relative mt-6 flex flex-col gap-4 overflow-hidden md:flex-row">
+        <RevenueLineChart className="md:w-[70%]" />
+        <RegionStats
+          total={236732}
+          className="flex-1"
+          data={[
+            { region: 'America', amount: 94455 },
+            { region: 'Australia', amount: 32822 },
+            { region: 'France', amount: 72345 },
+            { region: 'Germany', amount: 12345 },
+            { region: 'Britain', amount: 26916 }
+          ]}
+        />
+      </div>
     </div>
   );
 }
