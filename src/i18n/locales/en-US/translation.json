@@ -18,7 +18,8 @@
   "menus": {
     "dashboard": {
       "title": "Dashboard",
-      "analysis": "Analysis"
+      "analysis": "Analysis",
+      "workbench": "Workbench"
     },
     "management": {
       "title": "Management",
@@ -55,6 +56,13 @@
       "transactionPerDay": "Transaction Per Day",
       "sales": "Sales($)",
       "customerRegion": "Customer Region"
+    }
+  },
+  "auth": {
+    "role": {
+      "superAdmin": "Super Admin",
+      "admin": "Admin",
+      "user": "User"
     }
   }
 }

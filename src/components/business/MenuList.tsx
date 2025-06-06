@@ -4,8 +4,8 @@ import Collapsible from '@/components/ui/Collapsible';
 import Button from '@/components/ui/Button';
 import { IconChevronDown } from '@tabler/icons-react';
 import { cn } from '@/lib/utils';
-import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
+import DynamicTrans from './DynamicTrans';
 
 interface MenuListProps {
   menus: CustomRoute[];
@@ -32,10 +32,6 @@ interface CollapsibleMenuProps {
   defaultOpen?: boolean;
 }
 function CollapsibleMenu({ name, icon, defaultOpen, list }: CollapsibleMenuProps) {
-  const { t } = useTranslation();
-
-  /* @ts-expect-error --dynamic translation  key */
-  const transText = (text?: string): string => (text ? t(`menus.${text}`) : '');
   const { pathname } = useLocation();
   const childrenPaths = list.map((child) => child.path);
 
@@ -46,7 +42,7 @@ function CollapsibleMenu({ name, icon, defaultOpen, list }: CollapsibleMenuProps
         <Button variant="light" colors="neutral" className="group w-full justify-between text-sm">
           <div className="flex items-center gap-1">
             <i className="shrink-0">{icon}</i>
-            <span>{transText(name)}</span>
+            <DynamicTrans>{`menus.${name}`}</DynamicTrans>
           </div>
           <IconChevronDown size={18} className="transition-transform group-data-[state=open]:rotate-180" />
         </Button>

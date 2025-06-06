@@ -18,7 +18,8 @@
   "menus": {
     "dashboard": {
       "title": "仪表板",
-      "analysis": "分析"
+      "analysis": "分析",
+      "workbench": "工作台"
     },
     "management": {
       "title": "管理",
@@ -55,6 +56,13 @@
       "transactionPerDay": "每日交易量",
       "sales": "销售额($)",
       "customerRegion": "用户分布"
+    }
+  },
+  "auth": {
+    "role": {
+      "superAdmin": "超级管理员",
+      "admin": "管理员",
+      "user": "普通用户"
     }
   }
 }
