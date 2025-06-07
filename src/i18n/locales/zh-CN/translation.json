@@ -15,6 +15,19 @@
     "unlicensed": "未授权",
     "noMoreContent": "没有更多内容了"
   },
+  "projectStatus": {
+    "created": "已创建",
+    "planning": "规划中",
+    "reviewing": "审核中",
+    "approved": "已审批",
+    "developing": "开发中",
+    "testing": "测试中",
+    "deployed": "已部署",
+    "completed": "已完成",
+    "closed": "已关闭",
+    "paused": "已暂停",
+    "archived": "已归档"
+  },
   "menus": {
     "dashboard": {
       "title": "仪表板",
@@ -64,5 +77,9 @@
       "admin": "管理员",
       "user": "普通用户"
     }
+  },
+  "user": {
+    "myProject": "我的项目",
+    "allProject": "全部项目"
   }
 }

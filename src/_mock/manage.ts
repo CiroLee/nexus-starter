@@ -1,4 +1,5 @@
 import { lorem } from './base';
+import { delay } from '@/utils/utils';
 import type { Response } from '@/types/response';
 
 export const STATUS = ['active', 'inactive', 'disabled', 'error', 'licensed', 'unlicensed'] as const;
@@ -88,8 +89,5 @@ export function getApps(): Promise<Response<AppsRes[]>> {
     }
   ];
 
-  return Promise.resolve({
-    code: 200,
-    data
-  });
+  return delay(500, () => ({ code: 200, data }));
 }

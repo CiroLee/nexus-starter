@@ -17,5 +17,5 @@ export function getUser(id: string): Promise<Response<UserRes>> {
     positionPath: ['R&D', 'Frontend Engineer']
   };
 
-  return delay(300, () => ({ code: 200, data }));
+  return delay(500, () => ({ code: 200, data }));
 }

@@ -15,6 +15,19 @@
     "unlicensed": "Unlicensed",
     "noMoreContent": "No more content"
   },
+  "projectStatus": {
+    "created": "Created",
+    "planning": "Planning",
+    "reviewing": "Reviewing",
+    "approved": "Approved",
+    "developing": "Developing",
+    "testing": "Testing",
+    "deployed": "Deployed",
+    "completed": "Completed",
+    "closed": "Closed",
+    "paused": "Paused",
+    "archived": "Archived"
+  },
   "menus": {
     "dashboard": {
       "title": "Dashboard",
@@ -64,5 +77,9 @@
       "admin": "Admin",
       "user": "User"
     }
+  },
+  "user": {
+    "myProject": "My Project",
+    "allProject": "All Projects"
   }
 }

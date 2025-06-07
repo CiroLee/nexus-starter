@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import './styles/variables.css';
 @import './styles/theme.css';
 @import './styles/animation.css';
-@import './styles/variables.css';
+@import './styles/components.css';

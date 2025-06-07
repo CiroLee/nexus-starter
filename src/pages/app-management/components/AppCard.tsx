@@ -44,7 +44,7 @@ export default function AppCard({ id, name, icon, description, status, className
       <CardBody className="p-3">
         <div className="mb-2 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <SvgIcon className="text-[28px]" name={icon} />
+            <SvgIcon size={28} name={icon} />
             <p className="font-semibold">{name}</p>
           </div>
           <DropdownMenu.Root>
