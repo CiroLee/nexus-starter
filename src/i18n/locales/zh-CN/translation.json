@@ -22,7 +22,8 @@
     "mail": "邮件",
     "calendar": "日历",
     "report": "报告",
-    "task": "任务"
+    "task": "任务",
+    "bulletin": "公告"
   },
   "projectStatus": {
     "created": "已创建",
@@ -36,6 +37,11 @@
     "closed": "已关闭",
     "paused": "已暂停",
     "archived": "已归档"
+  },
+  "tags": {
+    "info": "消息",
+    "notice": "通知",
+    "activity": "活动"
   },
   "menus": {
     "dashboard": {

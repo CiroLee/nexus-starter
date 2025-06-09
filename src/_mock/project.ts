@@ -73,6 +73,13 @@ export function getProjectsByUserId(userId: string): Promise<Response<UserProjec
       projectDesc: 'zustand is a lightweight, fast, and scalable state management solution for React applications.',
       projectStatus: 'approved',
       projectColor: '#49250e'
+    },
+    {
+      projectId: lorem.unique.nanoid(),
+      projectName: 'React Router',
+      projectDesc: 'React Router is a popular routing library for React applications. It provides a simple way to manage navigation and routing in your application.',
+      projectStatus: 'developing',
+      projectColor: '#810d0d'
     }
   ];
 

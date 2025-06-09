@@ -86,6 +86,14 @@ export function getApps(): Promise<Response<AppsRes[]>> {
       type: ['google', 'development'],
       description: 'Firebase is a backend-as-a-service platform for building mobile and web apps, with features like real-time databases, authentication, and hosting.',
       status: ['error']
+    },
+    {
+      id: 'supabase' + lorem.unique.nanoid(),
+      name: 'Supabase',
+      icon: 'supabase',
+      type: ['development'],
+      description: 'Supabase is a fully managed platform for building modern applications, with features like real-time databases, authentication, and hosting.',
+      status: ['active']
     }
   ];
 

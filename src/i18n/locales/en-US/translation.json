@@ -22,7 +22,8 @@
     "mail": "Mail",
     "calendar": "Calendar",
     "report": "Report",
-    "task": "Task"
+    "task": "Task",
+    "bulletin": "Bulletin"
   },
   "projectStatus": {
     "created": "Created",
@@ -36,6 +37,11 @@
     "closed": "Closed",
     "paused": "Paused",
     "archived": "Archived"
+  },
+  "tags": {
+    "info": "Info",
+    "notice": "Notice",
+    "activity": "Activity"
   },
   "menus": {
     "dashboard": {
