@@ -13,7 +13,16 @@
     "error": "Error",
     "licensed": "Licensed",
     "unlicensed": "Unlicensed",
-    "noMoreContent": "No more content"
+    "noMoreContent": "No more content",
+    "allProject": "All Projects",
+    "viewMore": "View More",
+    "quickAccess": "Quick Access",
+    "file": "File",
+    "logs": "Logs",
+    "mail": "Mail",
+    "calendar": "Calendar",
+    "report": "Report",
+    "task": "Task"
   },
   "projectStatus": {
     "created": "Created",
@@ -79,7 +88,6 @@
     }
   },
   "user": {
-    "myProject": "My Project",
-    "allProject": "All Projects"
+    "myProject": "My Project"
   }
 }

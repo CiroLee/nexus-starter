@@ -13,7 +13,16 @@
     "error": "异常",
     "licensed": "已授权",
     "unlicensed": "未授权",
-    "noMoreContent": "没有更多内容了"
+    "noMoreContent": "没有更多内容了",
+    "allProject": "全部项目",
+    "viewMore": "查看更多",
+    "quickAccess": "快捷入口",
+    "file": "文件",
+    "logs": "日志",
+    "mail": "邮件",
+    "calendar": "日历",
+    "report": "报告",
+    "task": "任务"
   },
   "projectStatus": {
     "created": "已创建",
@@ -79,7 +88,6 @@
     }
   },
   "user": {
-    "myProject": "我的项目",
-    "allProject": "全部项目"
+    "myProject": "我的项目"
   }
 }

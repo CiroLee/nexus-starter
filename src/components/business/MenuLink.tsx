@@ -19,7 +19,7 @@ export default function MenuLink({ path, name, icon, className }: MenuButtonLink
         <Show when={icon}>
           <i className="shrink-0">{icon}</i>
         </Show>
-        <DynamicTrans>{`menus.${name}`}</DynamicTrans>
+        <DynamicTrans prefix="menus.">{name || ''}</DynamicTrans>
       </Button>
     </NavLink>
   );

@@ -42,7 +42,7 @@ function CollapsibleMenu({ name, icon, defaultOpen, list }: CollapsibleMenuProps
         <Button variant="light" colors="neutral" className="group w-full justify-between text-sm">
           <div className="flex items-center gap-1">
             <i className="shrink-0">{icon}</i>
-            <DynamicTrans>{`menus.${name}`}</DynamicTrans>
+            <DynamicTrans prefix="menus.">{name || ''}</DynamicTrans>
           </div>
           <IconChevronDown size={18} className="transition-transform group-data-[state=open]:rotate-180" />
         </Button>

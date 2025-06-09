@@ -74,7 +74,7 @@ export default function AppCard({ id, name, icon, description, status, className
         {status?.map((item, index) => (
           <div key={index} className="flex items-center gap-1 text-xs">
             <span className={statusDot({ status: item })}></span>
-            <DynamicTrans>{`common.${item}`}</DynamicTrans>
+            <DynamicTrans prefix="common.">{item || ''}</DynamicTrans>
           </div>
         ))}
       </CardFooter>

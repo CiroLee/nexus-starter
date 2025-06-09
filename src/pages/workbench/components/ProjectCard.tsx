@@ -43,7 +43,7 @@ function ProjectStatus({ status }: { status: ProjectStatus }) {
     <span
       className="text-description relative flex items-center gap-1 text-xs before:block before:size-2 before:rounded-full before:bg-(--status-color)"
       style={{ '--status-color': projectStatusColors[status] } as React.CSSProperties}>
-      <DynamicTrans>{`projectStatus.${status}`}</DynamicTrans>
+      <DynamicTrans prefix="projectStatus.">{status}</DynamicTrans>
     </span>
   );
 }
