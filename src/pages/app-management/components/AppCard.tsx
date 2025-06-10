@@ -6,6 +6,7 @@ import { Card, CardBody, CardFooter } from '@ui/Card';
 import SvgIcon from '@ui/SvgIcon';
 import Button from '@ui/Button';
 import { cn } from '@/lib/utils';
+import DynamicTrans from '@/components/business/DynamicTrans';
 
 const dropdownItem = cva('flex items-center outline-none gap-1 text-sm rounded p-1.5 cursor-default transition-colors focus:bg-neutral-200/60 dark:focus:bg-neutral-700/60');
 
@@ -35,11 +36,6 @@ interface AppCardProps {
 export default function AppCard({ id, name, icon, description, status, className, ...props }: AppCardProps) {
   const { t } = useTranslation();
 
-  const translateText = (key: string): string => {
-    // @ts-expect-error - dynamic i18n key
-    return t(key);
-  };
-
   const handleMenuSelect = (id: string, action: string) => {
     console.log('appId:', id, 'action:', action);
   };
@@ -48,7 +44,7 @@ export default function AppCard({ id, name, icon, description, status, className
       <CardBody className="p-3">
         <div className="mb-2 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <SvgIcon className="text-[28px]" name={icon} />
+            <SvgIcon size={28} name={icon} />
             <p className="font-semibold">{name}</p>
           </div>
           <DropdownMenu.Root>
@@ -78,7 +74,7 @@ export default function AppCard({ id, name, icon, description, status, className
         {status?.map((item, index) => (
           <div key={index} className="flex items-center gap-1 text-xs">
             <span className={statusDot({ status: item })}></span>
-            {translateText(`common.${item}`)}
+            <DynamicTrans prefix="common.">{item || ''}</DynamicTrans>
           </div>
         ))}
       </CardFooter>

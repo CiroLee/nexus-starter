@@ -13,12 +13,43 @@
     "error": "异常",
     "licensed": "已授权",
     "unlicensed": "未授权",
-    "noMoreContent": "没有更多内容了"
+    "noMoreContent": "没有更多内容了",
+    "allProject": "全部项目",
+    "viewMore": "查看更多",
+    "quickAccess": "快捷入口",
+    "file": "文件",
+    "logs": "日志",
+    "mail": "邮件",
+    "calendar": "日历",
+    "report": "报告",
+    "task": "任务",
+    "bulletin": "公告",
+    "helpDoc": "帮助文档",
+    "updateFeeds": "动态"
+  },
+  "projectStatus": {
+    "created": "已创建",
+    "planning": "规划中",
+    "reviewing": "审核中",
+    "approved": "已审批",
+    "developing": "开发中",
+    "testing": "测试中",
+    "deployed": "已部署",
+    "completed": "已完成",
+    "closed": "已关闭",
+    "paused": "已暂停",
+    "archived": "已归档"
+  },
+  "tags": {
+    "info": "消息",
+    "notice": "通知",
+    "event": "活动"
   },
   "menus": {
     "dashboard": {
       "title": "仪表板",
-      "analysis": "分析"
+      "analysis": "分析",
+      "workbench": "工作台"
     },
     "management": {
       "title": "管理",
@@ -56,5 +87,15 @@
       "sales": "销售额($)",
       "customerRegion": "用户分布"
     }
+  },
+  "auth": {
+    "role": {
+      "superAdmin": "超级管理员",
+      "admin": "管理员",
+      "user": "普通用户"
+    }
+  },
+  "user": {
+    "myProject": "我的项目"
   }
 }

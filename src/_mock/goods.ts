@@ -1,4 +1,5 @@
 import { lorem } from './base';
+import { delay } from '@/utils/utils';
 import type { Response } from '@/types/response';
 import { type ChartDataTypes } from 'reaviz';
 
@@ -23,10 +24,7 @@ export function getSalesSummary(): Promise<Response<GoodsRes[]>> {
     }))
   }));
 
-  return Promise.resolve({
-    code: 200,
-    data
-  });
+  return delay(500, () => ({ code: 200, data }));
 }
 
 // revenue contrast
@@ -56,8 +54,5 @@ export function getRevenueContrast(): Promise<Response<GoodsRes[]>> {
     }))
   }));
 
-  return Promise.resolve({
-    code: 200,
-    data
-  });
+  return delay(500, () => ({ code: 200, data }));
 }

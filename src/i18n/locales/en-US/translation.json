@@ -13,12 +13,43 @@
     "error": "Error",
     "licensed": "Licensed",
     "unlicensed": "Unlicensed",
-    "noMoreContent": "No more content"
+    "noMoreContent": "No more content",
+    "allProject": "All Projects",
+    "viewMore": "View More",
+    "quickAccess": "Quick Access",
+    "file": "File",
+    "logs": "Logs",
+    "mail": "Mail",
+    "calendar": "Calendar",
+    "report": "Report",
+    "task": "Task",
+    "bulletin": "Bulletin",
+    "helpDoc": "Help Documents",
+    "updateFeeds": "Update Feeds"
+  },
+  "projectStatus": {
+    "created": "Created",
+    "planning": "Planning",
+    "reviewing": "Reviewing",
+    "approved": "Approved",
+    "developing": "Developing",
+    "testing": "Testing",
+    "deployed": "Deployed",
+    "completed": "Completed",
+    "closed": "Closed",
+    "paused": "Paused",
+    "archived": "Archived"
+  },
+  "tags": {
+    "info": "Info",
+    "notice": "Notice",
+    "event": "Events"
   },
   "menus": {
     "dashboard": {
       "title": "Dashboard",
-      "analysis": "Analysis"
+      "analysis": "Analysis",
+      "workbench": "Workbench"
     },
     "management": {
       "title": "Management",
@@ -56,5 +87,15 @@
       "sales": "Sales($)",
       "customerRegion": "Customer Region"
     }
+  },
+  "auth": {
+    "role": {
+      "superAdmin": "Super Admin",
+      "admin": "Admin",
+      "user": "User"
+    }
+  },
+  "user": {
+    "myProject": "My Project"
   }
 }

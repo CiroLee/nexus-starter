@@ -34,6 +34,15 @@ const mainRoutes: CustomRoute = {
             name: 'dashboard.analysis',
             visible: true
           }
+        },
+        {
+          id: 'workbench',
+          path: '/dashboard/workbench',
+          Component: lazy(() => import('@/pages/workbench')),
+          meta: {
+            name: 'dashboard.workbench',
+            visible: true
+          }
         }
       ]
     },

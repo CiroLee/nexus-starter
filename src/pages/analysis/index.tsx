@@ -54,9 +54,8 @@ export default function AnalysisPage() {
               {t('dashboard.analysis.transactionPerDay')}
             </div>
           }
-          precision={1}
-          value={98.4}
-          unit="%"
+          value={98423}
+          prefix={<span className="text-xl leading-[1em]">$</span>}
         />
       </div>
       <SaleBartChart className="mt-6" />
