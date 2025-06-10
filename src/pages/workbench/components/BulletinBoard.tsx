@@ -8,7 +8,7 @@ import DynamicTrans from '@/components/business/DynamicTrans';
 
 interface BulletinItem {
   id: string;
-  type?: 'info' | 'notice' | 'activity';
+  type?: 'info' | 'notice' | 'event';
   content?: string;
 }
 interface BulletinBoardProps {
@@ -25,8 +25,8 @@ const typeMap = {
     label: 'notice',
     color: 'primary'
   },
-  activity: {
-    label: 'activity',
+  event: {
+    label: 'event',
     color: 'secondary'
   }
 } as const;

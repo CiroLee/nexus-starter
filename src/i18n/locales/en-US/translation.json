@@ -23,7 +23,9 @@
     "calendar": "Calendar",
     "report": "Report",
     "task": "Task",
-    "bulletin": "Bulletin"
+    "bulletin": "Bulletin",
+    "helpDoc": "Help Documents",
+    "updateFeeds": "Update Feeds"
   },
   "projectStatus": {
     "created": "Created",
@@ -41,7 +43,7 @@
   "tags": {
     "info": "Info",
     "notice": "Notice",
-    "activity": "Activity"
+    "event": "Events"
   },
   "menus": {
     "dashboard": {

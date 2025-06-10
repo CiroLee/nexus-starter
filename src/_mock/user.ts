@@ -12,7 +12,7 @@ export function getUser(id: string): Promise<Response<UserRes>> {
   const data: UserRes = {
     id,
     userName: 'Will Smith',
-    avatarUrl: 'https://dub.sh/8Q3yzIU',
+    avatarUrl: 'https://dub.sh/C8TrSJF',
     role: 'admin',
     positionPath: ['R&D', 'Frontend Engineer']
   };

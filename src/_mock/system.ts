@@ -57,7 +57,7 @@ export function getQuickAccessById(userId: string): Promise<Response<QuickAccess
 
 interface BulletinItem {
   id: string;
-  type?: 'info' | 'notice' | 'activity';
+  type?: 'info' | 'notice' | 'event';
   content: string;
   createAt: string;
 }
@@ -65,7 +65,7 @@ interface BulletinItem {
 export function getBulletins(): Promise<Response<BulletinItem[]>> {
   const data = lorem.array<BulletinItem>(6, (l) => ({
     id: l.unique.nanoid(),
-    type: l.helper.elements<BulletinItem['type']>(['info', 'notice', 'activity']),
+    type: l.helper.elements<BulletinItem['type']>(['info', 'notice', 'event']),
     createAt: l.date.timestamp({ from: '2024/12/1', to: '2025/12/31' }),
     content: l.texts.paragraph()
   }));
