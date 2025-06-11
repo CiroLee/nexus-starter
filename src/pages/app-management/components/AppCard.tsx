@@ -1,14 +1,10 @@
-import { IconDots } from '@tabler/icons-react';
-import { useTranslation } from 'react-i18next';
-import { DropdownMenu } from 'radix-ui';
+import { IconSettings } from '@tabler/icons-react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { Card, CardBody, CardFooter } from '@ui/Card';
 import SvgIcon from '@ui/SvgIcon';
 import Button from '@ui/Button';
 import { cn } from '@/lib/utils';
 import DynamicTrans from '@/components/business/DynamicTrans';
-
-const dropdownItem = cva('flex items-center outline-none gap-1 text-sm rounded p-1.5 cursor-default transition-colors focus:bg-neutral-200/60 dark:focus:bg-neutral-700/60');
 
 const statusDot = cva('block size-2 rounded-full', {
   variants: {
@@ -34,10 +30,8 @@ interface AppCardProps {
 }
 
 export default function AppCard({ id, name, icon, description, status, className, ...props }: AppCardProps) {
-  const { t } = useTranslation();
-
-  const handleMenuSelect = (id: string, action: string) => {
-    console.log('appId:', id, 'action:', action);
+  const handleSettingOnClick = () => {
+    console.log('appId:', id);
   };
   return (
     <Card className={cn('relative h-40', className)} {...props}>
@@ -47,26 +41,9 @@ export default function AppCard({ id, name, icon, description, status, className
             <SvgIcon size={28} name={icon} />
             <p className="font-semibold">{name}</p>
           </div>
-          <DropdownMenu.Root>
-            <DropdownMenu.Trigger asChild>
-              <Button asIcon size="sm" colors="neutral" variant="light">
-                <IconDots size={20} />
-              </Button>
-            </DropdownMenu.Trigger>
-            <DropdownMenu.Portal>
-              <DropdownMenu.Content
-                loop
-                align="end"
-                className="border-line bg-background data-[state=open]:animate-zoom-fade-in data-[state=closed]:animate-zoom-fade-out z-(--popup) min-w-25 origin-(--radix-dropdown-menu-content-transform-origin) rounded-md border p-1 outline-none">
-                <DropdownMenu.Item className={dropdownItem()} onClick={() => handleMenuSelect(id, 'detail')}>
-                  {t('common.view')}
-                </DropdownMenu.Item>
-                <DropdownMenu.Item className={dropdownItem()} onSelect={() => handleMenuSelect(id, 'edit')}>
-                  {t('common.config')}
-                </DropdownMenu.Item>
-              </DropdownMenu.Content>
-            </DropdownMenu.Portal>
-          </DropdownMenu.Root>
+          <Button asIcon size="sm" colors="neutral" variant="light" onClick={handleSettingOnClick}>
+            <IconSettings size={20} />
+          </Button>
         </div>
         <p className="text-description line-clamp-2 text-sm">{description}</p>
       </CardBody>
