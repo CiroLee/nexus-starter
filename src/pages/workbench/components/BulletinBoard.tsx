@@ -37,7 +37,7 @@ export default function BulletinBoard({ className, list }: BulletinBoardProps) {
     <div className={cn('panel', className)}>
       <div className="mb-4 flex items-center justify-between">
         <Heading as="h5">{t('common.bulletin')}</Heading>
-        <Link to="#" className="text-primary text-xs hover:opacity-80">
+        <Link to="#" className="text-primary text-sm hover:opacity-80">
           {t('common.viewMore')}
         </Link>
       </div>

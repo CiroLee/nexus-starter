@@ -10,6 +10,11 @@ export const router = createBrowserRouter([
     children: [
       mainRoutes,
       {
+        id: 'login',
+        path: '/login',
+        Component: lazy(() => import('@/pages/login'))
+      },
+      {
         path: '*',
         element: <Navigate to="/404" replace />
       },

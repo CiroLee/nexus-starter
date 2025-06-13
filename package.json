@@ -22,6 +22,7 @@
     "radix-ui": "^1.4.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-hook-form": "^7.57.0",
     "react-i18next": "^15.5.2",
     "react-router-dom": "^7.6.0",
     "reaviz": "^16.0.4",
