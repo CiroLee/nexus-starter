@@ -22,7 +22,14 @@
     "task": "Task",
     "bulletin": "Bulletin",
     "helpDoc": "Help Documents",
-    "updateFeeds": "Update Feeds"
+    "updateFeeds": "Update Feeds",
+    "login": "Login",
+    "logout": "Logout",
+    "rememberPsd": "Remember Password",
+    "forgetPsd": "Forget Password"
+  },
+  "banner": {
+    "loginTitle": "Login to Nexus-Starter"
   },
   "projectStatus": {
     "created": "Created",
@@ -93,6 +100,7 @@
     }
   },
   "user": {
-    "myProject": "My Project"
+    "myProject": "My Project",
+    "userSetting": "User Setting"
   }
 }

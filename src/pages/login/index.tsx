@@ -1,15 +1,16 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { IconUser, IconLock } from '@tabler/icons-react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { cn } from '@/lib/utils';
 import Image from '@ui/Image';
 import Input from '@ui/Input';
-import loginPortrait from '@/assets/images/login-portrait.webp';
 import Heading from '@ui/Heading';
 import Button from '@ui/Button';
 import { Checkbox } from '@ui/Checkbox';
 import Link from '@ui/Link';
+import loginPortrait from '@/assets/images/login-portrait.webp';
 import { useLogin } from '@/hooks';
 
 interface LoginInput {
@@ -18,8 +19,10 @@ interface LoginInput {
 }
 export default function Login() {
   const [psdChecked, setPsdChecked] = useState(true);
-  const { setLogin } = useLogin();
+  const { login } = useLogin();
   const navigate = useNavigate();
+  const { t } = useTranslation();
+
   const {
     register,
     handleSubmit,
@@ -34,7 +37,7 @@ export default function Login() {
   const onSubmit: SubmitHandler<LoginInput> = (data) => {
     console.log('username:', data.username, 'password:', data.password, 'remember password:', psdChecked);
     if (data.username === 'admin' && data.password === 'admin') {
-      setLogin(true);
+      login(true);
       navigate('/');
     }
   };
@@ -43,7 +46,7 @@ export default function Login() {
       <Image src={loginPortrait} className="hidden h-full flex-1 md:block" />
       <div className="flex w-full flex-col items-center justify-center md:w-[45%]">
         <Heading as="h4" className="mb-5">
-          Login to Nexus-Starter
+          {t('banner.loginTitle')}
         </Heading>
         <form className="md:w-[55%]" onSubmit={handleSubmit(onSubmit)}>
           <div>
@@ -56,12 +59,12 @@ export default function Login() {
           </div>
           <div className="mt-1 flex justify-between text-sm">
             <Checkbox size="sm" checked={psdChecked} id="remember-password" onCheckedChange={(checked: boolean) => setPsdChecked(checked)}>
-              Remember password
+              {t('common.rememberPsd')}
             </Checkbox>
-            <Link href="#">Forget password</Link>
+            <Link href="#">{t('common.forgetPsd')}</Link>
           </div>
           <Button type="submit" className="mt-4 w-full">
-            Login
+            {t('common.login')}
           </Button>
         </form>
       </div>

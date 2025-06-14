@@ -4,9 +4,9 @@ import { useLocalStorage } from 'usehooks-ts';
 export function useLogin() {
   const navigate = useNavigate();
   const location = useLocation();
-  const [isLogin, setLogin, setLogOut] = useLocalStorage('isLogin', false);
+  const [isLogin, login, logout] = useLocalStorage('isLogin', false);
   if (!isLogin && location.pathname !== '/login') {
     navigate('/login');
   }
-  return { isLogin, setLogin, setLogOut };
+  return { isLogin, login, logout };
 }

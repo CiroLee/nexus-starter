@@ -22,7 +22,14 @@
     "task": "任务",
     "bulletin": "公告",
     "helpDoc": "帮助文档",
-    "updateFeeds": "动态"
+    "updateFeeds": "动态",
+    "login": "登录",
+    "logout": "退出登录",
+    "rememberPsd": "记住密码",
+    "forgetPsd": "忘记密码"
+  },
+  "banner": {
+    "loginTitle": "登录Nexus-Starter"
   },
   "projectStatus": {
     "created": "已创建",
@@ -93,6 +100,7 @@
     }
   },
   "user": {
-    "myProject": "我的项目"
+    "myProject": "我的项目",
+    "userSetting": "用户设置"
   }
 }
