@@ -10,7 +10,6 @@
     "error": "Error",
     "licensed": "Licensed",
     "unlicensed": "Unlicensed",
-    "noMoreContent": "No more content",
     "allProject": "All Projects",
     "viewMore": "More",
     "quickAccess": "Quick Access",
@@ -26,7 +25,8 @@
     "login": "Login",
     "logout": "Logout",
     "rememberPsd": "Remember Password",
-    "forgetPsd": "Forget Password"
+    "forgetPsd": "Forget Password",
+    "noData": "No Data"
   },
   "banner": {
     "loginTitle": "Login to Nexus-Starter"

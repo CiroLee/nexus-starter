@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
 import { BarChart, BarSeries, Gradient, Bar, RangeLines, GuideBar } from 'reaviz';
-import { Card, CardBody, CardHeader, CardTitle } from '@/components/ui/Card';
+import { Card, CardBody, CardHeader, CardTitle } from '@ui/Card';
 import { DiscreteLegends } from '@/components/business/ChartLegend';
 import { getSalesSummary } from '@/_mock/goods';
 

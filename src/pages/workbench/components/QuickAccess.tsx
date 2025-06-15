@@ -6,7 +6,7 @@ import SvgIcon from '@ui/SvgIcon';
 import DynamicTrans from '@business/DynamicTrans';
 import { cn } from '@/lib/utils';
 import { SkeletonBlock } from '@ui/Skeleton';
-import Show from '@/components/ui/Show';
+import Show from '@ui/Show';
 
 interface AccessItem {
   id: string;

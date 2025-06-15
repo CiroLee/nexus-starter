@@ -10,7 +10,6 @@
     "error": "异常",
     "licensed": "已授权",
     "unlicensed": "未授权",
-    "noMoreContent": "没有更多内容了",
     "allProject": "全部项目",
     "viewMore": "查看更多",
     "quickAccess": "快捷入口",
@@ -26,7 +25,8 @@
     "login": "登录",
     "logout": "退出登录",
     "rememberPsd": "记住密码",
-    "forgetPsd": "忘记密码"
+    "forgetPsd": "忘记密码",
+    "noData": "暂无数据"
   },
   "banner": {
     "loginTitle": "登录Nexus-Starter"

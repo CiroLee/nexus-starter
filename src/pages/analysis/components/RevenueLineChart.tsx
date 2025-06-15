@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
 import { Line, LineChart, LineSeries } from 'reaviz';
-import { Card, CardHeader, CardTitle, CardBody } from '@/components/ui/Card';
+import { Card, CardHeader, CardTitle, CardBody } from '@ui/Card';
 import { getRevenueContrast } from '@/_mock/goods';
 import { DiscreteLegends } from '@/components/business/ChartLegend';
 export default function RevenueLineChart({ className }: { className?: string }) {

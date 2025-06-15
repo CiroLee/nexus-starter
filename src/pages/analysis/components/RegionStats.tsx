@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import { Card, CardHeader, CardTitle, CardBody } from '@/components/ui/Card';
-import Progress from '@/components/ui/Progress';
+import { Card, CardHeader, CardTitle, CardBody } from '@ui/Card';
+import Progress from '@ui/Progress';
 
 interface RegionStatsProps {
   className?: string;

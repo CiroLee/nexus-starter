@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import Heading from '@ui/Heading';
 import Tag from '@ui/Tag';
-import Show from '@/components/ui/Show';
+import Show from '@ui/Show';
 import { SkeletonText } from '@ui/Skeleton';
 import DynamicTrans from '@/components/business/DynamicTrans';
 

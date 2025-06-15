@@ -13,7 +13,7 @@ import BulletinBoard from './components/BulletinBoard';
 import UpdateFeeds from './components/UpdateFeeds';
 import HelpDocument from './components/HelpDocument';
 import ProjectCard from './components/ProjectCard';
-import { SkeletonBlock } from '@/components/ui/Skeleton';
+import { SkeletonBlock } from '@ui/Skeleton';
 
 export default function WorkBenchPage() {
   const { userInfo } = useUserStore();
