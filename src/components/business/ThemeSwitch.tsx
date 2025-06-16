@@ -1,4 +1,5 @@
 import { DropdownMenu } from 'radix-ui';
+import { useTranslation } from 'react-i18next';
 import Button from '../ui/Button';
 import { useTheme } from '@/hooks';
 import { IconSunFilled, IconMoonFilled, IconDeviceDesktop } from '@tabler/icons-react';
@@ -11,7 +12,7 @@ const themeMap = {
 };
 export default function ThemeSwitch() {
   const [theme, setTheme] = useTheme();
-
+  const { t } = useTranslation();
   const handleThemeSwitch = (theme: ThemeMode) => {
     if (typeof setTheme === 'function') {
       setTheme(theme);
@@ -28,13 +29,13 @@ export default function ThemeSwitch() {
       <DropdownMenu.Portal>
         <DropdownMenu.Content sideOffset={10} align="end" className="dropdown-menu--content">
           <DropdownMenu.Item className="dropdown-menu--item" onSelect={() => handleThemeSwitch('light')}>
-            Light
+            {t('common.lightTheme')}
           </DropdownMenu.Item>
           <DropdownMenu.Item className="dropdown-menu--item" onClick={() => handleThemeSwitch('dark')}>
-            Dark
+            {t('common.darkTheme')}
           </DropdownMenu.Item>
           <DropdownMenu.Item className="dropdown-menu--item" onClick={() => handleThemeSwitch('system')}>
-            System
+            {t('common.systemTheme')}
           </DropdownMenu.Item>
         </DropdownMenu.Content>
       </DropdownMenu.Portal>

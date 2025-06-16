@@ -1,4 +1,5 @@
 import { DropdownMenu } from 'radix-ui';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { IconLogout, IconSettings } from '@tabler/icons-react';
 import { useUserStore } from '@/store/user';
@@ -17,9 +18,11 @@ export default function UserDropdown({ className }: { className?: string }) {
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal>
         <DropdownMenu.Content sideOffset={10} align="end" className="dropdown-menu--content">
-          <DropdownMenu.Item className="dropdown-menu--item flex items-center gap-1">
-            <IconSettings size={20} />
-            {t('user.userSetting')}
+          <DropdownMenu.Item asChild className="dropdown-menu--item flex items-center gap-1">
+            <Link to="/account/center">
+              <IconSettings size={20} />
+              {t('menus.account.center')}
+            </Link>
           </DropdownMenu.Item>
           <DropdownMenu.Separator className="bg-line my-1 h-px" />
           <DropdownMenu.Item className="dropdown-menu--item flex items-center gap-1" onSelect={logout}>

@@ -1,5 +1,8 @@
 {
   "common": {
+    "lightTheme": "浅色模式",
+    "darkTheme": "深色模式",
+    "systemTheme": "跟随系统",
     "backHome": "回到首页",
     "print": "打印",
     "expense": "支出",
@@ -69,6 +72,10 @@
       "title": "结果页",
       "success": "成功页",
       "fail": "失败页"
+    },
+    "account": {
+      "title": "个人页",
+      "center": "个人中心"
     }
   },
   "error": {
@@ -99,8 +106,30 @@
       "user": "普通用户"
     }
   },
-  "user": {
+  "account": {
+    "title": "个人页",
     "myProject": "我的项目",
-    "userSetting": "用户设置"
+    "accountSetting": "用户设置",
+    "profile": {
+      "title": "用户档案",
+      "name": "姓名",
+      "email": "邮箱",
+      "contact": "联系电话",
+      "country": "国家",
+      "position": "职位"
+    },
+    "security": {
+      "title": "安全",
+      "token": "令牌"
+    },
+    "notification": {
+      "title": "通知"
+    },
+    "team": {
+      "title": "团队"
+    },
+    "usage": {
+      "title": "资源用量"
+    }
   }
 }

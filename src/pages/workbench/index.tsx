@@ -33,7 +33,7 @@ export default function WorkBenchPage() {
             <BriefUserInfo avatarUrl={userInfo.avatarUrl} userName={userInfo.username} role={`auth.role.${userInfo.role}`} description={userInfo.positionPath.join(' / ')} className="mb-5" />
             <div>
               <div className="flex items-center justify-between">
-                <Heading as="h5">{t('user.myProject')}</Heading>
+                <Heading as="h5">{t('account.myProject')}</Heading>
                 <Link to="#" className="text-primary text-sm hover:opacity-80">
                   {t('common.allProject')}
                 </Link>

@@ -1,5 +1,8 @@
 {
   "common": {
+    "lightTheme": "Light",
+    "darkTheme": "Dark",
+    "systemTheme": "System",
     "backHome": "Back Home",
     "print": "Print",
     "expense": "Expense",
@@ -69,6 +72,10 @@
       "title": "Result",
       "success": "Success",
       "fail": "Fail"
+    },
+    "account": {
+      "title": "Account",
+      "center": "Account Center"
     }
   },
   "error": {
@@ -99,8 +106,29 @@
       "user": "User"
     }
   },
-  "user": {
+  "account": {
     "myProject": "My Project",
-    "userSetting": "User Setting"
+    "accountSetting": "Account Setting",
+    "profile": {
+      "title": "Profile",
+      "name": "Name",
+      "email": "Email",
+      "contact": "Contact",
+      "country": "Country",
+      "position": "Position"
+    },
+    "security": {
+      "title": "Security",
+      "token": "Token"
+    },
+    "notification": {
+      "title": "Notification"
+    },
+    "team": {
+      "title": "Teams"
+    },
+    "usage": {
+      "title": "Usage"
+    }
   }
 }
