@@ -34,7 +34,7 @@ export default function AppCard({ id, name, icon, description, status, className
     console.log('appId:', id);
   };
   return (
-    <Card className={cn('relative h-40', className)} {...props}>
+    <Card className={cn('bg-background relative h-40', className)} {...props}>
       <CardBody className="p-3">
         <div className="mb-2 flex items-center justify-between">
           <div className="flex items-center gap-2">

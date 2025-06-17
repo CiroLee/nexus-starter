@@ -1,6 +1,7 @@
 export interface User {
   id: string;
   token: string;
+  appKeys: { name: string; key: string }[];
   contact: string;
   email: string;
   country: string;
@@ -8,6 +9,18 @@ export interface User {
   avatarUrl: string;
   positionPath: string[];
   role: UserRole;
+  joinAt: string;
 }
 
 type UserRole = 'admin' | 'user';
+
+export interface Team {
+  id: string;
+  name: string;
+  description: string;
+  members: {
+    id: string;
+    username: string;
+    avatarUrl?: string;
+  }[];
+}

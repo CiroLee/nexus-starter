@@ -50,7 +50,7 @@ export default function BulletinBoard({ className, list }: BulletinBoardProps) {
           {list.map((item) => (
             <li key={item.id} className="flex items-center gap-2">
               <Show when={item.type}>
-                <Tag className="w-16 justify-center" colors={typeMap[item.type!].color}>
+                <Tag className="w-16 justify-center" size="sm" colors={typeMap[item.type!].color}>
                   <DynamicTrans prefix="tags.">{typeMap[item.type!].label}</DynamicTrans>
                 </Tag>
               </Show>

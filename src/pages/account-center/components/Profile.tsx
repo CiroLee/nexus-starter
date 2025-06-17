@@ -36,6 +36,10 @@ export default function Profile() {
             </Breadcrumb>
           </DataListValue>
         </DataListItem>
+        <DataListItem>
+          <DataListLabel>{t('account.profile.join')}</DataListLabel>
+          <DataListValue>{userInfo.joinAt}</DataListValue>
+        </DataListItem>
       </DataList>
     </div>
   );

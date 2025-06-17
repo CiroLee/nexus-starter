@@ -1,4 +1,4 @@
-import { IconId, IconLock, IconUsers, IconServer, IconBell } from '@tabler/icons-react';
+import { IconId, IconLock, IconUsers, IconServer } from '@tabler/icons-react';
 import { cva } from 'class-variance-authority';
 import { useTranslation } from 'react-i18next';
 import Heading from '@ui/Heading';
@@ -9,6 +9,8 @@ import DynamicTrans from '@/components/business/DynamicTrans';
 import { useUserStore } from '@/store/user';
 import Profile from './components/Profile';
 import Security from './components/Security';
+import Teams from './components/Teams';
+import Usage from './components/Usage';
 
 const tabItem = cva('md:px-4 text-sm min-w-25 justify-center');
 export default function AccountCenterPage() {
@@ -41,10 +43,7 @@ export default function AccountCenterPage() {
             <IconUsers size={20} />
             {t('account.team.title')}
           </TabsItem>
-          <TabsItem value="notification" className={tabItem()}>
-            <IconBell size={20} />
-            {t('account.notification.title')}
-          </TabsItem>
+
           <TabsItem value="usage" className={tabItem()}>
             <IconServer size={20} />
             {t('account.usage.title')}
@@ -56,9 +55,12 @@ export default function AccountCenterPage() {
         <TabsContent value="security">
           <Security />
         </TabsContent>
-        <TabsContent value="teams">teams content</TabsContent>
-        <TabsContent value="notification">notification content</TabsContent>
-        <TabsContent value="usage">usage content</TabsContent>
+        <TabsContent value="teams">
+          <Teams userId={userInfo.id} />
+        </TabsContent>
+        <TabsContent value="usage">
+          <Usage />
+        </TabsContent>
       </Tabs>
     </div>
   );

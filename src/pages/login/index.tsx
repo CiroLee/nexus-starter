@@ -48,7 +48,7 @@ export default function Login() {
         <Heading as="h4" className="mb-5">
           {t('banner.loginTitle')}
         </Heading>
-        <form className="md:w-[55%]" onSubmit={handleSubmit(onSubmit)}>
+        <form className="w-[80%] sm:w-[55%] sm:min-w-80" onSubmit={handleSubmit(onSubmit)}>
           <div>
             <Input state={errors.username && 'error'} {...register('username', { required: true })} autoComplete="off" placeholder="username:admin" prefix={<IconUser size={20} />} />
             <p className={cn('invisible text-sm text-red-500', { visible: errors.username })}>Username is required</p>

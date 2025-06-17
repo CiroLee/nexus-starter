@@ -115,11 +115,13 @@
       "email": "Email",
       "contact": "Contact",
       "country": "Country",
-      "position": "Position"
+      "position": "Position",
+      "join": "Join"
     },
     "security": {
       "title": "Security",
-      "token": "Token"
+      "token": "Token",
+      "appKeys": "App Keys"
     },
     "notification": {
       "title": "Notification"

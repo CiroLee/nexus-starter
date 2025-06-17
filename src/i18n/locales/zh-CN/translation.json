@@ -116,11 +116,13 @@
       "email": "邮箱",
       "contact": "联系电话",
       "country": "国家",
-      "position": "职位"
+      "position": "职位",
+      "join": "加入时间"
     },
     "security": {
       "title": "安全",
-      "token": "令牌"
+      "token": "令牌",
+      "appKeys": "应用秘钥"
     },
     "notification": {
       "title": "通知"
