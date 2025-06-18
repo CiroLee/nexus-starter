@@ -3,13 +3,13 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { IconUser, IconLock } from '@tabler/icons-react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { cn } from '@/lib/utils';
 import Image from '@ui/Image';
 import Input from '@ui/Input';
 import Heading from '@ui/Heading';
 import Button from '@ui/Button';
 import { Checkbox } from '@ui/Checkbox';
 import Link from '@ui/Link';
+import FormField from '@/components/business/FormField';
 import loginPortrait from '@/assets/images/login-portrait.webp';
 import { useLogin } from '@/hooks';
 
@@ -48,15 +48,13 @@ export default function Login() {
         <Heading as="h4" className="mb-5">
           {t('banner.loginTitle')}
         </Heading>
-        <form className="w-[80%] sm:w-[55%] sm:min-w-80" onSubmit={handleSubmit(onSubmit)}>
-          <div>
+        <form className="w-[80%] space-y-1.5 sm:w-[55%] sm:min-w-80" onSubmit={handleSubmit(onSubmit)}>
+          <FormField hiddenLabel required errorMsg="username is required" showError={errors.username}>
             <Input state={errors.username && 'error'} {...register('username', { required: true })} autoComplete="off" placeholder="username:admin" prefix={<IconUser size={20} />} />
-            <p className={cn('invisible text-sm text-red-500', { visible: errors.username })}>Username is required</p>
-          </div>
-          <div>
+          </FormField>
+          <FormField hiddenLabel required errorMsg="password is required" showError={errors.password}>
             <Input state={errors.password && 'error'} {...register('password', { required: true })} type="password" autoComplete="off" placeholder="password:admin" prefix={<IconLock size={20} />} />
-            <p className={cn('invisible pt-1 text-sm text-red-500', { visible: errors.password })}>Password is required</p>
-          </div>
+          </FormField>
           <div className="mt-1 flex justify-between text-sm">
             <Checkbox size="sm" checked={psdChecked} id="remember-password" onCheckedChange={(checked: boolean) => setPsdChecked(checked)}>
               {t('common.rememberPsd')}

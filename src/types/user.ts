@@ -9,6 +9,7 @@ export interface User {
   avatarUrl: string;
   positionPath: string[];
   role: UserRole;
+  bio?: string;
   joinAt: string;
 }
 

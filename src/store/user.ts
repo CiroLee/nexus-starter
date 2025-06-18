@@ -17,11 +17,12 @@ export const useUserStore = create<UserStore>((set) => ({
     username: 'Will Smith',
     avatarUrl: 'https://dub.sh/C8TrSJF',
     role: 'admin',
-    contact: '(123)456-789',
+    contact: '13777887788',
     email: 'will_smith@nexus-starter.com',
     country: 'usa',
+    bio: 'I am a frontend engineer, I like to write code.',
     positionPath: ['R&D', 'Frontend Engineer'],
-    joinAt: '2021/1/12'
+    joinAt: '2021/1/12 10:40:00'
   },
   setUser: (user) => set({ userInfo: user })
 }));

@@ -145,6 +145,15 @@ const mainRoutes: CustomRoute = {
             name: 'account.center',
             visible: true
           }
+        },
+        {
+          id: 'account-setting',
+          path: '/account/setting',
+          Component: lazy(() => import('@/pages/account-setting')),
+          meta: {
+            name: 'account.setting',
+            visible: true
+          }
         }
       ]
     }

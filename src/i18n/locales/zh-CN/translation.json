@@ -75,7 +75,8 @@
     },
     "account": {
       "title": "个人页",
-      "center": "个人中心"
+      "center": "个人中心",
+      "setting": "用户设置"
     }
   },
   "error": {
@@ -107,9 +108,9 @@
     }
   },
   "account": {
-    "title": "个人页",
     "myProject": "我的项目",
-    "accountSetting": "用户设置",
+    "basicSetting": "基本设置",
+    "securitySetting": "安全设置",
     "profile": {
       "title": "用户档案",
       "name": "姓名",

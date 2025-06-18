@@ -75,7 +75,8 @@
     },
     "account": {
       "title": "Account",
-      "center": "Account Center"
+      "center": "Account Center",
+      "setting": "Account Setting"
     }
   },
   "error": {
@@ -108,7 +109,8 @@
   },
   "account": {
     "myProject": "My Project",
-    "accountSetting": "Account Setting",
+    "basicSetting": "Basic Setting",
+    "securitySetting": "Security Setting",
     "profile": {
       "title": "Profile",
       "name": "Name",
