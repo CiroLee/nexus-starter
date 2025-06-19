@@ -1,11 +1,10 @@
-import { cva } from 'class-variance-authority';
 import { DropdownMenu } from 'radix-ui';
+import { useTranslation } from 'react-i18next';
 import Button from '../ui/Button';
 import { useTheme } from '@/hooks';
 import { IconSunFilled, IconMoonFilled, IconDeviceDesktop } from '@tabler/icons-react';
 import { ThemeMode } from '@/types/theme';
 
-const item = cva('flex items-center outline-none gap-1 text-sm rounded p-2 cursor-default transition-colors focus:bg-primary focus:text-white');
 const themeMap = {
   light: <IconSunFilled size={22} />,
   dark: <IconMoonFilled size={20} />,
@@ -13,7 +12,7 @@ const themeMap = {
 };
 export default function ThemeSwitch() {
   const [theme, setTheme] = useTheme();
-
+  const { t } = useTranslation();
   const handleThemeSwitch = (theme: ThemeMode) => {
     if (typeof setTheme === 'function') {
       setTheme(theme);
@@ -28,18 +27,15 @@ export default function ThemeSwitch() {
         </Button>
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal>
-        <DropdownMenu.Content
-          sideOffset={10}
-          align="end"
-          className="border-line bg-background data-[state=open]:animate-zoom-fade-in data-[state=closed]:animate-zoom-fade-out z-(--popup) min-w-25 origin-(--radix-dropdown-menu-content-transform-origin) rounded-md border p-1 outline-none">
-          <DropdownMenu.Item className={item()} onSelect={() => handleThemeSwitch('light')}>
-            Light
+        <DropdownMenu.Content sideOffset={10} align="end" className="dropdown-menu--content">
+          <DropdownMenu.Item className="dropdown-menu--item" onSelect={() => handleThemeSwitch('light')}>
+            {t('common.lightTheme')}
           </DropdownMenu.Item>
-          <DropdownMenu.Item className={item()} onClick={() => handleThemeSwitch('dark')}>
-            Dark
+          <DropdownMenu.Item className="dropdown-menu--item" onClick={() => handleThemeSwitch('dark')}>
+            {t('common.darkTheme')}
           </DropdownMenu.Item>
-          <DropdownMenu.Item className={item()} onClick={() => handleThemeSwitch('system')}>
-            System
+          <DropdownMenu.Item className="dropdown-menu--item" onClick={() => handleThemeSwitch('system')}>
+            {t('common.systemTheme')}
           </DropdownMenu.Item>
         </DropdownMenu.Content>
       </DropdownMenu.Portal>

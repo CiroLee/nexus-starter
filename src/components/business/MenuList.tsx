@@ -1,7 +1,7 @@
 import { CustomRoute } from '@/types/route';
 import MenuLink from './MenuLink';
-import Collapsible from '@/components/ui/Collapsible';
-import Button from '@/components/ui/Button';
+import Collapsible from '@ui/Collapsible';
+import Button from '@ui/Button';
 import { IconChevronDown } from '@tabler/icons-react';
 import { cn } from '@/lib/utils';
 import { useLocation } from 'react-router-dom';

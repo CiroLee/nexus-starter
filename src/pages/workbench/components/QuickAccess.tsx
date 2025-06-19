@@ -5,6 +5,8 @@ import Button from '@ui/Button';
 import SvgIcon from '@ui/SvgIcon';
 import DynamicTrans from '@business/DynamicTrans';
 import { cn } from '@/lib/utils';
+import { SkeletonBlock } from '@ui/Skeleton';
+import Show from '@ui/Show';
 
 interface AccessItem {
   id: string;
@@ -28,16 +30,22 @@ export default function QuickAccess({ className, list }: QuickAccessProps) {
         </Link>
       </div>
       <div className="grid grid-cols-3 justify-items-center gap-4">
-        {list.map((item) => (
-          <Link to={item.url} key={item.id} className="flex flex-col items-center gap-1">
-            <Button size="md" colors="neutral" asIcon>
-              <SvgIcon size={22} name={item.icon || ''} />
-            </Button>
-            <span className="text-description text-xs">
-              <DynamicTrans prefix="common.">{item.label || ''}</DynamicTrans>
-            </span>
-          </Link>
-        ))}
+        <Show
+          when={list.length}
+          fallback={Array.from({ length: 6 }).map((_, i) => (
+            <SkeletonBlock key={i} className="h-16 w-full" />
+          ))}>
+          {list.map((item) => (
+            <Link to={item.url} key={item.id} className="flex flex-col items-center gap-1">
+              <Button size="md" colors="neutral" asIcon>
+                <SvgIcon size={22} name={item.icon || ''} />
+              </Button>
+              <span className="text-description text-xs">
+                <DynamicTrans prefix="common.">{item.label || ''}</DynamicTrans>
+              </span>
+            </Link>
+          ))}
+        </Show>
       </div>
     </div>
   );

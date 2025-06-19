@@ -1,21 +1,24 @@
 {
   "common": {
+    "lightTheme": "Light",
+    "darkTheme": "Dark",
+    "systemTheme": "System",
     "backHome": "Back Home",
-    "print": "Print",
-    "expense": "Expense",
-    "revenue": "Revenue",
-    "view": "View",
     "edit": "Edit",
     "config": "Config",
+    "print": "Print",
+    "update": "Update",
+    "reset": "Reset",
+    "expense": "Expense",
+    "revenue": "Revenue",
     "active": "Active",
     "inactive": "Inactive",
     "disabled": "Disabled",
     "error": "Error",
     "licensed": "Licensed",
     "unlicensed": "Unlicensed",
-    "noMoreContent": "No more content",
     "allProject": "All Projects",
-    "viewMore": "View More",
+    "viewMore": "More",
     "quickAccess": "Quick Access",
     "file": "File",
     "logs": "Logs",
@@ -25,7 +28,28 @@
     "task": "Task",
     "bulletin": "Bulletin",
     "helpDoc": "Help Documents",
-    "updateFeeds": "Update Feeds"
+    "updateFeeds": "Update Feeds",
+    "login": "Login",
+    "logout": "Logout",
+    "rememberPsd": "Remember Password",
+    "forgetPsd": "Forget Password",
+    "noData": "No Data"
+  },
+  "banner": {
+    "loginTitle": "Login to Nexus-Starter"
+  },
+  "longText": {
+    "security": {
+      "accountPsdText": "Has been set.",
+      "securePhoneText": "Bound: 137****7788.",
+      "secureEmailText": "You haven't set secure email. The bound secure email address can be used to retrieve the password.",
+      "secureMFAText": "The MFA device is not bound. After binding, you can perform a second confirmation."
+    },
+    "notice": {
+      "app": "receive notifications of the messages in the App.",
+      "email": "receive emails of the messages, contracts, etc.",
+      "update": "receive updates notification."
+    }
   },
   "projectStatus": {
     "created": "Created",
@@ -65,6 +89,11 @@
       "title": "Result",
       "success": "Success",
       "fail": "Fail"
+    },
+    "account": {
+      "title": "Account",
+      "center": "Account Center",
+      "setting": "Account Setting"
     }
   },
   "error": {
@@ -95,7 +124,36 @@
       "user": "User"
     }
   },
-  "user": {
-    "myProject": "My Project"
+  "account": {
+    "myProject": "My Project",
+    "basicSetting": "Basic Information",
+    "securitySetting": "Security Setting",
+    "notificationSetting": "Notification Setting",
+    "profile": {
+      "title": "Profile",
+      "name": "Name",
+      "email": "Email",
+      "contact": "Contact",
+      "country": "Country",
+      "position": "Position",
+      "join": "Join"
+    },
+    "security": {
+      "title": "Security",
+      "token": "Token",
+      "appKeys": "App Keys"
+    },
+    "notification": {
+      "title": "Notification",
+      "appNoticeTitle": "App Notification",
+      "emailNoticeTitle": "Email Notification",
+      "updateNoticeTitle": "Update Notification"
+    },
+    "team": {
+      "title": "Teams"
+    },
+    "usage": {
+      "title": "Usage"
+    }
   }
 }

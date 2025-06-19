@@ -11,3 +11,7 @@ export function delay<T>(ms: number, fn?: () => T): Promise<T | void> {
     }, ms);
   });
 }
+
+export function copyToClipboard(text: string) {
+  return navigator.clipboard.writeText(text);
+}

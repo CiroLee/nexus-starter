@@ -5,6 +5,7 @@ import Button from '@ui/Button';
 import { Drawer } from '@ui/Drawer';
 import ThemeSwitch from '@/components/business/ThemeSwitch';
 import LocaleSwitch from '@/components/business/localeSwitch';
+import UserDropdown from '@/components/business/UserDropdown';
 import { useMobile } from '@/hooks';
 import MenuList from '@/components/business/MenuList';
 import logoSvg from '@/assets/images/logo.svg';
@@ -29,6 +30,7 @@ export default function Header({ menus, className }: { className?: string; menus
       <div className="flex items-center gap-2">
         <LocaleSwitch />
         <ThemeSwitch />
+        <UserDropdown className="ml-2" />
       </div>
     </header>
   );

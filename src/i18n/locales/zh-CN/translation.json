@@ -1,19 +1,22 @@
 {
   "common": {
+    "lightTheme": "浅色模式",
+    "darkTheme": "深色模式",
+    "systemTheme": "跟随系统",
     "backHome": "回到首页",
-    "print": "打印",
-    "expense": "支出",
-    "revenue": "收入",
-    "view": "查看",
     "edit": "编辑",
     "config": "配置",
+    "print": "打印",
+    "update": "更新",
+    "reset": "重置",
+    "expense": "支出",
+    "revenue": "收入",
     "active": "使用中",
     "inactive": "未使用",
     "disabled": "禁用",
     "error": "异常",
     "licensed": "已授权",
     "unlicensed": "未授权",
-    "noMoreContent": "没有更多内容了",
     "allProject": "全部项目",
     "viewMore": "查看更多",
     "quickAccess": "快捷入口",
@@ -25,7 +28,28 @@
     "task": "任务",
     "bulletin": "公告",
     "helpDoc": "帮助文档",
-    "updateFeeds": "动态"
+    "updateFeeds": "动态",
+    "login": "登录",
+    "logout": "退出登录",
+    "rememberPsd": "记住密码",
+    "forgetPsd": "忘记密码",
+    "noData": "暂无数据"
+  },
+  "banner": {
+    "loginTitle": "登录Nexus-Starter"
+  },
+  "longText": {
+    "security": {
+      "accountPsdText": "密码已设置",
+      "securePhoneText": "已绑定电话: 137****7788",
+      "secureEmailText": "未设置安全邮箱。安全邮箱可以用来找回密码",
+      "secureMFAText": "未绑定 MFA 设备，绑定后，可以进行二次确认"
+    },
+    "notice": {
+      "app": "在App上接收推送消息",
+      "email": "接收邮件消息",
+      "update": "接收更新信息"
+    }
   },
   "projectStatus": {
     "created": "已创建",
@@ -65,6 +89,11 @@
       "title": "结果页",
       "success": "成功页",
       "fail": "失败页"
+    },
+    "account": {
+      "title": "个人页",
+      "center": "个人中心",
+      "setting": "用户设置"
     }
   },
   "error": {
@@ -95,7 +124,36 @@
       "user": "普通用户"
     }
   },
-  "user": {
-    "myProject": "我的项目"
+  "account": {
+    "myProject": "我的项目",
+    "basicSetting": "基本信息",
+    "securitySetting": "安全设置",
+    "notificationSetting": "消息通知",
+    "profile": {
+      "title": "用户档案",
+      "name": "姓名",
+      "email": "邮箱",
+      "contact": "联系电话",
+      "country": "国家",
+      "position": "职位",
+      "join": "加入时间"
+    },
+    "security": {
+      "title": "安全",
+      "token": "令牌",
+      "appKeys": "应用秘钥"
+    },
+    "notification": {
+      "title": "通知",
+      "appNoticeTitle": "App消息通知",
+      "emailNoticeTitle": "邮件通知",
+      "updateNoticeTitle": "更新信息通知"
+    },
+    "team": {
+      "title": "团队"
+    },
+    "usage": {
+      "title": "资源用量"
+    }
   }
 }

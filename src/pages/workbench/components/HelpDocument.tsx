@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { cva } from 'class-variance-authority';
-import Link from '@/components/ui/Link';
+import Link from '@ui/Link';
 import { Link as ReactLink } from 'react-router-dom';
 import Heading from '@ui/Heading';
 

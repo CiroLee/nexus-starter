@@ -1,6 +1,6 @@
 import NavLayout from '@/layout/NavLayout';
 import { CustomRoute } from '@/types/route';
-import { IconLayoutDashboardFilled, IconExclamationCircleFilled, IconCircleLetterRFilled, IconBrandDenodo } from '@tabler/icons-react';
+import { IconLayoutDashboardFilled, IconExclamationCircleFilled, IconCircleLetterRFilled, IconBrandDenodo, IconUserFilled } from '@tabler/icons-react';
 import { lazy } from 'react';
 import { Navigate } from 'react-router-dom';
 const mainRoutes: CustomRoute = {
@@ -124,6 +124,34 @@ const mainRoutes: CustomRoute = {
           Component: lazy(() => import('@/pages/result/fail')),
           meta: {
             name: 'result.fail',
+            visible: true
+          }
+        }
+      ]
+    },
+    {
+      id: 'account',
+      meta: {
+        name: 'account.title',
+        visible: true,
+        icon: <IconUserFilled size={20} />
+      },
+      children: [
+        {
+          id: 'account-center',
+          path: '/account/center',
+          Component: lazy(() => import('@/pages/account-center')),
+          meta: {
+            name: 'account.center',
+            visible: true
+          }
+        },
+        {
+          id: 'account-setting',
+          path: '/account/setting',
+          Component: lazy(() => import('@/pages/account-setting')),
+          meta: {
+            name: 'account.setting',
             visible: true
           }
         }

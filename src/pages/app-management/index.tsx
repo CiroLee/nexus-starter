@@ -1,13 +1,13 @@
+import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { IconSearch, IconPlus, IconXboxXFilled } from '@tabler/icons-react';
 import { useTranslation } from 'react-i18next';
 import AppCard from './components/AppCard';
-import Divider from '@ui/Divider';
+import Empty from '@/components/business/Empty';
 import { getApps } from '@/_mock/manage';
-import Heading from '@/components/ui/Heading';
+import Heading from '@ui/Heading';
 import Input from '@ui/Input';
-import Button from '@/components/ui/Button';
-import React, { useState } from 'react';
+import Button from '@ui/Button';
 import { cn } from '@/lib/utils';
 export default function AppManagementPage() {
   const { t } = useTranslation();
@@ -39,8 +39,15 @@ export default function AppManagementPage() {
           <IconPlus size={16} />
         </Button>
       </div>
-      <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">{response?.data.map((app) => <AppCard key={app.id} {...app} />)}</div>
-      <Divider className="text-description left-1/2 my-10 w-[60%] -translate-x-1/2 md:my-20 md:w-60">{t('common.noMoreContent')}</Divider>
+      {response?.data.length ? (
+        <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+          {response.data.map((app) => (
+            <AppCard key={app.id} {...app} />
+          ))}
+        </div>
+      ) : (
+        <Empty className="top-10 min-h-40" />
+      )}
     </div>
   );
 }

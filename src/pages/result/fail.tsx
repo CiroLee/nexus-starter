@@ -1,5 +1,5 @@
 import { IconExclamationCircleFilled } from '@tabler/icons-react';
-import Heading from '@/components/ui/Heading';
+import Heading from '@ui/Heading';
 import Button from '@ui/Button';
 import { useTranslation } from 'react-i18next';
 export default function SuccessPage() {

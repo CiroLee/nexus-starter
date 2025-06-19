@@ -2,4 +2,10 @@
   .panel {
     @apply bg-background rounded-md p-4 shadow;
   }
+  .dropdown-menu--content {
+    @apply border-line bg-background data-[state=open]:animate-zoom-fade-in data-[state=closed]:animate-zoom-fade-out z-(--popup) min-w-25 origin-(--radix-dropdown-menu-content-transform-origin) rounded-md border p-1 outline-none;
+  }
+  .dropdown-menu--item {
+    @apply focus:bg-primary flex cursor-default items-center gap-1 rounded p-2 text-sm transition-colors outline-none focus:text-white;
+  }
 }
