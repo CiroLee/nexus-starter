@@ -4,7 +4,11 @@
     "darkTheme": "Dark",
     "systemTheme": "System",
     "backHome": "Back Home",
+    "edit": "Edit",
+    "config": "Config",
     "print": "Print",
+    "update": "Update",
+    "reset": "Reset",
     "expense": "Expense",
     "revenue": "Revenue",
     "active": "Active",
@@ -33,6 +37,19 @@
   },
   "banner": {
     "loginTitle": "Login to Nexus-Starter"
+  },
+  "longText": {
+    "security": {
+      "accountPsdText": "Has been set.",
+      "securePhoneText": "Bound: 137****7788.",
+      "secureEmailText": "You haven't set secure email. The bound secure email address can be used to retrieve the password.",
+      "secureMFAText": "The MFA device is not bound. After binding, you can perform a second confirmation."
+    },
+    "notice": {
+      "app": "receive notifications of the messages in the App.",
+      "email": "receive emails of the messages, contracts, etc.",
+      "update": "receive updates notification."
+    }
   },
   "projectStatus": {
     "created": "Created",
@@ -109,8 +126,9 @@
   },
   "account": {
     "myProject": "My Project",
-    "basicSetting": "Basic Setting",
+    "basicSetting": "Basic Information",
     "securitySetting": "Security Setting",
+    "notificationSetting": "Notification Setting",
     "profile": {
       "title": "Profile",
       "name": "Name",
@@ -126,7 +144,10 @@
       "appKeys": "App Keys"
     },
     "notification": {
-      "title": "Notification"
+      "title": "Notification",
+      "appNoticeTitle": "App Notification",
+      "emailNoticeTitle": "Email Notification",
+      "updateNoticeTitle": "Update Notification"
     },
     "team": {
       "title": "Teams"

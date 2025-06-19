@@ -17,7 +17,7 @@ export default function AccountCenterPage() {
   const { userInfo } = useUserStore();
   const { t } = useTranslation();
   return (
-    <div className="mx-auto md:max-w-[90%]">
+    <div>
       <div className="relative h-70 overflow-hidden rounded-md bg-[url('@/assets/images/banner-1.webp')] bg-center bg-no-repeat p-4 shadow">
         <div className="bg-background/90 absolute bottom-0 left-0 flex h-18 w-full items-center gap-3 px-2 backdrop-blur-md backdrop-saturate-150">
           <Avatar src={userInfo.avatarUrl} size="lg" />
@@ -29,39 +29,41 @@ export default function AccountCenterPage() {
           </div>
         </div>
       </div>
-      <Tabs className="relative mt-6" defaultValue="profile">
-        <TabsList className="scrollbar-hidden w-full overflow-x-auto">
-          <TabsItem value="profile" className={tabItem()}>
-            <IconId size={20} />
-            {t('account.profile.title')}
-          </TabsItem>
-          <TabsItem value="security" className={tabItem()}>
-            <IconLock size={20} />
-            {t('account.security.title')}
-          </TabsItem>
-          <TabsItem value="teams" className={tabItem()}>
-            <IconUsers size={20} />
-            {t('account.team.title')}
-          </TabsItem>
+      <div className="panel mt-6 pt-2">
+        <Tabs className="" defaultValue="profile">
+          <TabsList className="scrollbar-hidden w-full overflow-x-auto">
+            <TabsItem value="profile" className={tabItem()}>
+              <IconId size={20} />
+              {t('account.profile.title')}
+            </TabsItem>
+            <TabsItem value="security" className={tabItem()}>
+              <IconLock size={20} />
+              {t('account.security.title')}
+            </TabsItem>
+            <TabsItem value="teams" className={tabItem()}>
+              <IconUsers size={20} />
+              {t('account.team.title')}
+            </TabsItem>
 
-          <TabsItem value="usage" className={tabItem()}>
-            <IconServer size={20} />
-            {t('account.usage.title')}
-          </TabsItem>
-        </TabsList>
-        <TabsContent value="profile">
-          <Profile />
-        </TabsContent>
-        <TabsContent value="security">
-          <Security />
-        </TabsContent>
-        <TabsContent value="teams">
-          <Teams userId={userInfo.id} />
-        </TabsContent>
-        <TabsContent value="usage">
-          <Usage />
-        </TabsContent>
-      </Tabs>
+            <TabsItem value="usage" className={tabItem()}>
+              <IconServer size={20} />
+              {t('account.usage.title')}
+            </TabsItem>
+          </TabsList>
+          <TabsContent value="profile">
+            <Profile />
+          </TabsContent>
+          <TabsContent value="security">
+            <Security />
+          </TabsContent>
+          <TabsContent value="teams">
+            <Teams userId={userInfo.id} />
+          </TabsContent>
+          <TabsContent value="usage">
+            <Usage />
+          </TabsContent>
+        </Tabs>
+      </div>
     </div>
   );
 }

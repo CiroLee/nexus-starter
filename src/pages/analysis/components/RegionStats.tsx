@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Card, CardHeader, CardTitle, CardBody } from '@ui/Card';
 import Progress from '@ui/Progress';
+import { cn } from '@/lib/utils';
 
 interface RegionStatsProps {
   className?: string;
@@ -15,7 +16,7 @@ interface RegionData {
 export default function RegionStats({ className, total, data }: RegionStatsProps) {
   const { t } = useTranslation();
   return (
-    <Card className={className}>
+    <Card className={cn('bg-background', className)}>
       <CardHeader>
         <CardTitle>{t('dashboard.analysis.customerRegion')}</CardTitle>
       </CardHeader>

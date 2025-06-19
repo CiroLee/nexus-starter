@@ -4,12 +4,13 @@ import { Line, LineChart, LineSeries } from 'reaviz';
 import { Card, CardHeader, CardTitle, CardBody } from '@ui/Card';
 import { getRevenueContrast } from '@/_mock/goods';
 import { DiscreteLegends } from '@/components/business/ChartLegend';
+import { cn } from '@/lib/utils';
 export default function RevenueLineChart({ className }: { className?: string }) {
   const { data: response } = useQuery({ queryKey: ['revenues'], queryFn: getRevenueContrast });
   const { t } = useTranslation();
 
   return (
-    <Card className={className}>
+    <Card className={cn('bg-background', className)}>
       <CardHeader>
         <CardTitle>{t('common.revenue')}</CardTitle>
       </CardHeader>

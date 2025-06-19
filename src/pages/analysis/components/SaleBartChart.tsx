@@ -4,13 +4,14 @@ import { BarChart, BarSeries, Gradient, Bar, RangeLines, GuideBar } from 'reaviz
 import { Card, CardBody, CardHeader, CardTitle } from '@ui/Card';
 import { DiscreteLegends } from '@/components/business/ChartLegend';
 import { getSalesSummary } from '@/_mock/goods';
+import { cn } from '@/lib/utils';
 
 export default function SaleBartChart({ className }: { className?: string }) {
   const { data: response } = useQuery({ queryKey: ['sales'], queryFn: getSalesSummary });
   const { t } = useTranslation();
 
   return (
-    <Card className={className}>
+    <Card className={cn('bg-background', className)}>
       <CardHeader>
         <CardTitle>{t('dashboard.analysis.sales')}</CardTitle>
       </CardHeader>

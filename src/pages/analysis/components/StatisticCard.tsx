@@ -19,7 +19,7 @@ export default function StatisticCard({ className, title, value, precision = 0, 
     easing: 'easeOutCubic'
   });
   return (
-    <Card className={className}>
+    <Card className={cn('bg-background', className)}>
       <CardBody>
         <Statistic title={title} value={Intl.NumberFormat().format(val)} {...props} suffix={trend ? <StatisticSuffix value={radio} trend={trend} /> : null} />
       </CardBody>
