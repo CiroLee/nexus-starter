@@ -77,7 +77,8 @@
     },
     "management": {
       "title": "Management",
-      "appManagement": "App Management"
+      "appManagement": "Apps",
+      "staffManagement": "Staffs"
     },
     "error": {
       "title": "Error",

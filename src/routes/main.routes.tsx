@@ -61,6 +61,15 @@ const mainRoutes: CustomRoute = {
             name: 'management.appManagement',
             visible: true
           }
+        },
+        {
+          id: 'staff-management',
+          path: '/management/staff',
+          Component: lazy(() => import('@/pages/management/staff')),
+          meta: {
+            name: 'management.staffManagement',
+            visible: true
+          }
         }
       ]
     },

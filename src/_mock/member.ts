@@ -38,3 +38,29 @@ export function getMembersById(id: string): Promise<Response<MembersRes>> {
     }
   }));
 }
+
+interface StaffItem {
+  id: string;
+  username: string;
+  avatarUrl?: string;
+  position: string;
+  startDate: Date;
+  serviceTime: number; // month
+  salary: number;
+  status: 'employed' | 'resigned';
+}
+
+export function getStaffList() {
+  const data: StaffItem[] = lorem.array<StaffItem>(100, () => ({
+    id: lorem.texts.string({ range: 8, source: '1234567890' }),
+    username: lorem.texts.name('en', true),
+    avatarUrl: lorem.image.picsum({ random: true, width: 100 }),
+    startDate: lorem.date.dateTime<Date>({ from: '2020/1/1', to: '2025/12/31', format: false }),
+    serviceTime: lorem.number.int([1, 60]),
+    salary: lorem.number.int([200, 5000]),
+    position: lorem.helper.elements<string>(['UI Designer', 'Frontend Developer', 'Backend Developer', 'Fullstack Developer', 'Product Manager']),
+    status: lorem.helper.elements<StaffItem['status']>(['employed', 'resigned'])
+  }));
+
+  return delay(500, () => ({ code: 200, data }));
+}

@@ -9,7 +9,6 @@ import { useMobile } from '@/hooks';
 import mainRoutes from '@/routes/main.routes';
 import { filterVisibleRoutes } from '@/utils/routes';
 import type { CustomRoute } from '@/types/route';
-import FooterInfo from '@/components/business/FooterInfo';
 
 export default function NavLayout() {
   const { isSideBarOpen } = useLayoutStore();
@@ -26,7 +25,6 @@ export default function NavLayout() {
         <div className="h-16"></div>
         <section className="relative min-h-[calc(100vh_-_var(--header-height))] bg-zinc-100 p-4 dark:bg-zinc-900/60">
           <Suspense fallback={<Loading open isFullscreen />}>{<Outlet />}</Suspense>
-          <FooterInfo />
         </section>
       </main>
     </div>

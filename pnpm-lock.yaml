@@ -63,8 +63,8 @@ importers:
         specifier: ^3.3.0
         version: 3.3.0
       tiny-lorem:
-        specifier: ^0.1.5
-        version: 0.1.5
+        specifier: ^0.1.6
+        version: 0.1.6
       usehooks-ts:
         specifier: ^3.1.1
         version: 3.1.1(react@19.1.0)
@@ -3268,8 +3268,8 @@ packages:
   through@2.3.8:
     resolution: {integrity: sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==}
 
-  tiny-lorem@0.1.5:
-    resolution: {integrity: sha512-HKAi1lIbhjYBGZE+WwcAri3xqYqREZ1zGLqr5iJzBC6ouZWX/Iko71ed1Ao5dO/zAjwKNa7txH+Lw6oKxnuk7g==}
+  tiny-lorem@0.1.6:
+    resolution: {integrity: sha512-R+kXBcjoZbcfqKNWnTqdNtFPUdS7EeMykUQ/guiaoX1H+O+DzjcMuc2p74VJ3quWUngVP9bBy6QbnRr03a6Ing==}
 
   tinyexec@1.0.1:
     resolution: {integrity: sha512-5uC6DDlmeqiOwCPmK9jMSdOuZTh8bU39Ys6yidB+UTt5hfZUPGAypSgFRiEp+jbi9qH40BLDvy85jIU88wKSqw==}
@@ -6758,7 +6758,7 @@ snapshots:
 
   through@2.3.8: {}
 
-  tiny-lorem@0.1.5: {}
+  tiny-lorem@0.1.6: {}
 
   tinyexec@1.0.1: {}
 
