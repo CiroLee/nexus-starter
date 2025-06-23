@@ -11,6 +11,7 @@
     "reset": "Reset",
     "delete": "Delete",
     "cancel": "Cancel",
+    "export": "Export",
     "expense": "Expense",
     "revenue": "Revenue",
     "active": "Active",

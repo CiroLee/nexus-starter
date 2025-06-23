@@ -22,24 +22,28 @@ export default function AppManagementPage() {
       <Heading as="h3" className="mb-3">
         {t('menus.management.appManagement')}
       </Heading>
-      <div className="mb-4 flex items-center justify-end gap-2">
-        <form onSubmit={handleSearch}>
-          <SearchInput placeholder="search apps..." className="flex-1 md:min-w-60 md:flex-none" value={query} onChange={(e) => setQuery(e.target.value)} />
-        </form>
-        <Button className="flex-nowrap gap-1">
-          <span className="">Add App</span>
-          <IconPlus size={16} />
-        </Button>
+      <div className="panel">
+        {response?.data.length ? (
+          <>
+            <div className="mb-4 flex items-center justify-end gap-2">
+              <form className="flex-1 md:min-w-60 md:flex-none" onSubmit={handleSearch}>
+                <SearchInput placeholder="search apps..." value={query} onChange={(e) => setQuery(e.target.value)} />
+              </form>
+              <Button className="flex-nowrap gap-1">
+                <span className="">Add App</span>
+                <IconPlus size={16} />
+              </Button>
+            </div>
+            <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+              {response.data.map((app) => (
+                <AppCard key={app.id} {...app} />
+              ))}
+            </div>
+          </>
+        ) : (
+          <Empty className="h-60" />
+        )}
       </div>
-      {response?.data.length ? (
-        <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-          {response.data.map((app) => (
-            <AppCard key={app.id} {...app} />
-          ))}
-        </div>
-      ) : (
-        <Empty className="top-10 min-h-40" />
-      )}
     </div>
   );
 }
