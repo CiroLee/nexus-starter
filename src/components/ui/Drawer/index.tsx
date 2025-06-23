@@ -1,3 +1,4 @@
+'use client';
 import { Dialog as DrawerPrimitive } from 'radix-ui';
 import { cn } from '@/lib/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
@@ -31,7 +32,7 @@ const drawerOverlay = cva('data-[state=open]:animate-fade-in data-[state=closed]
 export type DrawerOverlayVariants = VariantProps<typeof drawerOverlay>;
 
 interface DialogProps extends React.ComponentPropsWithRef<typeof DrawerPrimitive.Root>, DrawerOverlayVariants, DrawerContentVariants {
-  trigger: React.ReactNode;
+  trigger?: React.ReactNode;
   width?: string;
   height?: string;
   className?: string;
@@ -44,7 +45,7 @@ export const DrawerClose = ({ children }: { children: React.ReactNode }) => <Dra
 export function Drawer({ trigger, width, height, style, className, backdrop, placement, children, ref, ...props }: DialogProps) {
   return (
     <DrawerPrimitive.Root {...props}>
-      <DrawerPrimitive.Trigger asChild>{trigger}</DrawerPrimitive.Trigger>
+      {trigger ? <DrawerPrimitive.Trigger asChild>{trigger}</DrawerPrimitive.Trigger> : null}
       <DrawerPrimitive.Portal>
         <DrawerPrimitive.Overlay className={drawerOverlay({ backdrop })} />
         <DrawerPrimitive.Content ref={ref} style={{ width, height, ...style }} className={cn(drawerContent({ placement, className }))}>

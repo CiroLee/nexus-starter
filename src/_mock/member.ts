@@ -2,6 +2,7 @@ import { lorem } from './base';
 import { delay } from '@/utils/utils';
 import type { Team } from '@/types/user';
 import type { Response } from '@/types/response';
+import { StaffItem } from '@/types/member';
 
 interface MembersRes {
   id: string;
@@ -37,17 +38,6 @@ export function getMembersById(id: string): Promise<Response<MembersRes>> {
       list: data
     }
   }));
-}
-
-interface StaffItem {
-  id: string;
-  username: string;
-  avatarUrl?: string;
-  position: string;
-  startDate: Date;
-  serviceTime: number; // month
-  salary: number;
-  status: 'employed' | 'resigned';
 }
 
 export function getStaffList() {

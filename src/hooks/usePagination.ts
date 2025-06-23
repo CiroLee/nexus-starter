@@ -8,7 +8,7 @@ interface UsePagination {
 export function usePagination({ pageSize = 10, total = 0 }: UsePagination) {
   const [pagination, setPagination] = useState({
     current: 1,
-    size: pageSize,
+    pageSize,
     total
   });
 
@@ -16,8 +16,9 @@ export function usePagination({ pageSize = 10, total = 0 }: UsePagination) {
     setPagination((prev) => ({ ...prev, total, size: pageSize }));
   }, [total, pageSize]);
 
+  const totalPage = Math.ceil(pagination.total / pagination.pageSize);
   const isFirstPage = pagination.current === 1;
-  const isLastPage = pagination.current === Math.ceil(pagination.total / pagination.size);
+  const isLastPage = pagination.current === totalPage;
 
   const prevPage = () => {
     if (pagination.current > 1) {
@@ -29,7 +30,7 @@ export function usePagination({ pageSize = 10, total = 0 }: UsePagination) {
   };
 
   const nextPage = () => {
-    if (pagination.current < Math.ceil(pagination.total / pagination.size)) {
+    if (pagination.current < Math.ceil(pagination.total / pagination.pageSize)) {
       setPagination((prev) => ({
         ...prev,
         current: prev.current + 1
@@ -37,5 +38,5 @@ export function usePagination({ pageSize = 10, total = 0 }: UsePagination) {
     }
   };
 
-  return { currentPage: pagination.current, isFirstPage, isLastPage, prevPage, nextPage };
+  return { currentPage: pagination.current, isFirstPage, isLastPage, totalPage, prevPage, nextPage };
 }

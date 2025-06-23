@@ -17,7 +17,7 @@ export default function Header({ menus, className }: { className?: string; menus
   return (
     <header
       className={cn(
-        'border-line bg-background/80 fixed top-0 right-0 z-2 flex h-16 w-full items-center justify-between border-b px-4 backdrop-blur-md backdrop-saturate-200 transition-[width]',
+        'border-line bg-background/80 fixed top-0 right-0 z-20 flex h-16 w-full items-center justify-between border-b px-4 backdrop-blur-md backdrop-saturate-200 transition-[width]',
         className
       )}>
       {isMobile ? (

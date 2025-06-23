@@ -9,6 +9,8 @@
     "print": "打印",
     "update": "更新",
     "reset": "重置",
+    "delete": "删除",
+    "cancel": "取消",
     "expense": "支出",
     "revenue": "收入",
     "active": "使用中",
@@ -33,7 +35,8 @@
     "logout": "退出登录",
     "rememberPsd": "记住密码",
     "forgetPsd": "忘记密码",
-    "noData": "暂无数据"
+    "noData": "暂无数据",
+    "action": "操作"
   },
   "banner": {
     "loginTitle": "登录Nexus-Starter"
@@ -137,7 +140,11 @@
       "contact": "联系电话",
       "country": "国家",
       "position": "职位",
-      "join": "加入时间"
+      "join": "加入时间",
+      "startTime": "入职时间",
+      "serviceTime": "工作年限",
+      "salary": "薪资",
+      "employeeStatus": "在职状态"
     },
     "security": {
       "title": "安全",
