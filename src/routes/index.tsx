@@ -12,7 +12,7 @@ export const router = createBrowserRouter([
       {
         id: 'login',
         path: '/login',
-        Component: lazy(() => import('@/pages/login'))
+        Component: lazy(() => import('@/pages/auth/login'))
       },
       {
         path: '*',
@@ -21,7 +21,7 @@ export const router = createBrowserRouter([
       {
         path: '/404',
         id: 'not-found',
-        Component: lazy(() => import('@/pages/404'))
+        Component: lazy(() => import('@/pages/not-found'))
       }
     ]
   }

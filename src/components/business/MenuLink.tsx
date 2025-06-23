@@ -14,7 +14,7 @@ interface MenuButtonLinkProps {
 export default function MenuLink({ path, name, icon, className }: MenuButtonLinkProps) {
   if (!path) return null;
   return (
-    <NavLink to={path} className={({ isActive }) => cn('block', { '[&_button]:bg-primary/15 [&_button]:text-primary': isActive }, className)}>
+    <NavLink to={path} className={({ isActive }) => cn('block outline-none', { '[&_button]:bg-primary/15 [&_button]:text-primary': isActive }, className)}>
       <Button variant="light" colors="neutral" className={cn('w-full justify-start gap-1 text-sm')}>
         <Show when={icon}>
           <i className="shrink-0">{icon}</i>

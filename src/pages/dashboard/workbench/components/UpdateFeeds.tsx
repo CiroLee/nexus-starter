@@ -1,10 +1,10 @@
 import { format } from 'date-fns';
 import { useTranslation } from 'react-i18next';
-import { Avatar } from '@ui/Avatar';
 import Heading from '@ui/Heading';
 import Tag from '@ui/Tag';
 import Link from '@ui/Link';
 import { Timeline, TimelineIndicator, TimelineItem, TimelineContent, TimelineTitle } from '@ui/Timeline';
+import MiniUser from '@/components/business/MiniUser';
 
 function formatDate(time: number | string) {
   return format(new Date(time), 'yyyy/MM/dd HH:mm');
@@ -23,7 +23,7 @@ export default function UpdateFeeds() {
             <TimelineContent>
               <TimelineTitle>{formatDate('2025/1/23 10:45:12')}</TimelineTitle>
               <div className="flex items-center gap-1 text-sm">
-                <User username="John Doe" avatarUrl="https://dub.sh/8FBSoLs" />
+                <MiniUser username="John Doe" avatarUrl="https://dub.sh/8FBSoLs" />
                 add new <Tag>feature</Tag> to
                 <Link href="https://github.com/CiroLee/nexus-kit" underline target="_blank">
                   nexus-kit
@@ -36,7 +36,7 @@ export default function UpdateFeeds() {
             <TimelineContent>
               <TimelineTitle>{formatDate('2025/1/22 14:05:12')}</TimelineTitle>
               <div className="flex items-center gap-1 text-sm">
-                <User username="Will Smith" avatarUrl="https://dub.sh/C8TrSJF" />
+                <MiniUser username="Will Smith" avatarUrl="https://dub.sh/C8TrSJF" />
                 approved a <Tag colors="secondary">PR</Tag> from
                 <Link href="https://github.com/CiroLee/tiny-motion" underline target="_blank">
                   tiny-motion
@@ -49,7 +49,7 @@ export default function UpdateFeeds() {
             <TimelineContent>
               <TimelineTitle>{formatDate('2025/1/02 9:15:42')}</TimelineTitle>
               <div className="flex items-center gap-1 text-sm">
-                <User username="Dan" avatarUrl="https://dub.sh/RoU5V72" />
+                <MiniUser username="Dan" avatarUrl="https://dub.sh/RoU5V72" />
                 created a new <Tag colors="neutral">repo</Tag>
                 <Link href="https://github.com/CiroLee/tiny-lorem" underline target="_blank">
                   tiny-lorem
@@ -60,18 +60,5 @@ export default function UpdateFeeds() {
         </Timeline>
       </div>
     </section>
-  );
-}
-
-interface UserProps {
-  username: string;
-  avatarUrl: string;
-}
-function User({ username, avatarUrl }: UserProps) {
-  return (
-    <div className="border-line bg:bg-neutral-200 flex items-center gap-1 rounded-full border py-1 pr-2 pl-1 dark:bg-neutral-800">
-      <Avatar src={avatarUrl} fallback={<span className="text-xs">{username.slice(0, 2).toUpperCase()}</span>} className="size-4" />
-      <span className="text-xs">{username}</span>
-    </div>
   );
 }

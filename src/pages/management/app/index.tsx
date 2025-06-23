@@ -1,14 +1,13 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { IconSearch, IconPlus, IconXboxXFilled } from '@tabler/icons-react';
+import { IconPlus } from '@tabler/icons-react';
 import { useTranslation } from 'react-i18next';
 import AppCard from './components/AppCard';
 import Empty from '@/components/business/Empty';
 import { getApps } from '@/_mock/manage';
 import Heading from '@ui/Heading';
-import Input from '@ui/Input';
 import Button from '@ui/Button';
-import { cn } from '@/lib/utils';
+import SearchInput from '@/components/business/SearchInput';
 export default function AppManagementPage() {
   const { t } = useTranslation();
   const [query, setQuery] = useState('');
@@ -16,7 +15,7 @@ export default function AppManagementPage() {
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // mock search
-    console.log('your search:', query);
+    console.log('app search query:', query);
   };
   return (
     <div>
@@ -25,14 +24,7 @@ export default function AppManagementPage() {
       </Heading>
       <div className="mb-4 flex items-center justify-end gap-2">
         <form onSubmit={handleSearch}>
-          <Input
-            placeholder="search apps..."
-            className="flex-1 md:min-w-60 md:flex-none"
-            value={query}
-            prefix={<IconSearch size={16} />}
-            suffix={<IconXboxXFilled className={cn('text-description hover:text-foreground hidden', { block: query.length > 0 })} size={20} onClick={() => setQuery('')} />}
-            onChange={(e) => setQuery(e.target.value)}
-          />
+          <SearchInput placeholder="search apps..." className="flex-1 md:min-w-60 md:flex-none" value={query} onChange={(e) => setQuery(e.target.value)} />
         </form>
         <Button className="flex-nowrap gap-1">
           <span className="">Add App</span>

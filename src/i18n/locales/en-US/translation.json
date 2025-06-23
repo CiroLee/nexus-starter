@@ -9,6 +9,8 @@
     "print": "Print",
     "update": "Update",
     "reset": "Reset",
+    "delete": "Delete",
+    "cancel": "Cancel",
     "expense": "Expense",
     "revenue": "Revenue",
     "active": "Active",
@@ -33,7 +35,8 @@
     "logout": "Logout",
     "rememberPsd": "Remember Password",
     "forgetPsd": "Forget Password",
-    "noData": "No Data"
+    "noData": "No Data",
+    "action": "Action"
   },
   "banner": {
     "loginTitle": "Login to Nexus-Starter"
@@ -77,7 +80,8 @@
     },
     "management": {
       "title": "Management",
-      "appManagement": "App Management"
+      "appManagement": "Apps",
+      "staffManagement": "Staffs"
     },
     "error": {
       "title": "Error",
@@ -136,7 +140,11 @@
       "contact": "Contact",
       "country": "Country",
       "position": "Position",
-      "join": "Join"
+      "join": "Join",
+      "startTime": "Start Time",
+      "serviceTime": "Service Time",
+      "salary": "Salary",
+      "employeeStatus": "Status"
     },
     "security": {
       "title": "Security",

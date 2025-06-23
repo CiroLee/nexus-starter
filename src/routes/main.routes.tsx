@@ -29,7 +29,7 @@ const mainRoutes: CustomRoute = {
         {
           id: 'analysis',
           path: '/dashboard/analysis',
-          Component: lazy(() => import('@/pages/analysis')),
+          Component: lazy(() => import('@/pages/dashboard/analysis')),
           meta: {
             name: 'dashboard.analysis',
             visible: true
@@ -38,7 +38,7 @@ const mainRoutes: CustomRoute = {
         {
           id: 'workbench',
           path: '/dashboard/workbench',
-          Component: lazy(() => import('@/pages/workbench')),
+          Component: lazy(() => import('@/pages/dashboard/workbench')),
           meta: {
             name: 'dashboard.workbench',
             visible: true
@@ -55,10 +55,19 @@ const mainRoutes: CustomRoute = {
       children: [
         {
           id: 'app-management',
-          path: '/management/app-management',
-          Component: lazy(() => import('@/pages/app-management')),
+          path: '/management/app',
+          Component: lazy(() => import('@/pages/management/app')),
           meta: {
             name: 'management.appManagement',
+            visible: true
+          }
+        },
+        {
+          id: 'staff-management',
+          path: '/management/staff',
+          Component: lazy(() => import('@/pages/management/staff')),
+          meta: {
+            name: 'management.staffManagement',
             visible: true
           }
         }
@@ -140,7 +149,7 @@ const mainRoutes: CustomRoute = {
         {
           id: 'account-center',
           path: '/account/center',
-          Component: lazy(() => import('@/pages/account-center')),
+          Component: lazy(() => import('@/pages/account/center')),
           meta: {
             name: 'account.center',
             visible: true
@@ -149,7 +158,7 @@ const mainRoutes: CustomRoute = {
         {
           id: 'account-setting',
           path: '/account/setting',
-          Component: lazy(() => import('@/pages/account-setting')),
+          Component: lazy(() => import('@/pages/account/setting')),
           meta: {
             name: 'account.setting',
             visible: true

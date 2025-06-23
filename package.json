@@ -28,7 +28,7 @@
     "reaviz": "^16.0.4",
     "sonner": "^2.0.5",
     "tailwind-merge": "^3.3.0",
-    "tiny-lorem": "^0.1.5",
+    "tiny-lorem": "^0.1.6",
     "usehooks-ts": "^3.1.1",
     "zustand": "^5.0.5"
   },
