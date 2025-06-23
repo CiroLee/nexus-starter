@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { toast } from 'sonner';
 import { DropdownMenu } from 'radix-ui';
-import { IconDots, IconFileSpreadsheet } from '@tabler/icons-react';
+import { IconDots } from '@tabler/icons-react';
 import { IconChevronLeft } from '@tabler/icons-react';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@tanstack/react-query';
@@ -9,20 +9,31 @@ import Heading from '@ui/Heading';
 import Button from '@ui/Button';
 import Tag from '@ui/Tag';
 import Show from '@ui/Show';
+import Select from '@ui/Select';
 import AlertDialog, { AlertDialogCancel } from '@ui/AlertDialog';
 import { Table, TableHeader, TableHeaderCell, TableBody, TableCell, TableRow } from '@ui/Table';
 import Empty from '@/components/business/Empty';
 import MiniUser from '@/components/business/MiniUser';
 import SearchInput from '@/components/business/SearchInput';
-import { usePagination } from '@/hooks';
+import LabelField from '@/components/business/LabelField';
+import { usePagination, useLanguage } from '@/hooks';
 import { getStaffList } from '@/_mock/member';
 import type { StaffItem } from '@/types/member';
+import { languageMap, positionOptions } from '@/utils/constants';
+import { cn } from '@/lib/utils';
 
 export default function StaffPage() {
+  const { t } = useTranslation();
   const [showAlertDialog, setShowAlertDialog] = useState(false);
   const [selectedStaff, setSelectedStaff] = useState<StaffItem>();
   const [query, setQuery] = useState('');
-  const { t } = useTranslation();
+  const [filters, setFilters] = useState({
+    position: 'all',
+    status: 'all'
+  });
+  const lng = useLanguage();
+
+  console.log('language:', lng);
   const { data: response, isPending } = useQuery({ queryKey: ['staff'], queryFn: getStaffList });
   const { currentPage, isFirstPage, isLastPage, totalPage, nextPage, prevPage } = usePagination({ pageSize: 10, total: response?.data.length });
 
@@ -49,83 +60,113 @@ export default function StaffPage() {
     console.log('staff search query:', query);
   };
 
+  const handleReset = () => {
+    setFilters({ status: 'all', position: 'all' });
+    toast.success('Reset success', { position: 'top-center' });
+  };
+
   return (
     <div>
       <Heading as="h3" className="mb-3">
         {t('menus.management.staffManagement')}
       </Heading>
-      <Show when={!isPending} fallback={<Empty className="mt-40" />}>
-        <div className="mb-4 flex items-center justify-end gap-2">
-          <form onSubmit={handleSearch}>
-            <SearchInput value={query} placeholder="search staff..." className="flex-1 md:min-w-60 md:flex-none" onChange={(e) => setQuery(e.target.value)} />
-          </form>
-          <Button className="gap-1">
-            <IconFileSpreadsheet size={20} />
-            Export Excel
-          </Button>
-        </div>
-        <Table className="bg-background max-h-[unset]">
-          <TableHeader>
-            <TableRow>
-              <TableHeaderCell>ID</TableHeaderCell>
-              <TableHeaderCell>{t('account.profile.name')}</TableHeaderCell>
-              <TableHeaderCell>{t('account.profile.position')}</TableHeaderCell>
-              <TableHeaderCell>{t('account.profile.startTime')}</TableHeaderCell>
-              <TableHeaderCell>{t('account.profile.serviceTime')}</TableHeaderCell>
-              <TableHeaderCell>{t('account.profile.salary')}</TableHeaderCell>
-              <TableHeaderCell>{t('account.profile.employeeStatus')}</TableHeaderCell>
-              <TableHeaderCell>{t('common.action')}</TableHeaderCell>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {currentData?.map((item) => (
-              <TableRow key={item.id}>
-                <TableCell className="w-25">S_{item.id}</TableCell>
-                <TableCell className="w-25">
-                  <MiniUser username={item.username} avatarUrl={item.avatarUrl} />
-                </TableCell>
-                <TableCell>{item.position}</TableCell>
-                <TableCell>{item.startDate.toLocaleString('en', { month: 'short', year: 'numeric' })}</TableCell>
-                <TableCell>{formatServiceTime(item.serviceTime)}</TableCell>
-                <TableCell>{Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(item.salary)}</TableCell>
-                <TableCell>
-                  <Tag colors={item.status === 'employed' ? 'secondary' : 'warning'} pill bordered>
-                    {item.status}
-                  </Tag>
-                </TableCell>
-                <TableCell>
-                  <DropdownMenu.Root>
-                    <DropdownMenu.Trigger asChild>
-                      <Button colors="neutral" asIcon size="sm" variant="light">
-                        <IconDots size={20} />
-                      </Button>
-                    </DropdownMenu.Trigger>
-                    <DropdownMenu.Portal>
-                      <DropdownMenu.Content align="start" className="dropdown-menu--content">
-                        <DropdownMenu.Item className="dropdown-menu--item">{t('common.edit')}</DropdownMenu.Item>
-                        <DropdownMenu.Item className="dropdown-menu--item hover:bg-danger/80 dark:text-white" onSelect={() => handleDeleteStaff(item)}>
-                          {t('common.delete')}
-                        </DropdownMenu.Item>
-                      </DropdownMenu.Content>
-                    </DropdownMenu.Portal>
-                  </DropdownMenu.Root>
-                </TableCell>
+      <div className="panel">
+        <Show when={!isPending} fallback={<Empty className="h-60" />}>
+          <div className="mb-4 flex flex-col gap-3 md:flex-row md:justify-between">
+            <div className="flex flex-col gap-3 md:flex-row">
+              <LabelField layout="horizontal" className={cn('md:w-50', { 'md:grid-cols-[1fr_2fr]': lng === languageMap.zh })} label={t('account.profile.employeeStatus')}>
+                <Select
+                  value={filters.status}
+                  onValueChange={(value) => setFilters({ ...filters, status: value })}
+                  className="w-full"
+                  items={[
+                    { id: 'all', label: 'All', value: 'all' },
+                    { id: 'employed', label: 'Employed', value: 'employed' },
+                    { id: 'resigned', label: 'Resigned', value: 'resigned' }
+                  ]}
+                  placeholder={t('account.profile.employeeStatus')}
+                />
+              </LabelField>
+              <LabelField layout="horizontal" className={cn('md:w-65', { 'md:grid-cols-[1fr_5fr]': lng === languageMap.zh })} label={t('account.profile.position')}>
+                <Select
+                  value={filters.position}
+                  onValueChange={(value) => setFilters({ ...filters, position: value })}
+                  placeholder={t('account.profile.position')}
+                  className="w-full"
+                  items={[{ id: 'all', label: 'All', value: 'all' }, ...positionOptions.map((p) => ({ id: p.value, label: p.label, value: p.value }))]}
+                />
+              </LabelField>
+            </div>
+            <div className="flex gap-2">
+              <form className="flex-1 md:min-w-60 md:flex-none" onSubmit={handleSearch}>
+                <SearchInput value={query} placeholder="search staff..." className="" onChange={(e) => setQuery(e.target.value)} />
+              </form>
+              <Button onClick={handleReset}>{t('common.reset')}</Button>
+            </div>
+          </div>
+          <Table className="bg-background max-h-[unset]">
+            <TableHeader>
+              <TableRow>
+                <TableHeaderCell>ID</TableHeaderCell>
+                <TableHeaderCell>{t('account.profile.name')}</TableHeaderCell>
+                <TableHeaderCell>{t('account.profile.position')}</TableHeaderCell>
+                <TableHeaderCell className="min-w-20">{t('account.profile.startTime')}</TableHeaderCell>
+                <TableHeaderCell className="min-w-20">{t('account.profile.serviceTime')}</TableHeaderCell>
+                <TableHeaderCell>{t('account.profile.salary')}</TableHeaderCell>
+                <TableHeaderCell>{t('account.profile.employeeStatus')}</TableHeaderCell>
+                <TableHeaderCell>{t('common.action')}</TableHeaderCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-        <div className="mt-4 flex items-center justify-end gap-2">
-          <Button asIcon size="sm" colors="neutral" variant="bordered" onClick={prevPage} disabled={isFirstPage}>
-            <IconChevronLeft size={20} />
-          </Button>
-          <p className="mx-3 text-sm">
-            {currentPage}/{totalPage}
-          </p>
-          <Button asIcon size="sm" colors="neutral" variant="bordered" onClick={nextPage} disabled={isLastPage}>
-            <IconChevronLeft className="rotate-180" size={20} />
-          </Button>
-        </div>
-      </Show>
+            </TableHeader>
+            <TableBody>
+              {currentData?.map((item) => (
+                <TableRow key={item.id}>
+                  <TableCell className="w-25">S_{item.id}</TableCell>
+                  <TableCell className="w-25">
+                    <MiniUser username={item.username} avatarUrl={item.avatarUrl} />
+                  </TableCell>
+                  <TableCell>{item.position}</TableCell>
+                  <TableCell>{item.startDate.toLocaleString('en', { month: 'short', year: 'numeric' })}</TableCell>
+                  <TableCell>{formatServiceTime(item.serviceTime)}</TableCell>
+                  <TableCell>{Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(item.salary)}</TableCell>
+                  <TableCell>
+                    <Tag colors={item.status === 'employed' ? 'secondary' : 'warning'} pill bordered>
+                      {item.status}
+                    </Tag>
+                  </TableCell>
+                  <TableCell>
+                    <DropdownMenu.Root>
+                      <DropdownMenu.Trigger asChild>
+                        <Button colors="neutral" asIcon size="sm" variant="light">
+                          <IconDots size={20} />
+                        </Button>
+                      </DropdownMenu.Trigger>
+                      <DropdownMenu.Portal>
+                        <DropdownMenu.Content align="start" className="dropdown-menu--content">
+                          <DropdownMenu.Item className="dropdown-menu--item">{t('common.edit')}</DropdownMenu.Item>
+                          <DropdownMenu.Item className="dropdown-menu--item hover:bg-danger/80 dark:text-white" onSelect={() => handleDeleteStaff(item)}>
+                            {t('common.delete')}
+                          </DropdownMenu.Item>
+                        </DropdownMenu.Content>
+                      </DropdownMenu.Portal>
+                    </DropdownMenu.Root>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+          <div className="mt-4 flex items-center justify-end gap-2">
+            <Button asIcon size="sm" colors="neutral" variant="bordered" onClick={prevPage} disabled={isFirstPage}>
+              <IconChevronLeft size={20} />
+            </Button>
+            <p className="mx-3 text-sm">
+              {currentPage}/{totalPage}
+            </p>
+            <Button asIcon size="sm" colors="neutral" variant="bordered" onClick={nextPage} disabled={isLastPage}>
+              <IconChevronLeft className="rotate-180" size={20} />
+            </Button>
+          </div>
+        </Show>
+      </div>
       <AlertDialog
         open={showAlertDialog}
         onOpenChange={setShowAlertDialog}

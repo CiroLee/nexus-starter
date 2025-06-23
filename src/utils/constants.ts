@@ -12,6 +12,11 @@ export const projectStatus = {
   archived: 'archived' // 已归档
 };
 
+export const languageMap = {
+  en: 'en-US',
+  zh: 'zh-CN'
+};
+
 export const projectStatusColors = {
   created: '#93C5FD',
   planning: '#C4B5FD',
@@ -25,3 +30,34 @@ export const projectStatusColors = {
   paused: '#FCA5A5',
   archived: '#6B7280'
 };
+
+export const positionOptions = [
+  {
+    label: 'UI Designer',
+    value: 'ui-designer'
+  },
+  {
+    label: 'Frontend Developer',
+    value: 'frontend-developer'
+  },
+  {
+    label: 'Backend Developer',
+    value: 'backend-developer'
+  },
+  {
+    label: 'Fullstack Developer',
+    value: 'fullstack-developer'
+  },
+  {
+    label: 'Product Manager',
+    value: 'product-manager'
+  },
+  {
+    label: 'Accounting',
+    value: 'accounting'
+  },
+  {
+    label: 'Marketing Manager',
+    value: 'marketing-manager'
+  }
+];
