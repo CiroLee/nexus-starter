@@ -2,7 +2,7 @@ import { lorem } from './base';
 import { delay } from '@/utils/utils';
 import type { Team } from '@/types/user';
 import type { Response } from '@/types/response';
-import { StaffItem } from '@/types/member';
+import { StaffItem } from '@/types/user';
 import { positionOptions } from '@/utils/constants';
 
 interface MembersRes {
@@ -43,16 +43,23 @@ export function getMembersById(id: string): Promise<Response<MembersRes>> {
 
 export function getStaffList() {
   const positions = positionOptions.map((p) => p.label);
-  const data: StaffItem[] = lorem.array<StaffItem>(100, () => ({
-    id: lorem.texts.string({ range: 8, source: '1234567890' }),
-    username: lorem.texts.name('en', true),
-    avatarUrl: lorem.image.picsum({ random: true, width: 100 }),
-    startDate: lorem.date.dateTime<Date>({ from: '2020/1/1', to: '2025/12/31', format: false }),
-    serviceTime: lorem.number.int([1, 60]),
-    salary: lorem.number.int([200, 5000]),
-    position: lorem.helper.elements<string>(positions),
-    status: lorem.helper.elements<StaffItem['status']>(['employed', 'resigned'])
-  }));
+  const data: StaffItem[] = lorem.array<StaffItem>(100, () => {
+    const username = lorem.texts.name('en');
+    return {
+      id: lorem.texts.string({ range: 8, source: '1234567890' }),
+      username,
+      avatarUrl: lorem.image.picsum({ random: true, width: 100 }),
+      startDate: lorem.date.dateTime<Date>({ from: '2020/1/1', to: '2025/12/31', format: false }),
+      serviceTime: lorem.number.int([1, 60]),
+      salary: lorem.number.int([200, 5000]),
+      position: lorem.helper.elements<string>(positions),
+      positionLevel: lorem.number.int([1, 12]),
+      sex: lorem.helper.elements<StaffItem['sex']>(['male', 'female']),
+      contact: lorem.helper.elements<StaffItem['contact']>(['full-time', 'part-time', 'internship']),
+      corpEmail: username + '@nexus-starter.com',
+      status: lorem.helper.elements<StaffItem['status']>(['employed', 'resigned'])
+    };
+  });
 
   return delay(500, () => ({ code: 200, data }));
 }

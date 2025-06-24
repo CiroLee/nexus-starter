@@ -33,31 +33,31 @@ export const projectStatusColors = {
 
 export const positionOptions = [
   {
-    label: 'UI Designer',
+    label: 'uiDesigner',
     value: 'ui-designer'
   },
   {
-    label: 'Frontend Developer',
+    label: 'frontendDeveloper',
     value: 'frontend-developer'
   },
   {
-    label: 'Backend Developer',
+    label: 'backendDeveloper',
     value: 'backend-developer'
   },
   {
-    label: 'Fullstack Developer',
-    value: 'fullstack-developer'
+    label: 'aiEngineer',
+    value: 'ai-engineer'
   },
   {
-    label: 'Product Manager',
+    label: 'productManager',
     value: 'product-manager'
   },
   {
-    label: 'Accounting',
+    label: 'accounting',
     value: 'accounting'
   },
   {
-    label: 'Marketing Manager',
-    value: 'marketing-manager'
+    label: 'hr',
+    value: 'hr'
   }
 ];

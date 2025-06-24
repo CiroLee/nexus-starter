@@ -25,3 +25,18 @@ export interface Team {
     avatarUrl?: string;
   }[];
 }
+
+export interface StaffItem {
+  id: string;
+  username: string;
+  avatarUrl?: string;
+  position: string;
+  startDate: Date;
+  serviceTime: number; // month
+  salary: number;
+  status: 'employed' | 'resigned';
+  sex?: 'male' | 'female';
+  contact?: 'full-time' | 'part-time' | 'internship';
+  positionLevel?: number;
+  corpEmail?: string;
+}

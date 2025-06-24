@@ -37,7 +37,8 @@
     "rememberPsd": "Remember Password",
     "forgetPsd": "Forget Password",
     "noData": "No Data",
-    "action": "Action"
+    "action": "Action",
+    "all": "All"
   },
   "banner": {
     "loginTitle": "Login to Nexus-Starter"
@@ -122,6 +123,10 @@
       "customerRegion": "Customer Region"
     }
   },
+  "status": {
+    "employed": "Employed",
+    "resigned": "Resigned"
+  },
   "auth": {
     "role": {
       "superAdmin": "Super Admin",
@@ -145,7 +150,10 @@
       "startTime": "Start Time",
       "serviceTime": "Service Time",
       "salary": "Salary",
-      "employeeStatus": "Status"
+      "employeeStatus": "Status",
+      "sex": "Sex",
+      "contract": "Contract",
+      "positionLevel": "Position Level"
     },
     "security": {
       "title": "Security",
@@ -164,5 +172,14 @@
     "usage": {
       "title": "Usage"
     }
+  },
+  "position": {
+    "uiDesigner": "UI Designer",
+    "frontendDeveloper": "Frontend Developer",
+    "backendDeveloper": "Backend Developer",
+    "aiEngineer": "AI Engineer",
+    "productManager": "Product Manager",
+    "accounting": "Accounting",
+    "hr": "HR"
   }
 }

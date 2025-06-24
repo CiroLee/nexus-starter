@@ -37,7 +37,8 @@
     "rememberPsd": "记住密码",
     "forgetPsd": "忘记密码",
     "noData": "暂无数据",
-    "action": "操作"
+    "action": "操作",
+    "all": "全部"
   },
   "banner": {
     "loginTitle": "登录Nexus-Starter"
@@ -129,6 +130,10 @@
       "user": "普通用户"
     }
   },
+  "status": {
+    "employed": "在职",
+    "resigned": "离职"
+  },
   "account": {
     "myProject": "我的项目",
     "basicSetting": "基本信息",
@@ -145,7 +150,10 @@
       "startTime": "入职时间",
       "serviceTime": "工作年限",
       "salary": "薪资",
-      "employeeStatus": "在职状态"
+      "employeeStatus": "在职状态",
+      "sex": "性别",
+      "contract": "合同类型",
+      "positionLevel": "职级"
     },
     "security": {
       "title": "安全",
@@ -164,5 +172,14 @@
     "usage": {
       "title": "资源用量"
     }
+  },
+  "position": {
+    "uiDesigner": "UI设计师",
+    "frontendDeveloper": "前端开发",
+    "backendDeveloper": "后端开发",
+    "aiEngineer": "AI工程师",
+    "productManager": "产品经理",
+    "accounting": "会计",
+    "hr": "人力资源"
   }
 }

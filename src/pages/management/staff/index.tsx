@@ -16,9 +16,10 @@ import Empty from '@/components/business/Empty';
 import MiniUser from '@/components/business/MiniUser';
 import SearchInput from '@/components/business/SearchInput';
 import LabelField from '@/components/business/LabelField';
+import DynamicTrans from '@/components/business/DynamicTrans';
 import { usePagination, useLanguage } from '@/hooks';
 import { getStaffList } from '@/_mock/member';
-import type { StaffItem } from '@/types/member';
+import type { StaffItem } from '@/types/user';
 import { languageMap, positionOptions } from '@/utils/constants';
 import { cn } from '@/lib/utils';
 
@@ -33,7 +34,6 @@ export default function StaffPage() {
   });
   const lng = useLanguage();
 
-  console.log('language:', lng);
   const { data: response, isPending } = useQuery({ queryKey: ['staff'], queryFn: getStaffList });
   const { currentPage, isFirstPage, isLastPage, totalPage, nextPage, prevPage } = usePagination({ pageSize: 10, total: response?.data.length });
 
@@ -74,26 +74,29 @@ export default function StaffPage() {
         <Show when={!isPending} fallback={<Empty className="h-60" />}>
           <div className="mb-4 flex flex-col gap-3 md:flex-row md:justify-between">
             <div className="flex flex-col gap-3 md:flex-row">
-              <LabelField layout="horizontal" className={cn('md:w-50', { 'md:grid-cols-[1fr_2fr]': lng === languageMap.zh })} label={t('account.profile.employeeStatus')}>
+              <LabelField layout="horizontal" className={cn('grid-cols-[1fr_4fr] md:w-50', { 'md:grid-cols-[1fr_2fr]': lng === languageMap.zh })} label={t('account.profile.employeeStatus')}>
                 <Select
                   value={filters.status}
                   onValueChange={(value) => setFilters({ ...filters, status: value })}
                   className="w-full"
                   items={[
-                    { id: 'all', label: 'All', value: 'all' },
-                    { id: 'employed', label: 'Employed', value: 'employed' },
-                    { id: 'resigned', label: 'Resigned', value: 'resigned' }
+                    { id: 'all', label: t('common.all'), value: 'all' },
+                    { id: 'employed', label: t('status.employed'), value: 'employed' },
+                    { id: 'resigned', label: t('status.resigned'), value: 'resigned' }
                   ]}
                   placeholder={t('account.profile.employeeStatus')}
                 />
               </LabelField>
-              <LabelField layout="horizontal" className={cn('md:w-65', { 'md:grid-cols-[1fr_5fr]': lng === languageMap.zh })} label={t('account.profile.position')}>
+              <LabelField layout="horizontal" className={cn('grid-cols-[1fr_4fr] md:w-65', { 'md:grid-cols-[1fr_5fr]': lng === languageMap.zh })} label={t('account.profile.position')}>
                 <Select
                   value={filters.position}
                   onValueChange={(value) => setFilters({ ...filters, position: value })}
                   placeholder={t('account.profile.position')}
                   className="w-full"
-                  items={[{ id: 'all', label: 'All', value: 'all' }, ...positionOptions.map((p) => ({ id: p.value, label: p.label, value: p.value }))]}
+                  items={[
+                    { id: 'all', label: t('common.all'), value: 'all' },
+                    ...positionOptions.map((p) => ({ id: p.value, label: <DynamicTrans>{`position.${p.label}`}</DynamicTrans>, value: p.value }))
+                  ]}
                 />
               </LabelField>
             </div>
@@ -110,9 +113,10 @@ export default function StaffPage() {
                 <TableHeaderCell>ID</TableHeaderCell>
                 <TableHeaderCell>{t('account.profile.name')}</TableHeaderCell>
                 <TableHeaderCell>{t('account.profile.position')}</TableHeaderCell>
+                <TableHeaderCell>{t('account.profile.positionLevel')}</TableHeaderCell>
                 <TableHeaderCell className="min-w-20">{t('account.profile.startTime')}</TableHeaderCell>
                 <TableHeaderCell className="min-w-20">{t('account.profile.serviceTime')}</TableHeaderCell>
-                <TableHeaderCell>{t('account.profile.salary')}</TableHeaderCell>
+                <TableHeaderCell>{t('account.profile.email')}</TableHeaderCell>
                 <TableHeaderCell>{t('account.profile.employeeStatus')}</TableHeaderCell>
                 <TableHeaderCell>{t('common.action')}</TableHeaderCell>
               </TableRow>
@@ -120,17 +124,20 @@ export default function StaffPage() {
             <TableBody>
               {currentData?.map((item) => (
                 <TableRow key={item.id}>
-                  <TableCell className="w-25">S_{item.id}</TableCell>
+                  <TableCell className="w-25">id_{item.id}</TableCell>
                   <TableCell className="w-25">
-                    <MiniUser username={item.username} avatarUrl={item.avatarUrl} />
+                    <MiniUser username={item.username} avatarUrl={item.avatarUrl} className="capitalize" />
                   </TableCell>
-                  <TableCell>{item.position}</TableCell>
+                  <TableCell>
+                    <DynamicTrans>{`position.${item.position}`}</DynamicTrans>
+                  </TableCell>
+                  <TableCell>TP{item.positionLevel}</TableCell>
                   <TableCell>{item.startDate.toLocaleString('en', { month: 'short', year: 'numeric' })}</TableCell>
                   <TableCell>{formatServiceTime(item.serviceTime)}</TableCell>
-                  <TableCell>{Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(item.salary)}</TableCell>
+                  <TableCell className="text-primary">{item.corpEmail}</TableCell>
                   <TableCell>
                     <Tag colors={item.status === 'employed' ? 'secondary' : 'warning'} pill bordered>
-                      {item.status}
+                      <DynamicTrans>{`status.${item.status}`}</DynamicTrans>
                     </Tag>
                   </TableCell>
                   <TableCell>
