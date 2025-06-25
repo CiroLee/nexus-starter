@@ -15,6 +15,7 @@ export const useUserStore = create<UserStore>((set) => ({
       { name: 'photoshop', key: 'c0a22ae5-be2b-47ff-bf55-8aba91829a9e' }
     ],
     username: 'Will Smith',
+    nickname: 'LittlePooh',
     avatarUrl: 'https://dub.sh/C8TrSJF',
     role: 'admin',
     contact: '13777887788',

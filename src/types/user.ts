@@ -6,6 +6,7 @@ export interface User {
   email: string;
   country: string;
   username: string;
+  nickname?: string;
   avatarUrl: string;
   positionPath: string[];
   role: UserRole;
@@ -13,7 +14,7 @@ export interface User {
   joinAt: string;
 }
 
-type UserRole = 'admin' | 'user';
+type UserRole = 'admin' | 'user' | 'super-admin';
 
 export interface Team {
   id: string;
@@ -36,7 +37,8 @@ export interface StaffItem {
   salary: number;
   status: 'employed' | 'resigned';
   sex?: 'male' | 'female';
-  contact?: 'full-time' | 'part-time' | 'internship';
+  contract?: 'full-time' | 'part-time' | 'internship';
   positionLevel?: number;
+  role?: UserRole;
   corpEmail?: string;
 }

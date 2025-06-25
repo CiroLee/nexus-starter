@@ -14,7 +14,7 @@ import { mailRegex } from '@/utils/regexp';
 interface AccountForm {
   avatarFile: File | null;
   email: string;
-  username: string;
+  nickname: string;
   contact: string;
   bio?: string;
 }
@@ -34,7 +34,7 @@ export default function BaseSetting() {
     defaultValues: {
       avatarFile: null,
       email: userInfo.email,
-      username: userInfo.username,
+      nickname: userInfo.nickname,
       contact: userInfo.contact,
       bio: userInfo.bio
     }
@@ -72,23 +72,23 @@ export default function BaseSetting() {
           <IconCamera size={16} />
         </div>
       </div>
-      <FormField id="email" name="Email" required showError={errors.email} errorMsg="Please inout a valid email">
+      <FormField id="email" name={t('account.profile.email')} required showError={errors.email} errorMsg="Please inout a valid email">
         <Input state={errors.email && 'error'} id="email" {...register('email', { required: true, pattern: mailRegex })} />
       </FormField>
-      <FormField id="username" name="Username" required showError={errors.username} errorMsg="Please inout a valid username">
-        <Input state={errors.username && 'error'} id="username" {...register('username', { required: true, maxLength: 20 })} />
+      <FormField id="nickname" name={t('account.profile.nickname')} required showError={errors.nickname} errorMsg="Please inout a valid nickname">
+        <Input state={errors.nickname && 'error'} id="nickname" {...register('nickname', { required: true, maxLength: 20 })} />
       </FormField>
-      <FormField id="contact" name="Contact" required showError={errors.contact} errorMsg="Please inout a valid contact">
+      <FormField id="contact" name={t('account.profile.contact')} required showError={errors.contact} errorMsg="Please inout a valid contact">
         <Input state={errors.contact && 'error'} id="contact" {...register('contact', { required: true })} />
       </FormField>
-      <FormField id="bio" name="Bio">
+      <FormField id="bio" name={t('account.profile.bio')}>
         <Textarea resize="vertical" id="bio" rootClassName="w-full sm:w-120" {...register('bio', { maxLength: 200 })} />
       </FormField>
-      <div className="mt-4 flex items-center justify-end gap-2">
+      <div className="mt-4 flex items-center gap-2">
+        <Button type="submit">{t('common.update')}</Button>
         <Button type="button" colors="neutral" onClick={handleReset}>
           {t('common.reset')}
         </Button>
-        <Button type="submit">{t('common.update')}</Button>
       </div>
     </form>
   );

@@ -42,7 +42,7 @@ export function getMembersById(id: string): Promise<Response<MembersRes>> {
 }
 
 export function getStaffList() {
-  const positions = positionOptions.map((p) => p.label);
+  const positions = positionOptions.map((p) => p.value);
   const data: StaffItem[] = lorem.array<StaffItem>(100, () => {
     const username = lorem.texts.name('en');
     return {
@@ -54,8 +54,9 @@ export function getStaffList() {
       salary: lorem.number.int([200, 5000]),
       position: lorem.helper.elements<string>(positions),
       positionLevel: lorem.number.int([1, 12]),
+      role: 'user',
       sex: lorem.helper.elements<StaffItem['sex']>(['male', 'female']),
-      contact: lorem.helper.elements<StaffItem['contact']>(['full-time', 'part-time', 'internship']),
+      contract: lorem.helper.elements<StaffItem['contract']>(['full-time', 'part-time', 'internship']),
       corpEmail: username + '@nexus-starter.com',
       status: lorem.helper.elements<StaffItem['status']>(['employed', 'resigned'])
     };

@@ -16,10 +16,10 @@ const labelField = cva('flex relative', {
   }
 });
 
-const label = cva('flex items-center', {
+const label = cva('flex items-center text-sm', {
   variants: {
     layout: {
-      vertical: 'mb-1 gap-1',
+      vertical: 'mb-1.5 gap-1',
       horizontal: 'mr-3 justify-end pt-2'
     }
   },
@@ -53,7 +53,7 @@ export default function FormField({ className, labelClassName, hiddenLabel, erro
       </Show>
       <div className="flex-1" data-slot="form-filed-content">
         <div className="w-full">{children}</div>
-        <p className={cn('text-danger invisible h-4 text-sm', { visible: showError })}>{errorMsg}</p>
+        <p className={cn('text-danger invisible h-5 text-sm', { 'h-4': hiddenLabel, visible: showError })}>{errorMsg}</p>
       </div>
     </div>
   );

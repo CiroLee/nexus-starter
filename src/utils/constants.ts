@@ -61,3 +61,9 @@ export const positionOptions = [
     value: 'hr'
   }
 ];
+
+export const roleOptions = [
+  { label: 'user', value: 'user' },
+  { label: 'admin', value: 'admin' },
+  { label: 'superAdmin', value: 'super-admin' }
+];

@@ -23,12 +23,6 @@
     "allProject": "全部项目",
     "viewMore": "查看更多",
     "quickAccess": "快捷入口",
-    "file": "文件",
-    "logs": "日志",
-    "mail": "邮件",
-    "calendar": "日历",
-    "report": "报告",
-    "task": "任务",
     "bulletin": "公告",
     "helpDoc": "帮助文档",
     "updateFeeds": "动态",
@@ -38,7 +32,12 @@
     "forgetPsd": "忘记密码",
     "noData": "暂无数据",
     "action": "操作",
-    "all": "全部"
+    "all": "全部",
+    "fullTime": "全职",
+    "partTime": "兼职",
+    "internship": "实习生",
+    "male": "男",
+    "female": "女"
   },
   "banner": {
     "loginTitle": "登录Nexus-Starter"
@@ -125,6 +124,7 @@
   },
   "auth": {
     "role": {
+      "title": "角色",
       "superAdmin": "超级管理员",
       "admin": "管理员",
       "user": "普通用户"
@@ -142,7 +142,10 @@
     "profile": {
       "title": "用户档案",
       "name": "姓名",
+      "nickname": "昵称",
       "email": "邮箱",
+      "corpEmail": "企业邮箱",
+      "bio": "简介",
       "contact": "联系电话",
       "country": "国家",
       "position": "职位",
@@ -158,7 +161,10 @@
     "security": {
       "title": "安全",
       "token": "令牌",
-      "appKeys": "应用秘钥"
+      "appKeys": "应用秘钥",
+      "accountPsd": "账户密码",
+      "securePhone": "密保手机",
+      "secureMail": "安全邮箱"
     },
     "notification": {
       "title": "通知",

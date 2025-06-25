@@ -13,6 +13,10 @@ export default function Profile() {
           <DataListValue>{userInfo.username}</DataListValue>
         </DataListItem>
         <DataListItem>
+          <DataListLabel>{t('account.profile.nickname')}</DataListLabel>
+          <DataListValue>{userInfo.nickname}</DataListValue>
+        </DataListItem>
+        <DataListItem>
           <DataListLabel>{t('account.profile.email')}</DataListLabel>
           <DataListValue className="text-primary">{userInfo.email}</DataListValue>
         </DataListItem>
@@ -29,9 +33,7 @@ export default function Profile() {
           <DataListValue>
             <Breadcrumb>
               {userInfo.positionPath.map((p, i) => (
-                <BreadcrumbItem href="#" key={i} asCurrent={i === userInfo.positionPath.length - 1}>
-                  {p}
-                </BreadcrumbItem>
+                <BreadcrumbItem key={i}>{p}</BreadcrumbItem>
               ))}
             </Breadcrumb>
           </DataListValue>

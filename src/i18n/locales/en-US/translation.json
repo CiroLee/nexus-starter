@@ -23,12 +23,6 @@
     "allProject": "All Projects",
     "viewMore": "More",
     "quickAccess": "Quick Access",
-    "file": "File",
-    "logs": "Logs",
-    "mail": "Mail",
-    "calendar": "Calendar",
-    "report": "Report",
-    "task": "Task",
     "bulletin": "Bulletin",
     "helpDoc": "Help Documents",
     "updateFeeds": "Update Feeds",
@@ -38,7 +32,12 @@
     "forgetPsd": "Forget Password",
     "noData": "No Data",
     "action": "Action",
-    "all": "All"
+    "all": "All",
+    "fullTime": "Fulltime",
+    "partTime": "PartTime",
+    "internship": "Internship",
+    "male": "Male",
+    "female": "Female"
   },
   "banner": {
     "loginTitle": "Login to Nexus-Starter"
@@ -129,6 +128,7 @@
   },
   "auth": {
     "role": {
+      "title": "Role",
       "superAdmin": "Super Admin",
       "admin": "Admin",
       "user": "User"
@@ -142,7 +142,10 @@
     "profile": {
       "title": "Profile",
       "name": "Name",
+      "nickname": "Nickname",
       "email": "Email",
+      "corpEmail": "Corp Email",
+      "bio": "Bio",
       "contact": "Contact",
       "country": "Country",
       "position": "Position",
@@ -158,7 +161,10 @@
     "security": {
       "title": "Security",
       "token": "Token",
-      "appKeys": "App Keys"
+      "appKeys": "App Keys",
+      "accountPsd": "Account Password",
+      "securePhone": "Secure Phone",
+      "secureMail": "Secure Mail"
     },
     "notification": {
       "title": "Notification",

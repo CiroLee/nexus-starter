@@ -70,6 +70,14 @@ const mainRoutes: CustomRoute = {
             name: 'management.staffManagement',
             visible: true
           }
+        },
+        {
+          id: 'edit-staff',
+          path: '/management/staff-edit/:userId',
+          Component: lazy(() => import('@/pages/management/edit-staff')),
+          meta: {
+            visible: false
+          }
         }
       ]
     },
