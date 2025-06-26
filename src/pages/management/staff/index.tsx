@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 import { DropdownMenu } from 'radix-ui';
-import { IconDots } from '@tabler/icons-react';
+import { IconDots, IconPlus } from '@tabler/icons-react';
 import { IconChevronLeft } from '@tabler/icons-react';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@tanstack/react-query';
@@ -78,6 +78,10 @@ export default function StaffPage() {
     navigate('/management/staff-edit/' + item.id);
   };
 
+  const handleCreate = () => {
+    navigate('/management/staff-create');
+  };
+
   return (
     <div>
       <Heading as="h3" className="mb-3">
@@ -117,7 +121,13 @@ export default function StaffPage() {
               <form className="flex-1 md:min-w-60 md:flex-none" onSubmit={handleSearch}>
                 <SearchInput value={query} placeholder="search staff..." className="" onChange={(e) => setQuery(e.target.value)} />
               </form>
-              <Button onClick={handleReset}>{t('common.reset')}</Button>
+              <Button colors="neutral" onClick={handleReset}>
+                {t('common.reset')}
+              </Button>
+              <Button className="gap-1" onClick={handleCreate}>
+                {t('account.addStaff')}
+                <IconPlus size={18} />
+              </Button>
             </div>
           </div>
           <Table className="bg-background max-h-[unset]">
@@ -127,7 +137,7 @@ export default function StaffPage() {
                 <TableHeaderCell>{t('account.profile.name')}</TableHeaderCell>
                 <TableHeaderCell>{t('account.profile.position')}</TableHeaderCell>
                 <TableHeaderCell>{t('account.profile.positionLevel')}</TableHeaderCell>
-                <TableHeaderCell className="min-w-20">{t('account.profile.startTime')}</TableHeaderCell>
+                <TableHeaderCell className="min-w-20">{t('account.profile.startDate')}</TableHeaderCell>
                 <TableHeaderCell className="min-w-20">{t('account.profile.serviceTime')}</TableHeaderCell>
                 <TableHeaderCell>{t('account.profile.email')}</TableHeaderCell>
                 <TableHeaderCell>{t('account.profile.employeeStatus')}</TableHeaderCell>

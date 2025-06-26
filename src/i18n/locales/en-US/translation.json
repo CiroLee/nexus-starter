@@ -5,6 +5,7 @@
     "systemTheme": "System",
     "backHome": "Back Home",
     "edit": "Edit",
+    "create": "Create",
     "config": "Config",
     "print": "Print",
     "update": "Update",
@@ -37,7 +38,8 @@
     "partTime": "PartTime",
     "internship": "Internship",
     "male": "Male",
-    "female": "Female"
+    "female": "Female",
+    "submit": "Submit"
   },
   "banner": {
     "loginTitle": "Login to Nexus-Starter"
@@ -134,11 +136,15 @@
       "user": "User"
     }
   },
+  "apps": {
+    "addApp": "Add App"
+  },
   "account": {
     "myProject": "My Project",
     "basicSetting": "Basic Information",
     "securitySetting": "Security Setting",
     "notificationSetting": "Notification Setting",
+    "addStaff": "Add Staff",
     "profile": {
       "title": "Profile",
       "name": "Name",
@@ -150,7 +156,7 @@
       "country": "Country",
       "position": "Position",
       "join": "Join",
-      "startTime": "Start Time",
+      "startDate": "Start Time",
       "serviceTime": "Service Time",
       "salary": "Salary",
       "employeeStatus": "Status",

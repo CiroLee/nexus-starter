@@ -40,9 +40,9 @@ export default function EditStaffPage() {
     <div>
       <Breadcrumb className="mb-4">
         <BreadcrumbItem asChild>
-          <Link to="/management/staff">Staff</Link>
+          <Link to="/management/staff">{t('menus.management.staffManagement')}</Link>
         </BreadcrumbItem>
-        <BreadcrumbItem>Edit</BreadcrumbItem>
+        <BreadcrumbItem>{t('common.edit')}</BreadcrumbItem>
       </Breadcrumb>
       <div className="panel">
         <form className="mx-auto w-full md:max-w-120" onSubmit={handleSubmit(handleSave)}>
@@ -79,7 +79,7 @@ export default function EditStaffPage() {
                   id="positionLevel"
                   className="w-full md:w-50"
                   min={1}
-                  max={20}
+                  max={12}
                   onChange={(e) => onChange(Number(e.target.value))}
                   onStepperAction={(_, value) => onChange(value)}
                   state={errors.positionLevel && 'error'}

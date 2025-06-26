@@ -30,8 +30,8 @@ export default function AppManagementPage() {
                 <SearchInput placeholder="search apps..." value={query} onChange={(e) => setQuery(e.target.value)} />
               </form>
               <Button className="flex-nowrap gap-1">
-                <span className="">Add App</span>
-                <IconPlus size={16} />
+                <span className="">{t('apps.addApp')}</span>
+                <IconPlus size={18} />
               </Button>
             </div>
             <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">

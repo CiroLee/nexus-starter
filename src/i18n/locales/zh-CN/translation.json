@@ -5,6 +5,7 @@
     "systemTheme": "跟随系统",
     "backHome": "回到首页",
     "edit": "编辑",
+    "create": "新建",
     "config": "配置",
     "print": "打印",
     "update": "更新",
@@ -37,7 +38,8 @@
     "partTime": "兼职",
     "internship": "实习生",
     "male": "男",
-    "female": "女"
+    "female": "女",
+    "submit": "提交"
   },
   "banner": {
     "loginTitle": "登录Nexus-Starter"
@@ -134,11 +136,15 @@
     "employed": "在职",
     "resigned": "离职"
   },
+  "apps": {
+    "addApp": "添加应用"
+  },
   "account": {
     "myProject": "我的项目",
     "basicSetting": "基本信息",
     "securitySetting": "安全设置",
     "notificationSetting": "消息通知",
+    "addStaff": "新增员工",
     "profile": {
       "title": "用户档案",
       "name": "姓名",
@@ -150,7 +156,7 @@
       "country": "国家",
       "position": "职位",
       "join": "加入时间",
-      "startTime": "入职时间",
+      "startDate": "入职时间",
       "serviceTime": "工作年限",
       "salary": "薪资",
       "employeeStatus": "在职状态",
