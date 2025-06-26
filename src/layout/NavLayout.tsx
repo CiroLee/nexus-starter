@@ -3,7 +3,6 @@ import { Suspense, useMemo } from 'react';
 import { useLayoutStore } from '@/store/layout';
 import Header from './Header';
 import SideBar from './SideBar';
-import Loading from '@ui/Loading';
 import { cn } from '@/lib/utils';
 import { useMobile } from '@/hooks';
 import mainRoutes from '@/routes/main.routes';
@@ -24,7 +23,7 @@ export default function NavLayout() {
       <main className={cn('relative min-h-screen pl-0 transition-[padding]', { 'pl-(--sidebar-width)': !isMobile && isSideBarOpen })}>
         <div className="h-16"></div>
         <section className="relative min-h-[calc(100vh_-_var(--header-height))] bg-zinc-100 p-4 dark:bg-zinc-900/60">
-          <Suspense fallback={<Loading open isFullscreen />}>{<Outlet />}</Suspense>
+          <Suspense>{<Outlet />}</Suspense>
         </section>
       </main>
     </div>

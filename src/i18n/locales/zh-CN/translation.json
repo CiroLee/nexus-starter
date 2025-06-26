@@ -5,6 +5,7 @@
     "systemTheme": "跟随系统",
     "backHome": "回到首页",
     "edit": "编辑",
+    "create": "新建",
     "config": "配置",
     "print": "打印",
     "update": "更新",
@@ -23,12 +24,6 @@
     "allProject": "全部项目",
     "viewMore": "查看更多",
     "quickAccess": "快捷入口",
-    "file": "文件",
-    "logs": "日志",
-    "mail": "邮件",
-    "calendar": "日历",
-    "report": "报告",
-    "task": "任务",
     "bulletin": "公告",
     "helpDoc": "帮助文档",
     "updateFeeds": "动态",
@@ -37,7 +32,14 @@
     "rememberPsd": "记住密码",
     "forgetPsd": "忘记密码",
     "noData": "暂无数据",
-    "action": "操作"
+    "action": "操作",
+    "all": "全部",
+    "fullTime": "全职",
+    "partTime": "兼职",
+    "internship": "实习生",
+    "male": "男",
+    "female": "女",
+    "submit": "提交"
   },
   "banner": {
     "loginTitle": "登录Nexus-Starter"
@@ -124,33 +126,51 @@
   },
   "auth": {
     "role": {
+      "title": "角色",
       "superAdmin": "超级管理员",
       "admin": "管理员",
       "user": "普通用户"
     }
+  },
+  "status": {
+    "employed": "在职",
+    "resigned": "离职"
+  },
+  "apps": {
+    "addApp": "添加应用"
   },
   "account": {
     "myProject": "我的项目",
     "basicSetting": "基本信息",
     "securitySetting": "安全设置",
     "notificationSetting": "消息通知",
+    "addStaff": "新增员工",
     "profile": {
       "title": "用户档案",
       "name": "姓名",
+      "nickname": "昵称",
       "email": "邮箱",
+      "corpEmail": "企业邮箱",
+      "bio": "简介",
       "contact": "联系电话",
       "country": "国家",
       "position": "职位",
       "join": "加入时间",
-      "startTime": "入职时间",
+      "startDate": "入职时间",
       "serviceTime": "工作年限",
       "salary": "薪资",
-      "employeeStatus": "在职状态"
+      "employeeStatus": "在职状态",
+      "sex": "性别",
+      "contract": "合同类型",
+      "positionLevel": "职级"
     },
     "security": {
       "title": "安全",
       "token": "令牌",
-      "appKeys": "应用秘钥"
+      "appKeys": "应用秘钥",
+      "accountPsd": "账户密码",
+      "securePhone": "密保手机",
+      "secureMail": "安全邮箱"
     },
     "notification": {
       "title": "通知",
@@ -164,5 +184,14 @@
     "usage": {
       "title": "资源用量"
     }
+  },
+  "position": {
+    "uiDesigner": "UI设计师",
+    "frontendDeveloper": "前端开发",
+    "backendDeveloper": "后端开发",
+    "aiEngineer": "AI工程师",
+    "productManager": "产品经理",
+    "accounting": "会计",
+    "hr": "人力资源"
   }
 }

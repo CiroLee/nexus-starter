@@ -1,7 +1,8 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 import { DropdownMenu } from 'radix-ui';
-import { IconDots } from '@tabler/icons-react';
+import { IconDots, IconPlus } from '@tabler/icons-react';
 import { IconChevronLeft } from '@tabler/icons-react';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@tanstack/react-query';
@@ -16,13 +17,16 @@ import Empty from '@/components/business/Empty';
 import MiniUser from '@/components/business/MiniUser';
 import SearchInput from '@/components/business/SearchInput';
 import LabelField from '@/components/business/LabelField';
+import DynamicTrans from '@/components/business/DynamicTrans';
 import { usePagination, useLanguage } from '@/hooks';
+import { useMockStore } from '@/store/mock';
 import { getStaffList } from '@/_mock/member';
-import type { StaffItem } from '@/types/member';
+import type { StaffItem } from '@/types/user';
 import { languageMap, positionOptions } from '@/utils/constants';
 import { cn } from '@/lib/utils';
 
 export default function StaffPage() {
+  const navigate = useNavigate();
   const { t } = useTranslation();
   const [showAlertDialog, setShowAlertDialog] = useState(false);
   const [selectedStaff, setSelectedStaff] = useState<StaffItem>();
@@ -32,10 +36,15 @@ export default function StaffPage() {
     status: 'all'
   });
   const lng = useLanguage();
+  const { setStaffList } = useMockStore();
 
-  console.log('language:', lng);
   const { data: response, isPending } = useQuery({ queryKey: ['staff'], queryFn: getStaffList });
   const { currentPage, isFirstPage, isLastPage, totalPage, nextPage, prevPage } = usePagination({ pageSize: 10, total: response?.data.length });
+
+  // stash staff data
+  useEffect(() => {
+    setStaffList(response?.data || []);
+  }, [response?.data, setStaffList]);
 
   // mock paginating staff data
   const currentData = useMemo(() => {
@@ -65,6 +74,14 @@ export default function StaffPage() {
     toast.success('Reset success', { position: 'top-center' });
   };
 
+  const handleEdit = (item: StaffItem) => {
+    navigate('/management/staff-edit/' + item.id);
+  };
+
+  const handleCreate = () => {
+    navigate('/management/staff-create');
+  };
+
   return (
     <div>
       <Heading as="h3" className="mb-3">
@@ -72,28 +89,31 @@ export default function StaffPage() {
       </Heading>
       <div className="panel">
         <Show when={!isPending} fallback={<Empty className="h-60" />}>
-          <div className="mb-4 flex flex-col gap-3 md:flex-row md:justify-between">
+          <div className="mb-4 flex flex-col flex-wrap gap-3 lg:flex-row lg:justify-between">
             <div className="flex flex-col gap-3 md:flex-row">
-              <LabelField layout="horizontal" className={cn('md:w-50', { 'md:grid-cols-[1fr_2fr]': lng === languageMap.zh })} label={t('account.profile.employeeStatus')}>
+              <LabelField layout="horizontal" className={cn('grid-cols-[1fr_4fr] md:w-50', { 'md:grid-cols-[1fr_2fr]': lng === languageMap.zh })} label={t('account.profile.employeeStatus')}>
                 <Select
                   value={filters.status}
                   onValueChange={(value) => setFilters({ ...filters, status: value })}
                   className="w-full"
                   items={[
-                    { id: 'all', label: 'All', value: 'all' },
-                    { id: 'employed', label: 'Employed', value: 'employed' },
-                    { id: 'resigned', label: 'Resigned', value: 'resigned' }
+                    { id: 'all', label: t('common.all'), value: 'all' },
+                    { id: 'employed', label: t('status.employed'), value: 'employed' },
+                    { id: 'resigned', label: t('status.resigned'), value: 'resigned' }
                   ]}
                   placeholder={t('account.profile.employeeStatus')}
                 />
               </LabelField>
-              <LabelField layout="horizontal" className={cn('md:w-65', { 'md:grid-cols-[1fr_5fr]': lng === languageMap.zh })} label={t('account.profile.position')}>
+              <LabelField layout="horizontal" className={cn('grid-cols-[1fr_4fr] md:w-65', { 'md:grid-cols-[1fr_5fr]': lng === languageMap.zh })} label={t('account.profile.position')}>
                 <Select
                   value={filters.position}
                   onValueChange={(value) => setFilters({ ...filters, position: value })}
                   placeholder={t('account.profile.position')}
                   className="w-full"
-                  items={[{ id: 'all', label: 'All', value: 'all' }, ...positionOptions.map((p) => ({ id: p.value, label: p.label, value: p.value }))]}
+                  items={[
+                    { id: 'all', label: t('common.all'), value: 'all' },
+                    ...positionOptions.map((p) => ({ id: p.value, label: <DynamicTrans>{`position.${p.label}`}</DynamicTrans>, value: p.value }))
+                  ]}
                 />
               </LabelField>
             </div>
@@ -101,7 +121,13 @@ export default function StaffPage() {
               <form className="flex-1 md:min-w-60 md:flex-none" onSubmit={handleSearch}>
                 <SearchInput value={query} placeholder="search staff..." className="" onChange={(e) => setQuery(e.target.value)} />
               </form>
-              <Button onClick={handleReset}>{t('common.reset')}</Button>
+              <Button colors="neutral" onClick={handleReset}>
+                {t('common.reset')}
+              </Button>
+              <Button className="gap-1" onClick={handleCreate}>
+                {t('account.addStaff')}
+                <IconPlus size={18} />
+              </Button>
             </div>
           </div>
           <Table className="bg-background max-h-[unset]">
@@ -110,9 +136,10 @@ export default function StaffPage() {
                 <TableHeaderCell>ID</TableHeaderCell>
                 <TableHeaderCell>{t('account.profile.name')}</TableHeaderCell>
                 <TableHeaderCell>{t('account.profile.position')}</TableHeaderCell>
-                <TableHeaderCell className="min-w-20">{t('account.profile.startTime')}</TableHeaderCell>
+                <TableHeaderCell>{t('account.profile.positionLevel')}</TableHeaderCell>
+                <TableHeaderCell className="min-w-20">{t('account.profile.startDate')}</TableHeaderCell>
                 <TableHeaderCell className="min-w-20">{t('account.profile.serviceTime')}</TableHeaderCell>
-                <TableHeaderCell>{t('account.profile.salary')}</TableHeaderCell>
+                <TableHeaderCell>{t('account.profile.email')}</TableHeaderCell>
                 <TableHeaderCell>{t('account.profile.employeeStatus')}</TableHeaderCell>
                 <TableHeaderCell>{t('common.action')}</TableHeaderCell>
               </TableRow>
@@ -120,17 +147,20 @@ export default function StaffPage() {
             <TableBody>
               {currentData?.map((item) => (
                 <TableRow key={item.id}>
-                  <TableCell className="w-25">S_{item.id}</TableCell>
+                  <TableCell className="w-25">id_{item.id}</TableCell>
                   <TableCell className="w-25">
-                    <MiniUser username={item.username} avatarUrl={item.avatarUrl} />
+                    <MiniUser username={item.username} avatarUrl={item.avatarUrl} className="capitalize" />
                   </TableCell>
-                  <TableCell>{item.position}</TableCell>
+                  <TableCell className="min-w-40">
+                    <DynamicTrans>{`position.${positionOptions.find((p) => p.value === item.position)?.label}`}</DynamicTrans>
+                  </TableCell>
+                  <TableCell>TP{item.positionLevel}</TableCell>
                   <TableCell>{item.startDate.toLocaleString('en', { month: 'short', year: 'numeric' })}</TableCell>
                   <TableCell>{formatServiceTime(item.serviceTime)}</TableCell>
-                  <TableCell>{Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(item.salary)}</TableCell>
-                  <TableCell>
+                  <TableCell className="text-primary">{item.corpEmail}</TableCell>
+                  <TableCell className="min-w-20">
                     <Tag colors={item.status === 'employed' ? 'secondary' : 'warning'} pill bordered>
-                      {item.status}
+                      <DynamicTrans>{`status.${item.status}`}</DynamicTrans>
                     </Tag>
                   </TableCell>
                   <TableCell>
@@ -142,7 +172,9 @@ export default function StaffPage() {
                       </DropdownMenu.Trigger>
                       <DropdownMenu.Portal>
                         <DropdownMenu.Content align="start" className="dropdown-menu--content">
-                          <DropdownMenu.Item className="dropdown-menu--item">{t('common.edit')}</DropdownMenu.Item>
+                          <DropdownMenu.Item className="dropdown-menu--item" onSelect={() => handleEdit(item)}>
+                            {t('common.edit')}
+                          </DropdownMenu.Item>
                           <DropdownMenu.Item className="dropdown-menu--item hover:bg-danger/80 dark:text-white" onSelect={() => handleDeleteStaff(item)}>
                             {t('common.delete')}
                           </DropdownMenu.Item>

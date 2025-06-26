@@ -8,9 +8,9 @@ export default function SecuritySetting() {
   const { t } = useTranslation();
   return (
     <div>
-      <SecurityItem label="Account Password" content={t('longText.security.accountPsdText')} />
-      <SecurityItem label="Secure Phone" content={t('longText.security.securePhoneText')} />
-      <SecurityItem label="Secure Email" placeholder={t('longText.security.secureEmailText')} editText="config" />
+      <SecurityItem label={t('account.security.accountPsd')} content={t('longText.security.accountPsdText')} />
+      <SecurityItem label={t('account.security.securePhone')} content={t('longText.security.securePhoneText')} />
+      <SecurityItem label={t('account.security.secureMail')} placeholder={t('longText.security.secureEmailText')} editText="config" />
     </div>
   );
 }

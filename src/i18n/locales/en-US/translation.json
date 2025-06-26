@@ -5,6 +5,7 @@
     "systemTheme": "System",
     "backHome": "Back Home",
     "edit": "Edit",
+    "create": "Create",
     "config": "Config",
     "print": "Print",
     "update": "Update",
@@ -23,12 +24,6 @@
     "allProject": "All Projects",
     "viewMore": "More",
     "quickAccess": "Quick Access",
-    "file": "File",
-    "logs": "Logs",
-    "mail": "Mail",
-    "calendar": "Calendar",
-    "report": "Report",
-    "task": "Task",
     "bulletin": "Bulletin",
     "helpDoc": "Help Documents",
     "updateFeeds": "Update Feeds",
@@ -37,7 +32,14 @@
     "rememberPsd": "Remember Password",
     "forgetPsd": "Forget Password",
     "noData": "No Data",
-    "action": "Action"
+    "action": "Action",
+    "all": "All",
+    "fullTime": "Fulltime",
+    "partTime": "PartTime",
+    "internship": "Internship",
+    "male": "Male",
+    "female": "Female",
+    "submit": "Submit"
   },
   "banner": {
     "loginTitle": "Login to Nexus-Starter"
@@ -122,35 +124,53 @@
       "customerRegion": "Customer Region"
     }
   },
+  "status": {
+    "employed": "Employed",
+    "resigned": "Resigned"
+  },
   "auth": {
     "role": {
+      "title": "Role",
       "superAdmin": "Super Admin",
       "admin": "Admin",
       "user": "User"
     }
+  },
+  "apps": {
+    "addApp": "Add App"
   },
   "account": {
     "myProject": "My Project",
     "basicSetting": "Basic Information",
     "securitySetting": "Security Setting",
     "notificationSetting": "Notification Setting",
+    "addStaff": "Add Staff",
     "profile": {
       "title": "Profile",
       "name": "Name",
+      "nickname": "Nickname",
       "email": "Email",
+      "corpEmail": "Corp Email",
+      "bio": "Bio",
       "contact": "Contact",
       "country": "Country",
       "position": "Position",
       "join": "Join",
-      "startTime": "Start Time",
+      "startDate": "Start Time",
       "serviceTime": "Service Time",
       "salary": "Salary",
-      "employeeStatus": "Status"
+      "employeeStatus": "Status",
+      "sex": "Sex",
+      "contract": "Contract",
+      "positionLevel": "Position Level"
     },
     "security": {
       "title": "Security",
       "token": "Token",
-      "appKeys": "App Keys"
+      "appKeys": "App Keys",
+      "accountPsd": "Account Password",
+      "securePhone": "Secure Phone",
+      "secureMail": "Secure Mail"
     },
     "notification": {
       "title": "Notification",
@@ -164,5 +184,14 @@
     "usage": {
       "title": "Usage"
     }
+  },
+  "position": {
+    "uiDesigner": "UI Designer",
+    "frontendDeveloper": "Frontend Developer",
+    "backendDeveloper": "Backend Developer",
+    "aiEngineer": "AI Engineer",
+    "productManager": "Product Manager",
+    "accounting": "Accounting",
+    "hr": "HR"
   }
 }

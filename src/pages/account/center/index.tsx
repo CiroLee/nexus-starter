@@ -44,7 +44,6 @@ export default function AccountCenterPage() {
               <IconUsers size={20} />
               {t('account.team.title')}
             </TabsItem>
-
             <TabsItem value="usage" className={tabItem()}>
               <IconServer size={20} />
               {t('account.usage.title')}
