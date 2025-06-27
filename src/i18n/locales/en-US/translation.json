@@ -39,7 +39,13 @@
     "internship": "Internship",
     "male": "Male",
     "female": "Female",
-    "submit": "Submit"
+    "submit": "Submit",
+    "file": "File",
+    "logs": "Logs",
+    "mail": "Mail",
+    "schedule": "Schedule",
+    "report": "Report",
+    "task": "Task"
   },
   "banner": {
     "loginTitle": "Login to Nexus-Starter"
@@ -76,10 +82,10 @@
     "event": "Events"
   },
   "menus": {
+    "workbench": "Workbench",
     "dashboard": {
       "title": "Dashboard",
-      "analysis": "Analysis",
-      "workbench": "Workbench"
+      "analysis": "Analysis"
     },
     "management": {
       "title": "Management",

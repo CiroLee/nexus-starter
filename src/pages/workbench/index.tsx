@@ -25,7 +25,7 @@ export default function WorkBenchPage() {
   return (
     <div>
       <Heading as="h3" className="mb-3">
-        {t('menus.dashboard.workbench')}
+        {t('menus.workbench')}
       </Heading>
       <div className="flex flex-col gap-4 lg:flex-row">
         <div className="flex-1 space-y-4">
