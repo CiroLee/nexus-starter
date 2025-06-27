@@ -1,6 +1,6 @@
 import NavLayout from '@/layout/NavLayout';
 import { CustomRoute } from '@/types/route';
-import { IconLayoutDashboardFilled, IconExclamationCircleFilled, IconCircleLetterRFilled, IconBrandDenodo, IconUserFilled } from '@tabler/icons-react';
+import { IconLayoutDashboardFilled, IconBoltFilled, IconExclamationCircleFilled, IconCircleLetterRFilled, IconBrandDenodo, IconUserFilled } from '@tabler/icons-react';
 import { lazy } from 'react';
 import { Navigate } from 'react-router-dom';
 const mainRoutes: CustomRoute = {
@@ -12,9 +12,19 @@ const mainRoutes: CustomRoute = {
     {
       index: true,
       id: 'replace-to-dashboard',
-      element: <Navigate to="/dashboard/analysis" replace />,
+      element: <Navigate to="/workbench" replace />,
       meta: {
         visible: false
+      }
+    },
+    {
+      id: 'workbench',
+      path: '/workbench',
+      Component: lazy(() => import('@/pages/workbench')),
+      meta: {
+        name: 'workbench',
+        icon: <IconBoltFilled size={20} />,
+        visible: true
       }
     },
     {
@@ -22,8 +32,7 @@ const mainRoutes: CustomRoute = {
       meta: {
         name: 'dashboard.title',
         icon: <IconLayoutDashboardFilled size={20} />,
-        visible: true,
-        defaultOpen: true
+        visible: true
       },
       children: [
         {
@@ -32,15 +41,6 @@ const mainRoutes: CustomRoute = {
           Component: lazy(() => import('@/pages/dashboard/analysis')),
           meta: {
             name: 'dashboard.analysis',
-            visible: true
-          }
-        },
-        {
-          id: 'workbench',
-          path: '/dashboard/workbench',
-          Component: lazy(() => import('@/pages/dashboard/workbench')),
-          meta: {
-            name: 'dashboard.workbench',
             visible: true
           }
         }

@@ -33,8 +33,8 @@ export function getQuickAccessById(userId: string): Promise<Response<QuickAccess
       url: '#'
     },
     {
-      id: 'calendar',
-      label: 'calendar',
+      id: 'schedule',
+      label: 'schedule',
       icon: 'calendar',
       url: '#'
     },

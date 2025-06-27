@@ -39,7 +39,13 @@
     "internship": "实习生",
     "male": "男",
     "female": "女",
-    "submit": "提交"
+    "submit": "提交",
+    "file": "文件",
+    "logs": "日志",
+    "mail": "邮件",
+    "schedule": "日程",
+    "report": "报告",
+    "task": "任务"
   },
   "banner": {
     "loginTitle": "登录Nexus-Starter"
@@ -76,10 +82,10 @@
     "event": "活动"
   },
   "menus": {
+    "workbench": "工作台",
     "dashboard": {
       "title": "仪表板",
-      "analysis": "分析",
-      "workbench": "工作台"
+      "analysis": "分析"
     },
     "management": {
       "title": "管理",
