@@ -54,7 +54,7 @@ export default function WorkBenchPage() {
           </section>
           <UpdateFeeds />
         </div>
-        <div className="space-y-4 md:w-70">
+        <div className="space-y-4 lg:w-70">
           <QuickAccess list={quickAccessResponse?.data.list || []} />
           <BulletinBoard list={bulletinsResponse?.data || []} />
           <HelpDocument />
