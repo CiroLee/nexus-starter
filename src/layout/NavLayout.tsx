@@ -8,6 +8,7 @@ import { useMobile } from '@/hooks';
 import mainRoutes from '@/routes/main.routes';
 import { filterVisibleRoutes } from '@/utils/routes';
 import type { CustomRoute } from '@/types/route';
+import Loading from '@ui/Loading';
 
 export default function NavLayout() {
   const { isSideBarOpen } = useLayoutStore();
@@ -23,7 +24,7 @@ export default function NavLayout() {
       <main className={cn('relative min-h-screen pl-0 transition-[padding]', { 'pl-(--sidebar-width)': !isMobile && isSideBarOpen })}>
         <div className="h-16"></div>
         <section className="relative min-h-[calc(100vh_-_var(--header-height))] bg-zinc-100 p-4 dark:bg-zinc-900/60">
-          <Suspense>{<Outlet />}</Suspense>
+          <Suspense fallback={<Loading isFullscreen open />}>{<Outlet />}</Suspense>
         </section>
       </main>
     </div>

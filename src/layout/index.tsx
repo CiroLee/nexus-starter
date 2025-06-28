@@ -3,7 +3,6 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Outlet } from 'react-router-dom';
 import { useTheme, useLogin } from '@/hooks';
 import Toaster from '@ui/Sonner';
-import Loading from '@ui/Loading';
 
 const queryClient = new QueryClient();
 export default function HeadlessLayout() {
@@ -11,7 +10,7 @@ export default function HeadlessLayout() {
   useTheme();
   return (
     <QueryClientProvider client={queryClient}>
-      <Suspense fallback={<Loading open isFullscreen />}>{<Outlet />}</Suspense>
+      <Suspense>{<Outlet />}</Suspense>
       <Toaster />
     </QueryClientProvider>
   );
