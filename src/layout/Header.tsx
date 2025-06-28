@@ -1,5 +1,6 @@
 import { IconLayoutSidebarFilled, IconBrandGithub } from '@tabler/icons-react';
 import { cn } from '@/lib/utils';
+import { Link } from 'react-router-dom';
 import { useLayoutStore } from '@/store/layout';
 import Button from '@ui/Button';
 import { Drawer } from '@ui/Drawer';
@@ -52,10 +53,10 @@ function MobileSideDrawer({ menus, onClick }: { menus: CustomRoute[]; onClick?: 
         </Button>
       }>
       <div>
-        <div className="flex h-12 items-center gap-1 whitespace-nowrap transition-opacity">
+        <Link to="/" className="flex h-12 items-center gap-1 px-4 whitespace-nowrap transition-opacity">
           <img src={logoSvg} alt="logo" className="size-7" width={100} height={100} />
           <span className="font-semibold">Next Starter</span>
-        </div>
+        </Link>
         <MenuList menus={menus} />
       </div>
     </Drawer>
