@@ -1,4 +1,4 @@
-import { IconLayoutSidebarFilled } from '@tabler/icons-react';
+import { IconLayoutSidebarFilled, IconBrandGithub } from '@tabler/icons-react';
 import { cn } from '@/lib/utils';
 import { useLayoutStore } from '@/store/layout';
 import Button from '@ui/Button';
@@ -30,6 +30,11 @@ export default function Header({ menus, className }: { className?: string; menus
       <div className="flex items-center gap-2">
         <LocaleSwitch />
         <ThemeSwitch />
+        <Button asIcon colors="neutral" variant="light" size="sm" asChild>
+          <a href="https://github.com/CiroLee/nexus-starter" target="_blank" rel="noopener noreferrer">
+            <IconBrandGithub size={20} />
+          </a>
+        </Button>
         <UserDropdown className="ml-2" />
       </div>
     </header>

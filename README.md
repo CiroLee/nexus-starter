@@ -21,13 +21,13 @@ Nexus-Starter is a modern admin template project built with [Nexus-Kit](https://
 ## Tech Stack
 
 - Frontend Framework: React19 + TypeScript
-- Build Tool: Vite
+- Build Tool: [Vite](https://vite.dev/)
 - UI Component Library: [Nexus-Kit](https://github.com/CiroLee/nexus-kit) (based on Radix-UI and TailwindCSS v4)
-- State Management: Zustand
+- State Management: [Zustand](https://github.com/pmndrs/zustand)
 - Mock Data: [tiny-lorem](https://github.com/CiroLee/tiny-lorem) (a lightweight mock database friendly to Chinese)
-- Routing: React Router v7
-- Internationalization: react-i18next
-- Form Handling: react-hook-form
+- Routing: [React Router(v7)](https://reactrouter.com/)
+- Internationalization: [react-i18next](https://react.i18next.com/)
+- Form Handling: [react-hook-form](https://react-hook-form.com/)
 - Charts: [reaviz](https://github.com/reaviz/reaviz)
 - Code Quality: ESLint + Prettier + Husky
 

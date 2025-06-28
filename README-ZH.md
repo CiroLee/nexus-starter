@@ -21,13 +21,13 @@ Nexus-Starter 是一个基于[Nexus-Kit](https://github.com/CiroLee/nexus-kit) a
 ## 技术栈
 
 - 前端框架: React19 + Typescript
-- 构建工具: Vite
+- 构建工具: [Vite](https://vite.dev/)
 - UI组件库：[Nexus-Kit](https://github.com/CiroLee/nexus-kit)(基于Radix-UI和tailwindcss v4)
-- 状态管理: zustand
+- 状态管理: [Zustand](https://github.com/pmndrs/zustand)
 - mock数据: [tiny-lorem](https://github.com/CiroLee/tiny-lorem)(中文友好的轻量mock数据库)
-- 路由: React Router v7
-- 国际化: react-i18next
-- 表单处理: react-hook-form
+- 路由: [React Router(v7)](https://reactrouter.com/)
+- 国际化: [react-i18next](https://react.i18next.com/)
+- 表单处理: [react-hook-form](https://react-hook-form.com/)
 - 图表：[reaviz](https://github.com/reaviz/reaviz)
 - 代码质量: Eslint + Prettier + Husky
 
