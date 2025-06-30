@@ -1,5 +1,6 @@
-import { IconLayoutSidebarFilled, IconBrandGithub } from '@tabler/icons-react';
+import { IconLayoutSidebarFilled, IconBrandGithub, IconBell } from '@tabler/icons-react';
 import { cn } from '@/lib/utils';
+import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
 import { useLayoutStore } from '@/store/layout';
 import Button from '@ui/Button';
@@ -7,14 +8,18 @@ import { Drawer } from '@ui/Drawer';
 import ThemeSwitch from '@/components/business/ThemeSwitch';
 import LocaleSwitch from '@/components/business/localeSwitch';
 import UserDropdown from '@/components/business/UserDropdown';
+import Notification from '@/components/business/Notification';
 import { useMobile } from '@/hooks';
 import MenuList from '@/components/business/MenuList';
 import logoSvg from '@/assets/images/logo.svg';
+import Badge from '@/components/ui/Badge';
+import { getNotifications } from '@/_mock/system';
 import type { CustomRoute } from '@/types/route';
 
 export default function Header({ menus, className }: { className?: string; menus: CustomRoute[] }) {
   const { toggleSideBar } = useLayoutStore();
   const isMobile = useMobile();
+  const { data: notifications } = useQuery({ queryKey: ['notifications'], queryFn: getNotifications });
   return (
     <header
       className={cn(
@@ -29,13 +34,23 @@ export default function Header({ menus, className }: { className?: string; menus
         </Button>
       )}
       <div className="flex items-center gap-2">
-        <LocaleSwitch />
-        <ThemeSwitch />
         <Button asIcon colors="neutral" variant="light" size="sm" asChild>
           <a href="https://github.com/CiroLee/nexus-starter" target="_blank" rel="noopener noreferrer">
             <IconBrandGithub size={20} />
           </a>
         </Button>
+        <LocaleSwitch />
+        <ThemeSwitch />
+        <Notification
+          data={notifications?.data}
+          trigger={
+            <Button size="sm" colors="neutral" variant="light" asIcon>
+              <Badge size="sm" asDot>
+                <IconBell size={20} />
+              </Badge>
+            </Button>
+          }
+        />
         <UserDropdown className="ml-2" />
       </div>
     </header>

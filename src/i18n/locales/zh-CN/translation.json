@@ -45,7 +45,12 @@
     "mail": "邮件",
     "schedule": "日程",
     "report": "报告",
-    "task": "任务"
+    "task": "任务",
+    "message": "消息",
+    "notice": "通知",
+    "todo": "待办",
+    "markAsRead": "全部标为已读",
+    "notifications": "通知列表"
   },
   "banner": {
     "loginTitle": "登录Nexus-Starter"

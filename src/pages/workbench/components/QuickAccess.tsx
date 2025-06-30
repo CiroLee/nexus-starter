@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
 import Heading from '@ui/Heading';
 import Button from '@ui/Button';
@@ -7,20 +8,15 @@ import DynamicTrans from '@business/DynamicTrans';
 import { cn } from '@/lib/utils';
 import { SkeletonBlock } from '@ui/Skeleton';
 import Show from '@ui/Show';
-
-interface AccessItem {
-  id: string;
-  url: string;
-  label?: string;
-  icon?: string;
-}
+import { getQuickAccessById } from '@/_mock/system';
 
 interface QuickAccessProps {
   className?: string;
-  list: AccessItem[];
+  userId: string;
 }
-export default function QuickAccess({ className, list }: QuickAccessProps) {
+export default function QuickAccess({ className, userId }: QuickAccessProps) {
   const { t } = useTranslation();
+  const { data: response } = useQuery({ queryKey: ['quickAccess', userId], queryFn: () => getQuickAccessById(userId) });
   return (
     <div className={cn('panel h-fit', className)}>
       <div className="mb-4 flex items-center justify-between">
@@ -31,11 +27,11 @@ export default function QuickAccess({ className, list }: QuickAccessProps) {
       </div>
       <div className="grid grid-cols-3 justify-items-center gap-4">
         <Show
-          when={list.length}
+          when={response?.data.list.length}
           fallback={Array.from({ length: 6 }).map((_, i) => (
             <SkeletonBlock key={i} className="h-16 w-full" />
           ))}>
-          {list.map((item) => (
+          {response?.data.list.map((item) => (
             <Link to={item.url} key={item.id} className="flex flex-col items-center gap-1">
               <Button size="md" colors="neutral" asIcon>
                 <SvgIcon size={22} name={item.icon || ''} />

@@ -3,7 +3,6 @@ import { useQuery } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
 import { useUserStore } from '@/store/user';
 import { getProjectsByUserId } from '@/_mock/project';
-import { getBulletins, getQuickAccessById } from '@/_mock/system';
 import Show from '@ui/Show';
 import Heading from '@ui/Heading';
 import Divider from '@ui/Divider';
@@ -19,8 +18,6 @@ export default function WorkBenchPage() {
   const { userInfo } = useUserStore();
   const { t } = useTranslation();
   const { data: projectsResponse, isPending: projectsIsPending } = useQuery({ queryKey: ['projects', userInfo.id], queryFn: () => getProjectsByUserId(userInfo.id) });
-  const { data: quickAccessResponse } = useQuery({ queryKey: ['quickAccess', userInfo.id], queryFn: () => getQuickAccessById(userInfo.id) });
-  const { data: bulletinsResponse } = useQuery({ queryKey: ['bulletins'], queryFn: getBulletins });
 
   return (
     <div>
@@ -55,8 +52,8 @@ export default function WorkBenchPage() {
           <UpdateFeeds />
         </div>
         <div className="space-y-4 lg:w-70">
-          <QuickAccess list={quickAccessResponse?.data.list || []} />
-          <BulletinBoard list={bulletinsResponse?.data || []} />
+          <QuickAccess userId={userInfo.id} />
+          <BulletinBoard />
           <HelpDocument />
         </div>
       </div>
