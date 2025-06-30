@@ -64,3 +64,15 @@ export function getStaffList() {
 
   return delay(500, () => ({ code: 200, data }));
 }
+
+export function getCustomerRegions() {
+  const data: { key: string; data: number }[] = [
+    { key: 'America', data: 94455 },
+    { key: 'Australia', data: 32822 },
+    { key: 'France', data: 72345 },
+    { key: 'Germany', data: 12345 },
+    { key: 'Britain', data: 26916 }
+  ];
+
+  return delay(500, () => ({ code: 200, data }));
+}
