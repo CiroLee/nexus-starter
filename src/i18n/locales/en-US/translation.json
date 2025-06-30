@@ -45,7 +45,12 @@
     "mail": "Mail",
     "schedule": "Schedule",
     "report": "Report",
-    "task": "Task"
+    "task": "Task",
+    "message": "Message",
+    "notice": "Notice",
+    "todo": "Todo",
+    "markAsRead": "Mark all As read",
+    "notifications": "Notifications"
   },
   "banner": {
     "loginTitle": "Login to Nexus-Starter"

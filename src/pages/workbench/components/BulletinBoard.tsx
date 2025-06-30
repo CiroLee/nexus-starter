@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils';
+import { useQuery } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import Heading from '@ui/Heading';
@@ -7,13 +8,9 @@ import Show from '@ui/Show';
 import { SkeletonText } from '@ui/Skeleton';
 import DynamicTrans from '@/components/business/DynamicTrans';
 
-interface BulletinItem {
-  id: string;
-  type?: 'info' | 'notice' | 'event';
-  content?: string;
-}
+import { getBulletins } from '@/_mock/system';
+
 interface BulletinBoardProps {
-  list: BulletinItem[];
   className?: string;
 }
 
@@ -31,8 +28,9 @@ const typeMap = {
     color: 'secondary'
   }
 } as const;
-export default function BulletinBoard({ className, list }: BulletinBoardProps) {
+export default function BulletinBoard({ className }: BulletinBoardProps) {
   const { t } = useTranslation();
+  const { data: response } = useQuery({ queryKey: ['bulletins'], queryFn: getBulletins });
   return (
     <div className={cn('panel', className)}>
       <div className="mb-4 flex items-center justify-between">
@@ -43,11 +41,11 @@ export default function BulletinBoard({ className, list }: BulletinBoardProps) {
       </div>
       <ul className="space-y-2">
         <Show
-          when={list.length}
+          when={response?.data.length}
           fallback={Array.from({ length: 6 }).map((_, i) => (
             <SkeletonText key={i} className="h-4 w-full" />
           ))}>
-          {list.map((item) => (
+          {response?.data.map((item) => (
             <li key={item.id} className="flex items-center gap-2">
               <Show when={item.type}>
                 <Tag className="w-16 justify-center" size="sm" colors={typeMap[item.type!].color}>
