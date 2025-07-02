@@ -15,6 +15,11 @@ export const router = createBrowserRouter([
         Component: lazy(() => import('@/pages/auth/login'))
       },
       {
+        id: 'forgot-password',
+        path: '/forgot-password',
+        Component: lazy(() => import('@/pages/auth/forgot-password'))
+      },
+      {
         path: '*',
         element: <Navigate to="/404" replace />
       },
