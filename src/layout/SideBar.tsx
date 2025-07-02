@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { cva } from 'class-variance-authority';
 import { useLayoutStore } from '@/store/layout';
 import logoSvg from '@/assets/images/logo.svg';
-import MenuList from '@/components/business/MenuList';
+import Menu from '@/components/business/Menu';
 import { CustomRoute } from '@/types/route';
 import { useMobile } from '@/hooks';
 
@@ -29,7 +29,7 @@ export default function SideBar({ menus }: { menus: CustomRoute[] }) {
         <img src={logoSvg} alt="logo" className="size-8 sm:size-8" width={100} height={100} />
         <span className="text-lg font-semibold sm:text-xl">Next Starter</span>
       </Link>
-      <MenuList className="flex-1 overflow-auto p-3" menus={menus} />
+      <Menu className="flex-1 overflow-auto p-3" menus={menus} />
     </aside>
   );
 }

@@ -1,20 +1,24 @@
 import { CustomRoute } from '@/types/route';
 
 export function filterVisibleRoutes(routes: CustomRoute[]): CustomRoute[] {
-  return routes
-    .map((route) => {
-      if (route.meta && route.meta.visible === false) {
-        return null;
-      }
-      const result: CustomRoute = { ...route };
-      if (route.children) {
-        const filteredChildren = filterVisibleRoutes(route.children);
+  return routes.reduce<CustomRoute[]>((acc, route) => {
+    // If the current route is not visible, skip it directly
+    if (route.meta?.visible === false) return acc;
 
-        if (filteredChildren.length > 0) {
-          result.children = filteredChildren;
-        }
+    // Create a base result object without children
+    const { children, ...baseResult } = route;
+    const result: CustomRoute = { ...baseResult };
+
+    if (children?.length) {
+      // Recursively filter child routes
+      const filteredChildren = filterVisibleRoutes(children);
+
+      // Only add to the result if the filtered child routes array is not empty
+      if (filteredChildren.length) {
+        result.children = filteredChildren;
       }
-      return result;
-    })
-    .filter((route) => route !== null) as CustomRoute[];
+    }
+
+    return [...acc, result];
+  }, []);
 }

@@ -59,7 +59,7 @@ export default function Login() {
             <Checkbox size="sm" checked={psdChecked} id="remember-password" onCheckedChange={(checked: boolean) => setPsdChecked(checked)}>
               {t('common.rememberPsd')}
             </Checkbox>
-            <Link href="#">{t('common.forgetPsd')}</Link>
+            <Link href="/forgot-password">{t('common.forgetPsd')}</Link>
           </div>
           <Button type="submit" className="mt-4 w-full">
             {t('common.login')}

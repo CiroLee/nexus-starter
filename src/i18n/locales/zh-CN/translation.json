@@ -4,6 +4,7 @@
     "darkTheme": "深色模式",
     "systemTheme": "跟随系统",
     "backHome": "回到首页",
+    "resend": "重新发送",
     "edit": "编辑",
     "create": "新建",
     "config": "配置",
@@ -60,12 +61,15 @@
       "accountPsdText": "密码已设置",
       "securePhoneText": "已绑定电话: 137****7788",
       "secureEmailText": "未设置安全邮箱。安全邮箱可以用来找回密码",
-      "secureMFAText": "未绑定 MFA 设备，绑定后，可以进行二次确认"
+      "secureMFAText": "未绑定 MFA 设备，绑定后，可以进行二次确认",
+      "forgotPsdText": "请输入您绑定的电子邮箱，我们将发送包含验证码的邮件"
     },
     "notice": {
+      "forgotPsdTitle": "忘记密码",
       "app": "在App上接收推送消息",
       "email": "接收邮件消息",
-      "update": "接收更新信息"
+      "update": "接收更新信息",
+      "notReceiveCode": "没有收到验证码"
     }
   },
   "projectStatus": {

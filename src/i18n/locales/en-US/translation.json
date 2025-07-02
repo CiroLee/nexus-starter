@@ -4,6 +4,7 @@
     "darkTheme": "Dark",
     "systemTheme": "System",
     "backHome": "Back Home",
+    "resend": "Resend",
     "edit": "Edit",
     "create": "Create",
     "config": "Config",
@@ -60,12 +61,15 @@
       "accountPsdText": "Has been set.",
       "securePhoneText": "Bound: 137****7788.",
       "secureEmailText": "You haven't set secure email. The bound secure email address can be used to retrieve the password.",
-      "secureMFAText": "The MFA device is not bound. After binding, you can perform a second confirmation."
+      "secureMFAText": "The MFA device is not bound. After binding, you can perform a second confirmation.",
+      "forgotPsdText": "Please enter your registered email address and we will send you a verification code."
     },
     "notice": {
+      "forgotPsdTitle": "Forgot password",
       "app": "receive notifications of the messages in the App.",
       "email": "receive emails of the messages, contracts, etc.",
-      "update": "receive updates notification."
+      "update": "receive updates notification.",
+      "notReceiveCode": "Don't receive the code"
     }
   },
   "projectStatus": {

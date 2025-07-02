@@ -23,16 +23,14 @@ const mainRoutes: CustomRoute = {
       Component: lazy(() => import('@/pages/workbench')),
       meta: {
         name: 'workbench',
-        icon: <IconBoltFilled size={20} />,
-        visible: true
+        icon: <IconBoltFilled size={20} />
       }
     },
     {
       id: 'dashboard',
       meta: {
         name: 'dashboard.title',
-        icon: <IconLayoutDashboardFilled size={20} />,
-        visible: true
+        icon: <IconLayoutDashboardFilled size={20} />
       },
       children: [
         {
@@ -40,8 +38,7 @@ const mainRoutes: CustomRoute = {
           path: '/dashboard/analysis',
           Component: lazy(() => import('@/pages/dashboard/analysis')),
           meta: {
-            name: 'dashboard.analysis',
-            visible: true
+            name: 'dashboard.analysis'
           }
         }
       ]
@@ -58,8 +55,7 @@ const mainRoutes: CustomRoute = {
           path: '/management/app',
           Component: lazy(() => import('@/pages/management/app')),
           meta: {
-            name: 'management.appManagement',
-            visible: true
+            name: 'management.appManagement'
           }
         },
         {
@@ -67,8 +63,7 @@ const mainRoutes: CustomRoute = {
           path: '/management/staff',
           Component: lazy(() => import('@/pages/management/staff')),
           meta: {
-            name: 'management.staffManagement',
-            visible: true
+            name: 'management.staffManagement'
           }
         },
         {
