@@ -17,6 +17,8 @@ export default function NavLayout() {
     const children = mainRoutes.children as CustomRoute[];
     return filterVisibleRoutes(children);
   }, []);
+
+  console.log('menus::', menus);
   return (
     <div>
       <SideBar menus={menus} />

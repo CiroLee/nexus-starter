@@ -10,7 +10,7 @@ import LocaleSwitch from '@/components/business/localeSwitch';
 import UserDropdown from '@/components/business/UserDropdown';
 import Notification from '@/components/business/Notification';
 import { useMobile } from '@/hooks';
-import MenuList from '@/components/business/MenuList';
+import MenuList from '@/components/business/Menu';
 import logoSvg from '@/assets/images/logo.svg';
 import Badge from '@/components/ui/Badge';
 import { getNotifications } from '@/_mock/system';
