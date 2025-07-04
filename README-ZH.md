@@ -1,6 +1,6 @@
 # Nexus-Starter
 
-中文 | [English](README.md)
+[English](README.md) | 中文
 
 Nexus-Starter 是一个基于[Nexus-Kit](https://github.com/CiroLee/nexus-kit) and [Vite](https://vite.dev/)构建的现代化管理后台模板项目。
 
