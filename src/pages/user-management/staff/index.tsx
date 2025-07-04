@@ -85,7 +85,7 @@ export default function StaffPage() {
   return (
     <div>
       <Heading as="h3" className="mb-3">
-        {t('menus.management.staffManagement')}
+        {t('menus.userManagement.staff')}
       </Heading>
       <div className="panel">
         <Show when={!isPending} fallback={<Empty className="h-60" />}>

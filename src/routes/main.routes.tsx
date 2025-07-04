@@ -1,6 +1,15 @@
 import NavLayout from '@/layout/NavLayout';
 import { CustomRoute } from '@/types/route';
-import { IconLayoutDashboardFilled, IconBoltFilled, IconExclamationCircleFilled, IconCircleLetterRFilled, IconBrandDenodo, IconUserFilled } from '@tabler/icons-react';
+import {
+  IconLayoutDashboardFilled,
+  IconBoltFilled,
+  IconBriefcaseFilled,
+  IconExclamationCircleFilled,
+  IconCircleLetterRFilled,
+  IconBrandDenodo,
+  IconUserFilled,
+  IconCloverFilled
+} from '@tabler/icons-react';
 import { lazy } from 'react';
 import { Navigate } from 'react-router-dom';
 const mainRoutes: CustomRoute = {
@@ -29,7 +38,7 @@ const mainRoutes: CustomRoute = {
     {
       id: 'dashboard',
       meta: {
-        name: 'dashboard.title',
+        name: 'dashboard.DEFAULT',
         icon: <IconLayoutDashboardFilled size={20} />
       },
       children: [
@@ -44,32 +53,41 @@ const mainRoutes: CustomRoute = {
       ]
     },
     {
-      id: 'management',
+      id: 'business-management',
       meta: {
-        name: 'management.title',
-        icon: <IconBrandDenodo size={20} />
+        name: 'businessManagement.DEFAULT',
+        icon: <IconBriefcaseFilled size={20} />
       },
       children: [
         {
-          id: 'app-management',
-          path: '/management/app',
-          Component: lazy(() => import('@/pages/management/app')),
+          id: 'customer-management',
+          path: '/business/customer',
+          Component: lazy(() => import('@/pages/business-management/customer')),
           meta: {
-            name: 'management.appManagement'
+            name: 'businessManagement.customer'
           }
-        },
+        }
+      ]
+    },
+    {
+      id: 'user-management',
+      meta: {
+        name: 'userManagement.DEFAULT',
+        icon: <IconCloverFilled size={20} />
+      },
+      children: [
         {
           id: 'staff-management',
-          path: '/management/staff',
-          Component: lazy(() => import('@/pages/management/staff')),
+          path: '/user-management/staff',
+          Component: lazy(() => import('@/pages/user-management/staff')),
           meta: {
-            name: 'management.staffManagement'
+            name: 'userManagement.staff'
           }
         },
         {
           id: 'edit-staff',
-          path: '/management/staff-edit/:userId',
-          Component: lazy(() => import('@/pages/management/staff-edit')),
+          path: '/user-management/staff-edit/:userId',
+          Component: lazy(() => import('@/pages/user-management/staff-edit')),
           meta: {
             visible: false
           }
@@ -77,7 +95,7 @@ const mainRoutes: CustomRoute = {
         {
           id: 'create-staff',
           path: '/management/staff-create',
-          Component: lazy(() => import('@/pages/management/staff-create')),
+          Component: lazy(() => import('@/pages/user-management/staff-create')),
           meta: {
             visible: false
           }
@@ -85,9 +103,26 @@ const mainRoutes: CustomRoute = {
       ]
     },
     {
+      id: 'operation',
+      meta: {
+        name: 'operation.DEFAULT',
+        icon: <IconBrandDenodo size={20} />
+      },
+      children: [
+        {
+          id: 'app',
+          path: '/operation/apps',
+          Component: lazy(() => import('@/pages/operation/app')),
+          meta: {
+            name: 'operation.appManagement'
+          }
+        }
+      ]
+    },
+    {
       id: 'error',
       meta: {
-        name: 'error.title',
+        name: 'error.DEFAULT',
         visible: true,
         icon: <IconExclamationCircleFilled size={20} />
       },
@@ -124,7 +159,7 @@ const mainRoutes: CustomRoute = {
     {
       id: 'result',
       meta: {
-        name: 'result.title',
+        name: 'result.DEFAULT',
         visible: true,
         icon: <IconCircleLetterRFilled size={20} />
       },
@@ -152,7 +187,7 @@ const mainRoutes: CustomRoute = {
     {
       id: 'account',
       meta: {
-        name: 'account.title',
+        name: 'account.DEFAULT',
         visible: true,
         icon: <IconUserFilled size={20} />
       },

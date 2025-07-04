@@ -93,27 +93,34 @@
   "menus": {
     "workbench": "工作台",
     "dashboard": {
-      "title": "仪表板",
+      "DEFAULT": "仪表板",
       "analysis": "分析"
     },
-    "management": {
-      "title": "管理",
-      "appManagement": "应用管理",
-      "staffManagement": "员工管理"
+    "userManagement": {
+      "DEFAULT": "人员管理",
+      "staff": "员工管理"
+    },
+    "operation": {
+      "DEFAULT": "运维",
+      "appManagement": "应用管理"
+    },
+    "businessManagement": {
+      "DEFAULT": "业务管理",
+      "customer": "客户管理"
     },
     "error": {
-      "title": "异常页",
+      "DEFAULT": "异常页",
       "403": "403",
       "404": "404",
       "500": "500"
     },
     "result": {
-      "title": "结果页",
+      "DEFAULT": "结果页",
       "success": "成功页",
       "fail": "失败页"
     },
     "account": {
-      "title": "个人页",
+      "DEFAULT": "个人页",
       "center": "个人中心",
       "setting": "用户设置"
     }

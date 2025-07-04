@@ -20,7 +20,7 @@ export default function AppManagementPage() {
   return (
     <div>
       <Heading as="h3" className="mb-3">
-        {t('menus.management.appManagement')}
+        {t('menus.operation.appManagement')}
       </Heading>
       <div className="panel">
         {response?.data.length ? (

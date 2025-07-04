@@ -93,27 +93,34 @@
   "menus": {
     "workbench": "Workbench",
     "dashboard": {
-      "title": "Dashboard",
+      "DEFAULT": "Dashboard",
       "analysis": "Analysis"
     },
-    "management": {
-      "title": "Management",
-      "appManagement": "Apps",
-      "staffManagement": "Staffs"
+    "userManagement": {
+      "DEFAULT": "User",
+      "staff": "Staff"
+    },
+    "operation": {
+      "DEFAULT": "Operations",
+      "appManagement": "Apps"
+    },
+    "businessManagement": {
+      "DEFAULT": "Business",
+      "customer": "Customer"
     },
     "error": {
-      "title": "Error",
+      "DEFAULT": "Error",
       "403": "403",
       "404": "404",
       "500": "500"
     },
     "result": {
-      "title": "Result",
+      "DEFAULT": "Result",
       "success": "Success",
       "fail": "Fail"
     },
     "account": {
-      "title": "Account",
+      "DEFAULT": "Account",
       "center": "Account Center",
       "setting": "Account Setting"
     }
