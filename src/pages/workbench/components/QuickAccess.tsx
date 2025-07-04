@@ -33,7 +33,7 @@ export default function QuickAccess({ className, userId }: QuickAccessProps) {
           ))}>
           {response?.data.list.map((item) => (
             <Link to={item.url} key={item.id} className="flex flex-col items-center gap-1">
-              <Button size="md" colors="neutral" asIcon>
+              <Button size="md" colors="neutral" variant="light" asIcon className="cursor-[inherit]">
                 <SvgIcon size={22} name={item.icon || ''} />
               </Button>
               <span className="text-description text-xs">

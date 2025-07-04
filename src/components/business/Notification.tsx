@@ -1,5 +1,5 @@
-import { format } from 'date-fns';
 import { cn } from '@/lib/utils';
+import { formatDate } from '@/utils/date';
 import { useTranslation } from 'react-i18next';
 import { Avatar } from '../ui/Avatar';
 import Heading from '../ui/Heading';
@@ -7,10 +7,10 @@ import { Popover } from '../ui/Popover';
 import Tag from '../ui/Tag';
 import Show from '../ui/Show';
 import { Tabs, TabsItem, TabsList, TabsContent } from '../ui/Tabs';
+import DynamicTrans from './DynamicTrans';
 import React from 'react';
 import Empty from './Empty';
 import type { Notification as NotificationData, MessageItem, NoticeItem } from '@/types/system';
-import DynamicTrans from './DynamicTrans';
 
 interface NotificationProps extends React.ComponentProps<typeof Popover> {
   data?: NotificationData;
@@ -67,7 +67,7 @@ function MessageContent({ avatarUrl, username, content, emphasis, createAt }: Me
           </Show>
         </div>
         <div>{content}</div>
-        <p className="text-description text-xs">{format(new Date(Number(createAt) * 1000), 'yyyy/MM/dd HH:mm')}</p>
+        <p className="text-description text-xs">{formatDate(new Date(Number(createAt) * 1000), { formatStr: 'yyyy/MM/dd HH:mm' })}</p>
       </div>
     </div>
   );
@@ -89,7 +89,7 @@ function NoticeContent({ title, content, tag, tagLevel = 'low', createAt }: Noti
         </Tag>
       </div>
       <p className="mb-0.5 truncate text-sm">{content}</p>
-      <p className="text-description text-xs">{format(new Date(Number(createAt) * 1000), 'yyyy/MM/dd HH:mm')}</p>
+      <p className="text-description text-xs">{formatDate(new Date(Number(createAt) * 1000), { formatStr: 'yyyy/MM/dd HH:mm' })}</p>
     </div>
   );
 }
