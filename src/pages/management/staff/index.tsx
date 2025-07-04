@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 import { DropdownMenu } from 'radix-ui';
-import { IconDots, IconPlus } from '@tabler/icons-react';
+import { IconDots, IconPlus, IconRestore } from '@tabler/icons-react';
 import { IconChevronLeft } from '@tabler/icons-react';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@tanstack/react-query';
@@ -121,11 +121,12 @@ export default function StaffPage() {
               <form className="flex-1 md:min-w-60 md:flex-none" onSubmit={handleSearch}>
                 <SearchInput value={query} placeholder="search staff..." className="" onChange={(e) => setQuery(e.target.value)} />
               </form>
-              <Button colors="neutral" onClick={handleReset}>
-                {t('common.reset')}
+              <Button colors="neutral" className="gap-1" onClick={handleReset}>
+                <span className="hidden sm:block">{t('common.reset')}</span>
+                <IconRestore size={18} />
               </Button>
               <Button className="gap-1" onClick={handleCreate}>
-                {t('account.addStaff')}
+                <span className="hidden sm:block">{t('account.addStaff')}</span>
                 <IconPlus size={18} />
               </Button>
             </div>
