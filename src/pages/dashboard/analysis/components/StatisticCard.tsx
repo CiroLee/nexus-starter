@@ -1,8 +1,8 @@
-'use client';
 import { useValue } from '@cirolee/tiny-motion';
 import { Card, CardBody } from '@ui/Card';
 import Statistic from '@ui/Statistic';
 import { cn } from '@/lib/utils';
+import { formatNumber } from '@/utils/number';
 import { IconTrendingDown, IconTrendingUp } from '@tabler/icons-react';
 
 interface StatisticCardProps extends React.ComponentProps<typeof Statistic> {
@@ -21,7 +21,7 @@ export default function StatisticCard({ className, title, value, precision = 0, 
   return (
     <Card className={cn('bg-background', className)}>
       <CardBody>
-        <Statistic title={title} value={Intl.NumberFormat().format(val)} {...props} suffix={trend ? <StatisticSuffix value={radio} trend={trend} /> : null} />
+        <Statistic title={title} value={formatNumber(val)} {...props} suffix={trend ? <StatisticSuffix value={radio} trend={trend} /> : null} />
       </CardBody>
     </Card>
   );

@@ -164,6 +164,12 @@
   "apps": {
     "addApp": "Add App"
   },
+  "customers": {
+    "totalCustomers": "Total Customers",
+    "newCustomers": "New Customers",
+    "churnsRate": "Churns Rate",
+    "refunds": "Refunds"
+  },
   "account": {
     "myProject": "My Project",
     "basicSetting": "Basic Information",

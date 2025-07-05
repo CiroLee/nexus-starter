@@ -164,6 +164,12 @@
   "apps": {
     "addApp": "添加应用"
   },
+  "customers": {
+    "totalCustomers": "总客户",
+    "newCustomers": "新增客户",
+    "churnsRate": "流失率",
+    "refunds": "退款人数"
+  },
   "account": {
     "myProject": "我的项目",
     "basicSetting": "基本信息",
