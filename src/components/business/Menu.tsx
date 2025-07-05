@@ -56,11 +56,12 @@ function CollapsibleMenu({ name, icon, triggerClassName, className, defaultOpen,
         if (child.children?.length) {
           return (
             <CollapsibleMenu
-              className="pl-6"
+              className="mb-1 pl-6"
               triggerClassName="w-[calc(100%_-_calc(var(--spacing)*6))] left-[calc(var(--spacing)*6)]"
               key={`submenu-${child.id}`}
               list={child.children}
               name={child.meta?.name}
+              icon={child.meta?.icon}
               defaultOpen={child.meta?.defaultOpen}
             />
           );

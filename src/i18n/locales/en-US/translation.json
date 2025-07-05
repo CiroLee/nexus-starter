@@ -101,23 +101,26 @@
       "staff": "Staff"
     },
     "operation": {
-      "DEFAULT": "Operations",
+      "DEFAULT": "Operation",
       "appManagement": "Apps"
     },
     "businessManagement": {
       "DEFAULT": "Business",
       "customer": "Customer"
     },
-    "error": {
-      "DEFAULT": "Error",
-      "403": "403",
-      "404": "404",
-      "500": "500"
-    },
-    "result": {
-      "DEFAULT": "Result",
-      "success": "Success",
-      "fail": "Fail"
+    "demos": {
+      "DEFAULT": "Demos",
+      "error": {
+        "DEFAULT": "Error",
+        "403": "403",
+        "404": "404",
+        "500": "500"
+      },
+      "result": {
+        "DEFAULT": "Result",
+        "success": "Success",
+        "fail": "Fail"
+      }
     },
     "account": {
       "DEFAULT": "Account",

@@ -108,16 +108,19 @@
       "DEFAULT": "业务管理",
       "customer": "客户管理"
     },
-    "error": {
-      "DEFAULT": "异常页",
-      "403": "403",
-      "404": "404",
-      "500": "500"
-    },
-    "result": {
-      "DEFAULT": "结果页",
-      "success": "成功页",
-      "fail": "失败页"
+    "demos": {
+      "DEFAULT": "演示",
+      "error": {
+        "DEFAULT": "异常页",
+        "403": "403",
+        "404": "404",
+        "500": "500"
+      },
+      "result": {
+        "DEFAULT": "结果页",
+        "success": "成功页",
+        "fail": "失败页"
+      }
     },
     "account": {
       "DEFAULT": "个人页",
