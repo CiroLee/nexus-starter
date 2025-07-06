@@ -4,16 +4,6 @@
     "darkTheme": "Dark",
     "systemTheme": "System",
     "backHome": "Back Home",
-    "resend": "Resend",
-    "edit": "Edit",
-    "create": "Create",
-    "config": "Config",
-    "print": "Print",
-    "update": "Update",
-    "reset": "Reset",
-    "delete": "Delete",
-    "cancel": "Cancel",
-    "export": "Export",
     "expense": "Expense",
     "revenue": "Revenue",
     "active": "Active",
@@ -23,13 +13,10 @@
     "licensed": "Licensed",
     "unlicensed": "Unlicensed",
     "allProject": "All Projects",
-    "viewMore": "More",
     "quickAccess": "Quick Access",
     "bulletin": "Bulletin",
     "helpDoc": "Help Documents",
     "updateFeeds": "Update Feeds",
-    "login": "Login",
-    "logout": "Logout",
     "rememberPsd": "Remember Password",
     "forgetPsd": "Forget Password",
     "noData": "No Data",
@@ -40,7 +27,6 @@
     "internship": "Internship",
     "male": "Male",
     "female": "Female",
-    "submit": "Submit",
     "file": "File",
     "logs": "Logs",
     "mail": "Mail",
@@ -52,6 +38,24 @@
     "todo": "Todo",
     "markAsRead": "Mark all As read",
     "notifications": "Notifications"
+  },
+  "actions": {
+    "create": "Create",
+    "config": "Config",
+    "print": "Print",
+    "update": "Update",
+    "reset": "Reset",
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "export": "Export",
+    "resend": "Resend",
+    "edit": "Edit",
+    "viewMore": "More",
+    "view": "View",
+    "login": "Login",
+    "logout": "Logout",
+    "submit": "Submit",
+    "sendEmail": "Send Email"
   },
   "banner": {
     "loginTitle": "Login to Nexus-Starter"
@@ -168,7 +172,30 @@
     "totalCustomers": "Total Customers",
     "newCustomers": "New Customers",
     "churnsRate": "Churns Rate",
-    "refunds": "Refunds"
+    "refunds": "Refunds",
+    "tags": {
+      "ordinary": "ORDINARY",
+      "vip": "VIP",
+      "corporate": "CORPORATE"
+    },
+    "status": {
+      "active": "Active",
+      "forbidden": "Forbidden",
+      "reviewing": "Reviewing",
+      "churned": "Churned"
+    },
+    "profile": {
+      "name": "Name",
+      "phone": "Phone",
+      "email": "Email",
+      "wechat": "WeChat",
+      "address": "Address",
+      "birthday": "Birthday",
+      "sex": "Sex",
+      "memberType": "Member Type",
+      "status": "Status",
+      "owner": "Owner"
+    }
   },
   "account": {
     "myProject": "My Project",

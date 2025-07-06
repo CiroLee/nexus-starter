@@ -27,7 +27,7 @@ export default function UserDropdown({ className }: { className?: string }) {
           <DropdownMenu.Separator className="bg-line my-1 h-px" />
           <DropdownMenu.Item className="dropdown-menu--item flex items-center gap-1" onSelect={logout}>
             <IconLogout size={20} />
-            {t('common.logout')}
+            {t('actions.logout')}
           </DropdownMenu.Item>
         </DropdownMenu.Content>
       </DropdownMenu.Portal>

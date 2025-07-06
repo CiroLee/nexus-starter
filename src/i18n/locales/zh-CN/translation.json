@@ -4,16 +4,6 @@
     "darkTheme": "深色模式",
     "systemTheme": "跟随系统",
     "backHome": "回到首页",
-    "resend": "重新发送",
-    "edit": "编辑",
-    "create": "新建",
-    "config": "配置",
-    "print": "打印",
-    "update": "更新",
-    "reset": "重置",
-    "delete": "删除",
-    "cancel": "取消",
-    "export": "导出",
     "expense": "支出",
     "revenue": "收入",
     "active": "使用中",
@@ -23,13 +13,10 @@
     "licensed": "已授权",
     "unlicensed": "未授权",
     "allProject": "全部项目",
-    "viewMore": "查看更多",
     "quickAccess": "快捷入口",
     "bulletin": "公告",
     "helpDoc": "帮助文档",
     "updateFeeds": "动态",
-    "login": "登录",
-    "logout": "退出登录",
     "rememberPsd": "记住密码",
     "forgetPsd": "忘记密码",
     "noData": "暂无数据",
@@ -40,7 +27,6 @@
     "internship": "实习生",
     "male": "男",
     "female": "女",
-    "submit": "提交",
     "file": "文件",
     "logs": "日志",
     "mail": "邮件",
@@ -52,6 +38,24 @@
     "todo": "待办",
     "markAsRead": "全部标为已读",
     "notifications": "通知列表"
+  },
+  "actions": {
+    "create": "新建",
+    "reset": "重置",
+    "delete": "删除",
+    "cancel": "取消",
+    "export": "导出",
+    "print": "打印",
+    "update": "更新",
+    "viewMore": "查看更多",
+    "view": "查看",
+    "login": "登录",
+    "logout": "退出登录",
+    "edit": "编辑",
+    "resend": "重新发送",
+    "config": "配置",
+    "submit": "提交",
+    "sendEmail": "发送邮件"
   },
   "banner": {
     "loginTitle": "登录Nexus-Starter"
@@ -168,7 +172,30 @@
     "totalCustomers": "总客户",
     "newCustomers": "新增客户",
     "churnsRate": "流失率",
-    "refunds": "退款人数"
+    "refunds": "退款人数",
+    "tags": {
+      "ordinary": "普通会员",
+      "vip": "VIP会员",
+      "corporate": "企业会员"
+    },
+    "status": {
+      "active": "正常",
+      "forbidden": "禁用",
+      "reviewing": "审核中",
+      "churned": "流失"
+    },
+    "profile": {
+      "name": "姓名",
+      "phone": "手机",
+      "email": "邮箱",
+      "wechat": "微信",
+      "address": "地址",
+      "birthday": "生日",
+      "sex": "性别",
+      "memberType": "会员类型",
+      "status": "状态",
+      "owner": "归属负责人"
+    }
   },
   "account": {
     "myProject": "我的项目",

@@ -63,7 +63,7 @@ const mainRoutes: CustomRoute = {
         {
           id: 'customer-management',
           path: '/business/customer',
-          Component: lazy(() => import('@/pages/business-management/customer')),
+          Component: lazy(() => import('@/pages/business-manage/customer')),
           meta: {
             name: 'businessManagement.customer'
           }
@@ -80,7 +80,7 @@ const mainRoutes: CustomRoute = {
         {
           id: 'staff-management',
           path: '/user-management/staff',
-          Component: lazy(() => import('@/pages/user-management/staff')),
+          Component: lazy(() => import('@/pages/user-manage/staff')),
           meta: {
             name: 'userManagement.staff'
           }
@@ -88,15 +88,15 @@ const mainRoutes: CustomRoute = {
         {
           id: 'edit-staff',
           path: '/user-management/staff-edit/:userId',
-          Component: lazy(() => import('@/pages/user-management/staff-edit')),
+          Component: lazy(() => import('@/pages/user-manage/staff-edit')),
           meta: {
             visible: false
           }
         },
         {
           id: 'create-staff',
-          path: '/management/staff-create',
-          Component: lazy(() => import('@/pages/user-management/staff-create')),
+          path: '/user-management/staff-create',
+          Component: lazy(() => import('@/pages/user-manage/staff-create')),
           meta: {
             visible: false
           }
@@ -131,7 +131,6 @@ const mainRoutes: CustomRoute = {
           id: 'error',
           meta: {
             name: 'demos.error.DEFAULT',
-            visible: true,
             icon: <IconExclamationCircleFilled size={20} />
           },
           children: [
@@ -140,8 +139,7 @@ const mainRoutes: CustomRoute = {
               id: 'error-403',
               Component: lazy(() => import('@/pages/error/403')),
               meta: {
-                name: 'demos.error.403',
-                visible: true
+                name: 'demos.error.403'
               }
             },
             {
@@ -149,8 +147,7 @@ const mainRoutes: CustomRoute = {
               id: 'error-404',
               Component: lazy(() => import('@/pages/error/404')),
               meta: {
-                name: 'demos.error.404',
-                visible: true
+                name: 'demos.error.404'
               }
             },
             {
@@ -158,8 +155,7 @@ const mainRoutes: CustomRoute = {
               id: 'error-500',
               Component: lazy(() => import('@/pages/error/500')),
               meta: {
-                name: 'demos.error.500',
-                visible: true
+                name: 'demos.error.500'
               }
             }
           ]
@@ -168,7 +164,6 @@ const mainRoutes: CustomRoute = {
           id: 'result',
           meta: {
             name: 'demos.result.DEFAULT',
-            visible: true,
             icon: <IconCircleLetterRFilled size={20} />
           },
           children: [
@@ -177,8 +172,7 @@ const mainRoutes: CustomRoute = {
               path: '/demos/result/success',
               Component: lazy(() => import('@/pages/result/success')),
               meta: {
-                name: 'demos.result.success',
-                visible: true
+                name: 'demos.result.success'
               }
             },
             {
@@ -186,8 +180,7 @@ const mainRoutes: CustomRoute = {
               path: '/demos/result/fail',
               Component: lazy(() => import('@/pages/result/fail')),
               meta: {
-                name: 'demos.result.fail',
-                visible: true
+                name: 'demos.result.fail'
               }
             }
           ]
@@ -199,7 +192,6 @@ const mainRoutes: CustomRoute = {
       id: 'account',
       meta: {
         name: 'account.DEFAULT',
-        visible: true,
         icon: <IconUserFilled size={20} />
       },
       children: [
@@ -208,8 +200,7 @@ const mainRoutes: CustomRoute = {
           path: '/account/center',
           Component: lazy(() => import('@/pages/account/center')),
           meta: {
-            name: 'account.center',
-            visible: true
+            name: 'account.center'
           }
         },
         {
@@ -217,8 +208,7 @@ const mainRoutes: CustomRoute = {
           path: '/account/setting',
           Component: lazy(() => import('@/pages/account/setting')),
           meta: {
-            name: 'account.setting',
-            visible: true
+            name: 'account.setting'
           }
         }
       ]

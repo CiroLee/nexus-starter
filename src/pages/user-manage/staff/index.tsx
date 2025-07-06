@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 import { DropdownMenu } from 'radix-ui';
 import { IconDots, IconPlus, IconRestore } from '@tabler/icons-react';
-import { IconChevronLeft } from '@tabler/icons-react';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@tanstack/react-query';
 import Heading from '@ui/Heading';
@@ -18,7 +17,8 @@ import MiniUser from '@/components/business/MiniUser';
 import SearchInput from '@/components/business/SearchInput';
 import LabelField from '@/components/business/LabelField';
 import DynamicTrans from '@/components/business/DynamicTrans';
-import { usePagination, useLanguage } from '@/hooks';
+import Pagination from '@/components/business/Pagination';
+import { useLanguage } from '@/hooks';
 import { useMockStore } from '@/store/mock';
 import { getStaffList } from '@/_mock/member';
 import type { StaffItem } from '@/types/user';
@@ -28,6 +28,7 @@ import { cn } from '@/lib/utils';
 export default function StaffPage() {
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const [currentPage, setCurrentPage] = useState(1);
   const [showAlertDialog, setShowAlertDialog] = useState(false);
   const [selectedStaff, setSelectedStaff] = useState<StaffItem>();
   const [query, setQuery] = useState('');
@@ -37,11 +38,9 @@ export default function StaffPage() {
   });
   const lng = useLanguage();
   const { setStaffList } = useMockStore();
-
   const { data: response, isPending } = useQuery({ queryKey: ['staff'], queryFn: getStaffList });
-  const { currentPage, isFirstPage, isLastPage, totalPage, nextPage, prevPage } = usePagination({ pageSize: 10, total: response?.data.length });
 
-  // stash staff data
+  // stash staff data for mocking edit staff
   useEffect(() => {
     setStaffList(response?.data || []);
   }, [response?.data, setStaffList]);
@@ -75,11 +74,11 @@ export default function StaffPage() {
   };
 
   const handleEdit = (item: StaffItem) => {
-    navigate('/management/staff-edit/' + item.id);
+    navigate('/user-management/staff-edit/' + item.id);
   };
 
   const handleCreate = () => {
-    navigate('/management/staff-create');
+    navigate('/user-management/staff-create');
   };
 
   return (
@@ -122,7 +121,7 @@ export default function StaffPage() {
                 <SearchInput value={query} placeholder="search staff..." className="" onChange={(e) => setQuery(e.target.value)} />
               </form>
               <Button colors="neutral" className="gap-1" onClick={handleReset}>
-                <span className="hidden sm:block">{t('common.reset')}</span>
+                <span className="hidden sm:block">{t('actions.reset')}</span>
                 <IconRestore size={18} />
               </Button>
               <Button className="gap-1" onClick={handleCreate}>
@@ -174,10 +173,10 @@ export default function StaffPage() {
                       <DropdownMenu.Portal>
                         <DropdownMenu.Content align="start" className="dropdown-menu--content">
                           <DropdownMenu.Item className="dropdown-menu--item" onSelect={() => handleEdit(item)}>
-                            {t('common.edit')}
+                            {t('actions.edit')}
                           </DropdownMenu.Item>
                           <DropdownMenu.Item className="dropdown-menu--item hover:bg-danger/80 dark:text-white" onSelect={() => handleDeleteStaff(item)}>
-                            {t('common.delete')}
+                            {t('actions.delete')}
                           </DropdownMenu.Item>
                         </DropdownMenu.Content>
                       </DropdownMenu.Portal>
@@ -187,17 +186,7 @@ export default function StaffPage() {
               ))}
             </TableBody>
           </Table>
-          <div className="mt-4 flex items-center justify-end gap-2">
-            <Button asIcon size="sm" colors="neutral" variant="bordered" onClick={prevPage} disabled={isFirstPage}>
-              <IconChevronLeft size={20} />
-            </Button>
-            <p className="mx-3 text-sm">
-              {currentPage}/{totalPage}
-            </p>
-            <Button asIcon size="sm" colors="neutral" variant="bordered" onClick={nextPage} disabled={isLastPage}>
-              <IconChevronLeft className="rotate-180" size={20} />
-            </Button>
-          </div>
+          <Pagination className="mt-4" pageSize={10} total={response?.data.length} onChange={setCurrentPage} />
         </Show>
       </div>
       <AlertDialog
@@ -212,11 +201,11 @@ export default function StaffPage() {
         footer={
           <div className="flex items-center justify-end gap-2 px-3.5">
             <AlertDialogCancel>
-              <Button colors="neutral">{t('common.cancel')}</Button>
+              <Button colors="neutral">{t('actions.cancel')}</Button>
             </AlertDialogCancel>
             <AlertDialogCancel>
               <Button colors="danger" onClick={() => toast.success('action success', { position: 'top-center' })}>
-                {t('common.delete')}
+                {t('actions.delete')}
               </Button>
             </AlertDialogCancel>
           </div>

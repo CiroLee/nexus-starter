@@ -62,7 +62,7 @@ export default function Login() {
             <Link href="/forgot-password">{t('common.forgetPsd')}</Link>
           </div>
           <Button type="submit" className="mt-4 w-full">
-            {t('common.login')}
+            {t('actions.login')}
           </Button>
         </form>
       </div>
