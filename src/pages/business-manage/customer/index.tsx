@@ -1,13 +1,16 @@
 import { useEffect, useMemo, useState } from 'react';
+import { toast } from 'sonner';
 import { DropdownMenu } from 'radix-ui';
-import { IconUsers, IconMoodSpark, IconRefreshDot, IconCreditCardRefund, IconDots } from '@tabler/icons-react';
+import { IconUsers, IconMoodSpark, IconRefreshDot, IconCreditCardRefund, IconDots, IconPencil, IconFileText } from '@tabler/icons-react';
 import { useQuery } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
 import { useMockStore } from '@/store/mock';
 import { Card } from '@ui/Card';
 import Heading from '@ui/Heading';
 import Show from '@ui/Show';
+import Tag from '@ui/Tag';
 import Button from '@ui/Button';
+import { AlertDialog, AlertDialogCancel } from '@/components/ui/AlertDialog';
 import { Table, TableHeader, TableHeaderCell, TableBody, TableCell, TableRow } from '@ui/Table';
 import Pagination from '@/components/business/Pagination';
 import Empty from '@/components/business/Empty';
@@ -16,17 +19,17 @@ import RealTimeMetric from './components/RealTimeMetric';
 import MemberTag from './components/MemberTag';
 import { formatNumber, formatPercent } from '@/utils/number';
 import { getCustomerMetrics, getCustomerList } from '@/_mock/customer';
-import Tag from '@/components/ui/Tag';
 import { CustomerInfo } from '@/types/user';
 
 export default function CustomerManagementPage() {
   const { t } = useTranslation();
   const { setCustomerList } = useMockStore();
+  const [showAlertDialog, setShowAlertDialog] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedCustomer, setSelectedCustomer] = useState<CustomerInfo>();
+
   const { data: customerMetrics } = useQuery({ queryKey: ['customerMetrics'], queryFn: getCustomerMetrics });
   const { data: customerList, isPending: customerIsPending } = useQuery({ queryKey: ['customerList'], queryFn: getCustomerList });
-
-  console.log('customerList', customerList);
 
   const getStatusColors = (status: CustomerInfo['status']) => {
     switch (status) {
@@ -41,12 +44,9 @@ export default function CustomerManagementPage() {
     }
   };
 
-  const handleEdit = (item: CustomerInfo) => {
-    console.log('edit', item);
-  };
-
-  const handleView = (item: CustomerInfo) => {
-    console.log('view', item);
+  const handleDeleteCustomer = (customer: CustomerInfo) => {
+    setSelectedCustomer(customer);
+    setShowAlertDialog(true);
   };
 
   // mock paginating staff data
@@ -64,7 +64,7 @@ export default function CustomerManagementPage() {
       <Heading as="h3" className="mb-3">
         {t('menus.businessManagement.customer')}
       </Heading>
-      <Card className="bg-background grid grid-cols-4 p-2">
+      <Card className="bg-background grid grid-cols-2 grid-rows-2 gap-3 p-2 lg:grid-cols-3 xl:grid-cols-4 xl:grid-rows-subgrid">
         <RealTimeMetric
           icon={<IconUsers size={18} />}
           title={t('customers.totalCustomers')}
@@ -130,25 +130,43 @@ export default function CustomerManagementPage() {
                       <DynamicTrans prefix="customers.status.">{item.status || ''}</DynamicTrans>
                     </Tag>
                   </TableCell>
-                  <TableCell>
+                  <TableCell className="whitespace-nowrap">
+                    <div className="after:bg-line relative inline-flex items-center after:mx-2 after:block after:h-4 after:w-px">
+                      <Button size="sm" variant="light" className="gap-1">
+                        <IconPencil size={18} />
+                        {t('actions.edit')}
+                      </Button>
+                      <Button size="sm" variant="light" className="gap-1">
+                        <IconFileText size={18} />
+                        {t('actions.view')}
+                      </Button>
+                    </div>
                     <DropdownMenu.Root>
                       <DropdownMenu.Trigger asChild>
-                        <Button colors="neutral" asIcon size="sm" variant="light">
-                          <IconDots size={20} />
+                        <Button size="sm" colors="neutral" asIcon variant="light">
+                          <IconDots size={16} />
                         </Button>
                       </DropdownMenu.Trigger>
                       <DropdownMenu.Portal>
-                        <DropdownMenu.Content align="start" className="dropdown-menu--content">
-                          <DropdownMenu.Item asChild className="dropdown-menu--item w-full" onSelect={() => handleEdit(item)}>
-                            <button disabled={!item.email} className="disabled:cursor-not-allowed disabled:opacity-80">
-                              {t('actions.sendEmail')}
-                            </button>
+                        <DropdownMenu.Content align="end" className="dropdown-menu--content">
+                          <DropdownMenu.Item className="dropdown-menu--item">{t('actions.sendMessage')}</DropdownMenu.Item>
+                          <DropdownMenu.Separator className="bg-line my-1 h-px" />
+                          {/* <DropdownMenu.Label className="text-description p-2 text-xs">{t('actions.statusOperate')}</DropdownMenu.Label> */}
+                          <DropdownMenu.Item className="dropdown-menu--item" disabled={['active', 'reviewing'].includes(item.status)}>
+                            {t('actions.activate')}
                           </DropdownMenu.Item>
-                          <DropdownMenu.Item className="dropdown-menu--item" onSelect={() => handleView(item)}>
-                            {t('actions.view')}
+                          <DropdownMenu.Item className="dropdown-menu--item" disabled={item.status === 'forbidden'}>
+                            {t('actions.disable')}
                           </DropdownMenu.Item>
-                          <DropdownMenu.Item className="dropdown-menu--item" onSelect={() => handleEdit(item)}>
-                            {t('actions.edit')}
+                          <DropdownMenu.Item className="dropdown-menu--item" disabled={item.status !== 'reviewing'}>
+                            {t('actions.approved')}
+                          </DropdownMenu.Item>
+                          <DropdownMenu.Item className="dropdown-menu--item" disabled={item.status !== 'reviewing'}>
+                            {t('actions.rejected')}
+                          </DropdownMenu.Item>
+                          <DropdownMenu.Separator className="bg-line my-1 h-px" />
+                          <DropdownMenu.Item className="dropdown-menu--item hover:bg-danger transition-colors hover:text-white" onSelect={() => handleDeleteCustomer(item)}>
+                            {t('actions.delete')}
                           </DropdownMenu.Item>
                         </DropdownMenu.Content>
                       </DropdownMenu.Portal>
@@ -161,6 +179,28 @@ export default function CustomerManagementPage() {
           <Pagination className="mt-4" total={customerList?.data.length} pageSize={10} onChange={setCurrentPage} />
         </Show>
       </div>
+      <AlertDialog
+        open={showAlertDialog}
+        onOpenChange={setShowAlertDialog}
+        title="Warning"
+        description={
+          <div>
+            {t('longText.notice.deleteWarning')} <strong>{selectedCustomer?.name}</strong>?<p>{t('longText.notice.unDoneWaring')}</p>
+          </div>
+        }
+        footer={
+          <div className="flex items-center justify-end gap-2 px-3.5">
+            <AlertDialogCancel>
+              <Button colors="neutral">{t('actions.cancel')}</Button>
+            </AlertDialogCancel>
+            <AlertDialogCancel>
+              <Button colors="danger" onClick={() => toast.success(t('toast.actionSucceed'), { position: 'top-center' })}>
+                {t('actions.delete')}
+              </Button>
+            </AlertDialogCancel>
+          </div>
+        }
+      />
     </div>
   );
 }

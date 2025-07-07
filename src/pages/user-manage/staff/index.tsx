@@ -1,16 +1,17 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
-import { DropdownMenu } from 'radix-ui';
-import { IconDots, IconPlus, IconRestore } from '@tabler/icons-react';
+import { IconPlus, IconRestore, IconPencil, IconTrash } from '@tabler/icons-react';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@tanstack/react-query';
+import { cn } from '@/lib/utils';
 import Heading from '@ui/Heading';
 import Button from '@ui/Button';
 import Tag from '@ui/Tag';
 import Show from '@ui/Show';
 import Select from '@ui/Select';
-import AlertDialog, { AlertDialogCancel } from '@ui/AlertDialog';
+import Divider from '@/components/ui/Divider';
+import { AlertDialog, AlertDialogCancel } from '@ui/AlertDialog';
 import { Table, TableHeader, TableHeaderCell, TableBody, TableCell, TableRow } from '@ui/Table';
 import Empty from '@/components/business/Empty';
 import MiniUser from '@/components/business/MiniUser';
@@ -23,7 +24,6 @@ import { useMockStore } from '@/store/mock';
 import { getStaffList } from '@/_mock/member';
 import type { StaffItem } from '@/types/user';
 import { languageMap, positionOptions } from '@/utils/constants';
-import { cn } from '@/lib/utils';
 
 export default function StaffPage() {
   const navigate = useNavigate();
@@ -163,24 +163,16 @@ export default function StaffPage() {
                       <DynamicTrans>{`status.${item.status}`}</DynamicTrans>
                     </Tag>
                   </TableCell>
-                  <TableCell>
-                    <DropdownMenu.Root>
-                      <DropdownMenu.Trigger asChild>
-                        <Button colors="neutral" asIcon size="sm" variant="light">
-                          <IconDots size={20} />
-                        </Button>
-                      </DropdownMenu.Trigger>
-                      <DropdownMenu.Portal>
-                        <DropdownMenu.Content align="start" className="dropdown-menu--content">
-                          <DropdownMenu.Item className="dropdown-menu--item" onSelect={() => handleEdit(item)}>
-                            {t('actions.edit')}
-                          </DropdownMenu.Item>
-                          <DropdownMenu.Item className="dropdown-menu--item hover:bg-danger/80 dark:text-white" onSelect={() => handleDeleteStaff(item)}>
-                            {t('actions.delete')}
-                          </DropdownMenu.Item>
-                        </DropdownMenu.Content>
-                      </DropdownMenu.Portal>
-                    </DropdownMenu.Root>
+                  <TableCell className="flex items-center">
+                    <Button variant="light" size="sm" className="gap-1" onClick={() => handleEdit(item)}>
+                      <IconPencil size={18} />
+                      {t('actions.edit')}
+                    </Button>
+                    <Divider className="mx-2 h-4" orientation="vertical" />
+                    <Button variant="light" colors="danger" className="gap-1" size="sm" onClick={() => handleDeleteStaff(item)}>
+                      <IconTrash size={18} />
+                      {t('actions.delete')}
+                    </Button>
                   </TableCell>
                 </TableRow>
               ))}
@@ -195,7 +187,8 @@ export default function StaffPage() {
         title="Warning"
         description={
           <div>
-            Are you sure to delete <strong>{selectedStaff?.username}</strong>?<p>this action can not be undone</p>
+            {t('longText.notice.deleteWarning')}
+            <strong>{selectedStaff?.username}</strong>?<p>{t('longText.notice.unDoneWaring')}</p>
           </div>
         }
         footer={
@@ -204,7 +197,7 @@ export default function StaffPage() {
               <Button colors="neutral">{t('actions.cancel')}</Button>
             </AlertDialogCancel>
             <AlertDialogCancel>
-              <Button colors="danger" onClick={() => toast.success('action success', { position: 'top-center' })}>
+              <Button colors="danger" onClick={() => toast.success(t('toast.actionSucceed'), { position: 'top-center' })}>
                 {t('actions.delete')}
               </Button>
             </AlertDialogCancel>

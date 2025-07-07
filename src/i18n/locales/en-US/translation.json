@@ -55,10 +55,19 @@
     "login": "Login",
     "logout": "Logout",
     "submit": "Submit",
-    "sendEmail": "Send Email"
+    "disable": "Disable",
+    "enable": "Enable",
+    "approved": "Approved",
+    "rejected": "Rejected",
+    "reject": "Reject",
+    "activate": "Activate",
+    "sendMessage": "Send Message"
   },
   "banner": {
     "loginTitle": "Login to Nexus-Starter"
+  },
+  "toast": {
+    "actionSucceed": "Action Succeed"
   },
   "longText": {
     "security": {
@@ -73,7 +82,9 @@
       "app": "receive notifications of the messages in the App.",
       "email": "receive emails of the messages, contracts, etc.",
       "update": "receive updates notification.",
-      "notReceiveCode": "Don't receive the code"
+      "notReceiveCode": "Don't receive the code",
+      "deleteWarning": "Are you sure to delete",
+      "unDoneWaring": "This action can not be undone."
     }
   },
   "projectStatus": {

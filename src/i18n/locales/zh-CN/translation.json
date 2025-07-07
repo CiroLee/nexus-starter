@@ -55,10 +55,19 @@
     "resend": "重新发送",
     "config": "配置",
     "submit": "提交",
-    "sendEmail": "发送邮件"
+    "disable": "禁用",
+    "enable": "启用",
+    "approved": "过审",
+    "rejected": "驳回",
+    "reject": "拒绝",
+    "activate": "激活",
+    "sendMessage": "发送消息"
   },
   "banner": {
     "loginTitle": "登录Nexus-Starter"
+  },
+  "toast": {
+    "actionSucceed": "操作成功"
   },
   "longText": {
     "security": {
@@ -73,7 +82,9 @@
       "app": "在App上接收推送消息",
       "email": "接收邮件消息",
       "update": "接收更新信息",
-      "notReceiveCode": "没有收到验证码"
+      "notReceiveCode": "没有收到验证码",
+      "deleteWarning": "你确定删除",
+      "unDoneWaring": "该操作不可撤回"
     }
   },
   "projectStatus": {
@@ -180,7 +191,7 @@
     },
     "status": {
       "active": "正常",
-      "forbidden": "禁用",
+      "forbidden": "封禁",
       "reviewing": "审核中",
       "churned": "流失"
     },
