@@ -17,6 +17,7 @@ import Empty from '@/components/business/Empty';
 import DynamicTrans from '@/components/business/DynamicTrans';
 import RealTimeMetric from './components/RealTimeMetric';
 import MemberTag from './components/MemberTag';
+import CustomerDrawer from './components/CustomerDrawer';
 import { formatNumber, formatPercent } from '@/utils/number';
 import { getCustomerMetrics, getCustomerList } from '@/_mock/customer';
 import { CustomerInfo } from '@/types/user';
@@ -25,6 +26,7 @@ export default function CustomerManagementPage() {
   const { t } = useTranslation();
   const { setCustomerList } = useMockStore();
   const [showAlertDialog, setShowAlertDialog] = useState(false);
+  const [showPreviewEditDrawer, setShowPreviewEditDrawer] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedCustomer, setSelectedCustomer] = useState<CustomerInfo>();
 
@@ -47,6 +49,11 @@ export default function CustomerManagementPage() {
   const handleDeleteCustomer = (customer: CustomerInfo) => {
     setSelectedCustomer(customer);
     setShowAlertDialog(true);
+  };
+
+  const openCustomerDrawer = (customer: CustomerInfo) => {
+    setSelectedCustomer(customer);
+    setShowPreviewEditDrawer(true);
   };
 
   // mock paginating staff data
@@ -136,7 +143,7 @@ export default function CustomerManagementPage() {
                         <IconPencil size={18} />
                         {t('actions.edit')}
                       </Button>
-                      <Button size="sm" variant="light" className="gap-1">
+                      <Button size="sm" variant="light" className="gap-1" onClick={() => openCustomerDrawer(item)}>
                         <IconFileText size={18} />
                         {t('actions.view')}
                       </Button>
@@ -151,7 +158,6 @@ export default function CustomerManagementPage() {
                         <DropdownMenu.Content align="end" className="dropdown-menu--content">
                           <DropdownMenu.Item className="dropdown-menu--item">{t('actions.sendMessage')}</DropdownMenu.Item>
                           <DropdownMenu.Separator className="bg-line my-1 h-px" />
-                          {/* <DropdownMenu.Label className="text-description p-2 text-xs">{t('actions.statusOperate')}</DropdownMenu.Label> */}
                           <DropdownMenu.Item className="dropdown-menu--item" disabled={['active', 'reviewing'].includes(item.status)}>
                             {t('actions.activate')}
                           </DropdownMenu.Item>
@@ -201,6 +207,7 @@ export default function CustomerManagementPage() {
           </div>
         }
       />
+      <CustomerDrawer customer={selectedCustomer} open={showPreviewEditDrawer} onClose={() => setShowPreviewEditDrawer(false)} />
     </div>
   );
 }

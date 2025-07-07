@@ -80,10 +80,25 @@ export function getCustomerMetrics(): Promise<Response<CustomerMetrics>> {
   return delay(500, () => ({ code: 200, data }));
 }
 
+const customerTags = [
+  ['tech-savvy', 'high-income', 'premium-electronics', 'subscription-services', 'early-adopter', 'urban'],
+  ['student', 'budget-conscious', 'secondhand-fashion', 'discount-seeker', 'part-time-worker'],
+  ['health-conscious', 'parent', 'organic-food', 'family-wellness', 'mid-career', 'suburban'],
+  ['frequent-traveler', 'luxury-lifestyle', 'business-class', 'hotel-stays', 'cosmopolitan'],
+  ['book-lover', 'romance-novels', 'long-term-relationship', 'gift-buyer', 'emotional-purchases'],
+  ['diy-enthusiast', 'home-improvement', 'vocational-education', 'tool-collector', 'hands-on'],
+  ['impulsive-shopper', 'flash-sale-lover', 'emotional-spender', 'trend-follower', 'varied-interests'],
+  ['sustainable-shopper', 'post-graduate', 'ethical-consumer', 'urban-dweller', 'educated'],
+  ['retired', 'fixed-income', 'health-supplements', 'comfort-wear', 'senior-discounts'],
+  ['gamer', 'in-game-purchases', 'streaming-subscriber', 'single', 'young-adult', 'tech-heavy']
+];
+
 export function getCustomerList(): Promise<Response<CustomerInfo[]>> {
   const data: CustomerInfo[] = Array.from({ length: 100 }).map(() => ({
     id: lorem.texts.string({ range: 5, source: '0123456789' }),
     name: lorem.texts.name(),
+    avatarUrl: lorem.image.picsum({ random: true, width: 100 }),
+    aiTags: lorem.helper.elements<string[]>(customerTags),
     phone: lorem.internet.mobile(),
     email: lorem.internet.email(),
     wechat: 'wxid_' + lorem.unique.nanoid(12),

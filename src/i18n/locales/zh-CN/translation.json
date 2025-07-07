@@ -37,7 +37,8 @@
     "notice": "通知",
     "todo": "待办",
     "markAsRead": "全部标为已读",
-    "notifications": "通知列表"
+    "notifications": "通知列表",
+    "contactDetails": "联系方式"
   },
   "actions": {
     "create": "新建",
@@ -184,6 +185,7 @@
     "newCustomers": "新增客户",
     "churnsRate": "流失率",
     "refunds": "退款人数",
+    "detail": "客户详情",
     "tags": {
       "ordinary": "普通会员",
       "vip": "VIP会员",

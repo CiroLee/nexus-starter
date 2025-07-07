@@ -37,7 +37,8 @@
     "notice": "Notice",
     "todo": "Todo",
     "markAsRead": "Mark all As read",
-    "notifications": "Notifications"
+    "notifications": "Notifications",
+    "contactDetails": "Contact Details"
   },
   "actions": {
     "create": "Create",
@@ -184,6 +185,7 @@
     "newCustomers": "New Customers",
     "churnsRate": "Churns Rate",
     "refunds": "Refunds",
+    "detail": "Customer Detail",
     "tags": {
       "ordinary": "ORDINARY",
       "vip": "VIP",

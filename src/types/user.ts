@@ -46,11 +46,13 @@ export interface StaffItem {
 export interface CustomerInfo {
   id: string;
   name: string;
+  avatarUrl?: string;
   phone: string;
   email?: string;
   wechat?: string;
   address?: string;
   birthday?: string;
+  aiTags?: string[];
   sex?: 'male' | 'female';
   memberType?: 'ordinary' | 'vip' | 'corporate'; // 普通会员 | VIP会员 | 企业会员
   status: 'active' | 'forbidden' | 'reviewing' | 'churned'; // 活跃 | 禁用 | 审核中 | 流失
