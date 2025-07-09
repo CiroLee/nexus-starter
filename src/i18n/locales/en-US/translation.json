@@ -43,6 +43,7 @@
   "actions": {
     "create": "Create",
     "config": "Config",
+    "chat": "Chat",
     "print": "Print",
     "update": "Update",
     "reset": "Reset",
@@ -62,7 +63,7 @@
     "rejected": "Rejected",
     "reject": "Reject",
     "activate": "Activate",
-    "sendMessage": "Send Message"
+    "sendEmail": "Send Email"
   },
   "banner": {
     "loginTitle": "Login to Nexus-Starter"
@@ -179,6 +180,32 @@
   },
   "apps": {
     "addApp": "Add App"
+  },
+  "orders": {
+    "recentOrders": "Recent Orders",
+    "orderId": "Order ID",
+    "productName": "Product Name",
+    "paymentAmount": "Amount",
+    "paymentMethod": {
+      "DEFAULT": "Payment Method",
+      "wechatPay": "WeChat Pay",
+      "alipay": "Alipay",
+      "cashPay": "Cash",
+      "credit": "Credit Card",
+      "paypal": "PayPal"
+    },
+    "paymentTime": "Payment Time",
+    "orderTime": "Order Time",
+    "status": {
+      "DEFAULT": "Order Status",
+      "pending": "Pending",
+      "paid": "Paid",
+      "shipped": "Shipped",
+      "processing": "Processing",
+      "completed": "Completed",
+      "cancelled": "Cancelled",
+      "refunded": "Refunded"
+    }
   },
   "customers": {
     "totalCustomers": "Total Customers",

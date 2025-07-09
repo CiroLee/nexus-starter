@@ -47,7 +47,7 @@ function CollapsibleMenu({ name, icon, triggerClassName, className, defaultOpen,
             <Show when={icon}>
               <i className="shrink-0">{icon}</i>
             </Show>
-            <DynamicTrans prefix="menus.">{name || ''}</DynamicTrans>
+            <DynamicTrans prefix="menus.">{name}</DynamicTrans>
           </div>
           <IconChevronDown size={18} className="transition-transform group-data-[state=open]:rotate-180" />
         </Button>
@@ -87,7 +87,7 @@ function MenuLink({ path, name, icon, className }: MenuButtonLinkProps) {
         <Show when={icon}>
           <i className="shrink-0">{icon}</i>
         </Show>
-        <DynamicTrans prefix="menus.">{name || ''}</DynamicTrans>
+        <DynamicTrans prefix="menus.">{name}</DynamicTrans>
       </Button>
     </NavLink>
   );

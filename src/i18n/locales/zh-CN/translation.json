@@ -42,6 +42,7 @@
   },
   "actions": {
     "create": "新建",
+    "chat": "聊天",
     "reset": "重置",
     "delete": "删除",
     "cancel": "取消",
@@ -62,7 +63,7 @@
     "rejected": "驳回",
     "reject": "拒绝",
     "activate": "激活",
-    "sendMessage": "发送消息"
+    "sendEmail": "发送邮件"
   },
   "banner": {
     "loginTitle": "登录Nexus-Starter"
@@ -179,6 +180,32 @@
   },
   "apps": {
     "addApp": "添加应用"
+  },
+  "orders": {
+    "recentOrders": "近期订单",
+    "orderId": "订单编号",
+    "productName": "产品名称",
+    "paymentAmount": "支付金额",
+    "paymentMethod": {
+      "DEFAULT": "支付方式",
+      "wechatPay": "微信支付",
+      "alipay": "支付宝",
+      "cashPay": "现j",
+      "credit": "信用卡",
+      "paypal": "PayPal"
+    },
+    "paymentTime": "支付时间",
+    "orderTime": "下单时间",
+    "status": {
+      "DEFAULT": "订单状态",
+      "pending": "待处理",
+      "paid": "已支付",
+      "shipped": "已发货",
+      "processing": "处理中",
+      "completed": "已完成",
+      "cancelled": "已取消",
+      "refunded": "退货完成"
+    }
   },
   "customers": {
     "totalCustomers": "总客户",

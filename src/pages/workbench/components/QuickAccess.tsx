@@ -37,7 +37,7 @@ export default function QuickAccess({ className, userId }: QuickAccessProps) {
                 <SvgIcon size={22} name={item.icon || ''} />
               </Button>
               <span className="text-description text-xs">
-                <DynamicTrans prefix="common.">{item.label || ''}</DynamicTrans>
+                <DynamicTrans prefix="common.">{item.label}</DynamicTrans>
               </span>
             </Link>
           ))}

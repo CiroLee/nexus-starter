@@ -2,6 +2,8 @@ import { lorem } from './base';
 import { delay } from '@/utils/utils';
 import type { Response } from '@/types/response';
 import { CustomerInfo } from '@/types/user';
+import { customerTags, goods } from './constant';
+import { OrderItem } from '@/types/order';
 interface CustomerData {
   key: Date;
   data: number;
@@ -80,19 +82,6 @@ export function getCustomerMetrics(): Promise<Response<CustomerMetrics>> {
   return delay(500, () => ({ code: 200, data }));
 }
 
-const customerTags = [
-  ['tech-savvy', 'high-income', 'premium-electronics', 'subscription-services', 'early-adopter', 'urban'],
-  ['student', 'budget-conscious', 'secondhand-fashion', 'discount-seeker', 'part-time-worker'],
-  ['health-conscious', 'parent', 'organic-food', 'family-wellness', 'mid-career', 'suburban'],
-  ['frequent-traveler', 'luxury-lifestyle', 'business-class', 'hotel-stays', 'cosmopolitan'],
-  ['book-lover', 'romance-novels', 'long-term-relationship', 'gift-buyer', 'emotional-purchases'],
-  ['diy-enthusiast', 'home-improvement', 'vocational-education', 'tool-collector', 'hands-on'],
-  ['impulsive-shopper', 'flash-sale-lover', 'emotional-spender', 'trend-follower', 'varied-interests'],
-  ['sustainable-shopper', 'post-graduate', 'ethical-consumer', 'urban-dweller', 'educated'],
-  ['retired', 'fixed-income', 'health-supplements', 'comfort-wear', 'senior-discounts'],
-  ['gamer', 'in-game-purchases', 'streaming-subscriber', 'single', 'young-adult', 'tech-heavy']
-];
-
 export function getCustomerList(): Promise<Response<CustomerInfo[]>> {
   const data: CustomerInfo[] = Array.from({ length: 100 }).map(() => ({
     id: lorem.texts.string({ range: 5, source: '0123456789' }),
@@ -107,8 +96,23 @@ export function getCustomerList(): Promise<Response<CustomerInfo[]>> {
     memberType: lorem.helper.elements<CustomerInfo['memberType']>(['ordinary', 'vip', 'corporate']),
     status: lorem.helper.elements<CustomerInfo['status']>(['active', 'forbidden', 'reviewing', 'churned']),
     owner: lorem.texts.name(),
+    orders: Array.from({ length: lorem.number.int([0, 5]) }).map(() => ({
+      orderId: lorem.unique.nanoid(),
+      productName: lorem.helper.elements<string>(goods),
+      paymentAmount: lorem.number.int([10, 999]),
+      paymentMethod: lorem.helper.elements<OrderItem['paymentMethod']>(['wechat', 'alipay', 'cash', 'credit', 'paypal']),
+      paymentTime: lorem.date.timestamp({ from: '2020/1/1', to: '2025/12/31', ms: true }),
+      orderTime: lorem.date.timestamp({ from: '2020/1/1', to: '2025/12/31', ms: true }),
+      status: lorem.helper.elements<OrderItem['status']>(['pending', 'paid', 'processing', 'shipped', 'completed', 'cancelled', 'refunded']),
+      receiver: {
+        name: lorem.texts.name(),
+        phone: lorem.internet.mobile(),
+        address: lorem.address.full()
+      }
+    })),
     birthday: lorem.date.timestamp({ from: '1970/1/1', to: '2020/12/31', ms: true }),
-    createAt: lorem.date.timestamp({ from: '2020/1/1', to: '2025/12/31', ms: true })
+    createAt: lorem.date.timestamp({ from: '2020/1/1', to: '2025/12/31', ms: true }),
+    updateAt: lorem.date.timestamp({ from: '2020/1/1', to: '2025/12/31', ms: true })
   }));
 
   return delay(500, () => ({ code: 200, data }));

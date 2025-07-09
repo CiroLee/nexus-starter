@@ -3,7 +3,7 @@ import { cva } from 'class-variance-authority';
 import { IconBuildingBank, IconStarFilled, IconVip } from '@tabler/icons-react';
 import React from 'react';
 interface MemberTagProps {
-  tag: 'ordinary' | 'vip' | 'corporate';
+  tag?: 'ordinary' | 'vip' | 'corporate';
   text?: React.ReactNode;
   className?: string;
 }

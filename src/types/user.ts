@@ -1,3 +1,4 @@
+import type { OrderItem } from './order';
 export interface User {
   id: string;
   token: string;
@@ -57,6 +58,7 @@ export interface CustomerInfo {
   memberType?: 'ordinary' | 'vip' | 'corporate'; // 普通会员 | VIP会员 | 企业会员
   status: 'active' | 'forbidden' | 'reviewing' | 'churned'; // 活跃 | 禁用 | 审核中 | 流失
   owner?: string; // 归属负责人
+  orders?: OrderItem[];
   createAt: string;
   updateAt?: string;
 }

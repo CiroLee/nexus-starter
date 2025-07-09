@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { toast } from 'sonner';
 import { DropdownMenu } from 'radix-ui';
-import { IconUsers, IconMoodSpark, IconRefreshDot, IconCreditCardRefund, IconDots, IconPencil, IconFileText } from '@tabler/icons-react';
+import { IconUsers, IconMoodSpark, IconRefreshDot, IconCreditCardRefund, IconDots, IconMessageCircle, IconFileText } from '@tabler/icons-react';
 import { useQuery } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
 import { useMockStore } from '@/store/mock';
@@ -20,6 +20,7 @@ import MemberTag from './components/MemberTag';
 import CustomerDrawer from './components/CustomerDrawer';
 import { formatNumber, formatPercent } from '@/utils/number';
 import { getCustomerMetrics, getCustomerList } from '@/_mock/customer';
+import { getStatusColors } from './utils';
 import { CustomerInfo } from '@/types/user';
 
 export default function CustomerManagementPage() {
@@ -32,19 +33,6 @@ export default function CustomerManagementPage() {
 
   const { data: customerMetrics } = useQuery({ queryKey: ['customerMetrics'], queryFn: getCustomerMetrics });
   const { data: customerList, isPending: customerIsPending } = useQuery({ queryKey: ['customerList'], queryFn: getCustomerList });
-
-  const getStatusColors = (status: CustomerInfo['status']) => {
-    switch (status) {
-      case 'active':
-        return 'secondary';
-      case 'forbidden':
-        return 'neutral';
-      case 'reviewing':
-        return 'primary';
-      case 'churned':
-        return 'danger';
-    }
-  };
 
   const handleDeleteCustomer = (customer: CustomerInfo) => {
     setSelectedCustomer(customer);
@@ -123,25 +111,23 @@ export default function CustomerManagementPage() {
                   <TableCell>#{item.id}</TableCell>
                   <TableCell>{item.name}</TableCell>
                   <TableCell>
-                    <DynamicTrans prefix="common.">{item.sex || ''}</DynamicTrans>
+                    <DynamicTrans prefix="common.">{item.sex}</DynamicTrans>
                   </TableCell>
                   <TableCell className="min-w-28">
-                    <Show when={item.memberType} fallback="--">
-                      <MemberTag tag={item.memberType!} text={<DynamicTrans prefix="customers.tags.">{item.memberType || ''}</DynamicTrans>} />
-                    </Show>
+                    <MemberTag tag={item.memberType} text={<DynamicTrans prefix="customers.tags.">{item.memberType}</DynamicTrans>} />
                   </TableCell>
                   <TableCell>{item.address}</TableCell>
                   <TableCell>{item.email}</TableCell>
                   <TableCell className="min-w-20">
                     <Tag size="sm" pill bordered colors={getStatusColors(item.status)}>
-                      <DynamicTrans prefix="customers.status.">{item.status || ''}</DynamicTrans>
+                      <DynamicTrans prefix="customers.status.">{item.status}</DynamicTrans>
                     </Tag>
                   </TableCell>
                   <TableCell className="whitespace-nowrap">
                     <div className="after:bg-line relative inline-flex items-center after:mx-2 after:block after:h-4 after:w-px">
                       <Button size="sm" variant="light" className="gap-1">
-                        <IconPencil size={18} />
-                        {t('actions.edit')}
+                        <IconMessageCircle size={18} />
+                        {t('actions.chat')}
                       </Button>
                       <Button size="sm" variant="light" className="gap-1" onClick={() => openCustomerDrawer(item)}>
                         <IconFileText size={18} />
@@ -156,7 +142,7 @@ export default function CustomerManagementPage() {
                       </DropdownMenu.Trigger>
                       <DropdownMenu.Portal>
                         <DropdownMenu.Content align="end" className="dropdown-menu--content">
-                          <DropdownMenu.Item className="dropdown-menu--item">{t('actions.sendMessage')}</DropdownMenu.Item>
+                          <DropdownMenu.Item className="dropdown-menu--item">{t('actions.sendEmail')}</DropdownMenu.Item>
                           <DropdownMenu.Separator className="bg-line my-1 h-px" />
                           <DropdownMenu.Item className="dropdown-menu--item" disabled={['active', 'reviewing'].includes(item.status)}>
                             {t('actions.activate')}
