@@ -23,7 +23,6 @@ interface PreviewEditDrawerProps {
 export default function PreviewEditDrawer({ customer, open, onClose }: PreviewEditDrawerProps) {
   const { t } = useTranslation();
 
-  console.log('customer:', customer);
   return (
     <Drawer open={open} placement="right" className="w-full max-w-2xl pt-0 outline-none md:w-[40%]" onOpenChange={onClose}>
       <div className="border-line flex h-14 items-center justify-between border-b">
