@@ -18,10 +18,12 @@ export default function RealTimeMetric({ className, value, trend, title, icon, b
         {icon}
         <span>{title}</span>
       </div>
-      <div className="flex items-center gap-1">
-        <span className="text-lg font-semibold">{value}</span>
-        <Show when={trend}>{trend === 'up' ? <IconArrowUp size="1.1em" className="text-green-600" /> : <IconArrowDown className="text-red-500" size="1.1em" />}</Show>
-        {briefData?.length ? <AreaSparklineChart height={32} width={100} data={briefData} className="ml-4" /> : <SkeletonText className="w-25" />}
+      <div className="flex flex-col gap-1 md:flex-row md:items-center">
+        <div className="flex items-center gap-2 pl-0.5 md:gap-0">
+          <span className="text-lg font-semibold">{value}</span>
+          <Show when={trend}>{trend === 'up' ? <IconArrowUp size="1.1em" className="text-green-600" /> : <IconArrowDown className="text-red-500" size="1.1em" />}</Show>
+        </div>
+        {briefData?.length ? <AreaSparklineChart height={32} width={80} data={briefData} className="ml-4" /> : <SkeletonText className="w-25" />}
       </div>
     </div>
   );
