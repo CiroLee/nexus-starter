@@ -50,7 +50,6 @@ export interface CustomerInfo {
   avatarUrl?: string;
   phone: string;
   email?: string;
-  wechat?: string;
   address?: string;
   birthday?: string;
   aiTags?: string[];

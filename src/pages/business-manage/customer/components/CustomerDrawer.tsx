@@ -1,4 +1,5 @@
 import { IconGenderFemale, IconGenderMale, IconX } from '@tabler/icons-react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Heading from '@ui/Heading';
 import Tag from '@ui/Tag';
@@ -86,9 +87,12 @@ export default function PreviewEditDrawer({ customer, open, onClose }: PreviewEd
         </DataListItem>
       </DataList>
       <div className="mt-12">
-        <Heading as="h5" className="mb-3">
-          {t('orders.recentOrders')}
-        </Heading>
+        <div className="mb-3 flex items-center justify-between">
+          <Heading as="h5">{t('orders.recentOrders')}</Heading>
+          <Link to="#" className="text-primary text-sm">
+            {t('actions.viewMore')}
+          </Link>
+        </div>
         <OrderTable data={customer?.orders || []} />
       </div>
     </Drawer>
