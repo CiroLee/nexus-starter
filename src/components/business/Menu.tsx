@@ -47,7 +47,7 @@ function CollapsibleMenu({ name, icon, triggerClassName, className, defaultOpen,
             <Show when={icon}>
               <i className="shrink-0">{icon}</i>
             </Show>
-            <DynamicTrans prefix="menus.">{name || ''}</DynamicTrans>
+            <DynamicTrans prefix="menus.">{name}</DynamicTrans>
           </div>
           <IconChevronDown size={18} className="transition-transform group-data-[state=open]:rotate-180" />
         </Button>
@@ -56,11 +56,12 @@ function CollapsibleMenu({ name, icon, triggerClassName, className, defaultOpen,
         if (child.children?.length) {
           return (
             <CollapsibleMenu
-              className="pl-6"
+              className="mb-1 pl-6"
               triggerClassName="w-[calc(100%_-_calc(var(--spacing)*6))] left-[calc(var(--spacing)*6)]"
               key={`submenu-${child.id}`}
               list={child.children}
               name={child.meta?.name}
+              icon={child.meta?.icon}
               defaultOpen={child.meta?.defaultOpen}
             />
           );
@@ -86,7 +87,7 @@ function MenuLink({ path, name, icon, className }: MenuButtonLinkProps) {
         <Show when={icon}>
           <i className="shrink-0">{icon}</i>
         </Show>
-        <DynamicTrans prefix="menus.">{name || ''}</DynamicTrans>
+        <DynamicTrans prefix="menus.">{name}</DynamicTrans>
       </Button>
     </NavLink>
   );

@@ -27,7 +27,7 @@ export default function SideBar({ menus }: { menus: CustomRoute[] }) {
       })}>
       <Link to="/" className={logo({ isOpen: isSideBarOpen })}>
         <img src={logoSvg} alt="logo" className="size-8 sm:size-8" width={100} height={100} />
-        <span className="text-lg font-semibold sm:text-xl">Next Starter</span>
+        <span className="text-lg font-semibold sm:text-xl">Nexus Starter</span>
       </Link>
       <Menu className="flex-1 overflow-auto p-3" menus={menus} />
     </aside>

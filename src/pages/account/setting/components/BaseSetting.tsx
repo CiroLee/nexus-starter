@@ -85,9 +85,9 @@ export default function BaseSetting() {
         <Textarea resize="vertical" id="bio" rootClassName="w-full sm:w-120" {...register('bio', { maxLength: 200 })} />
       </FormField>
       <div className="mt-4 flex items-center gap-2">
-        <Button type="submit">{t('common.update')}</Button>
+        <Button type="submit">{t('actions.update')}</Button>
         <Button type="button" colors="neutral" onClick={handleReset}>
-          {t('common.reset')}
+          {t('actions.reset')}
         </Button>
       </div>
     </form>

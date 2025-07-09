@@ -4,16 +4,6 @@
     "darkTheme": "Dark",
     "systemTheme": "System",
     "backHome": "Back Home",
-    "resend": "Resend",
-    "edit": "Edit",
-    "create": "Create",
-    "config": "Config",
-    "print": "Print",
-    "update": "Update",
-    "reset": "Reset",
-    "delete": "Delete",
-    "cancel": "Cancel",
-    "export": "Export",
     "expense": "Expense",
     "revenue": "Revenue",
     "active": "Active",
@@ -23,13 +13,10 @@
     "licensed": "Licensed",
     "unlicensed": "Unlicensed",
     "allProject": "All Projects",
-    "viewMore": "More",
     "quickAccess": "Quick Access",
     "bulletin": "Bulletin",
     "helpDoc": "Help Documents",
     "updateFeeds": "Update Feeds",
-    "login": "Login",
-    "logout": "Logout",
     "rememberPsd": "Remember Password",
     "forgetPsd": "Forget Password",
     "noData": "No Data",
@@ -40,7 +27,6 @@
     "internship": "Internship",
     "male": "Male",
     "female": "Female",
-    "submit": "Submit",
     "file": "File",
     "logs": "Logs",
     "mail": "Mail",
@@ -51,10 +37,39 @@
     "notice": "Notice",
     "todo": "Todo",
     "markAsRead": "Mark all As read",
-    "notifications": "Notifications"
+    "notifications": "Notifications",
+    "contactDetails": "Contact Details"
+  },
+  "actions": {
+    "create": "Create",
+    "config": "Config",
+    "chat": "Chat",
+    "print": "Print",
+    "update": "Update",
+    "reset": "Reset",
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "export": "Export",
+    "resend": "Resend",
+    "edit": "Edit",
+    "viewMore": "More",
+    "view": "View",
+    "login": "Login",
+    "logout": "Logout",
+    "submit": "Submit",
+    "disable": "Disable",
+    "enable": "Enable",
+    "approved": "Approved",
+    "rejected": "Rejected",
+    "reject": "Reject",
+    "activate": "Activate",
+    "sendEmail": "Send Email"
   },
   "banner": {
     "loginTitle": "Login to Nexus-Starter"
+  },
+  "toast": {
+    "actionSucceed": "Action Succeed"
   },
   "longText": {
     "security": {
@@ -69,7 +84,9 @@
       "app": "receive notifications of the messages in the App.",
       "email": "receive emails of the messages, contracts, etc.",
       "update": "receive updates notification.",
-      "notReceiveCode": "Don't receive the code"
+      "notReceiveCode": "Don't receive the code",
+      "deleteWarning": "Are you sure to delete",
+      "unDoneWaring": "This action can not be undone."
     }
   },
   "projectStatus": {
@@ -93,27 +110,37 @@
   "menus": {
     "workbench": "Workbench",
     "dashboard": {
-      "title": "Dashboard",
+      "DEFAULT": "Dashboard",
       "analysis": "Analysis"
     },
-    "management": {
-      "title": "Management",
-      "appManagement": "Apps",
-      "staffManagement": "Staffs"
+    "userManagement": {
+      "DEFAULT": "User",
+      "staff": "Staff"
     },
-    "error": {
-      "title": "Error",
-      "403": "403",
-      "404": "404",
-      "500": "500"
+    "operation": {
+      "DEFAULT": "Operation",
+      "appManagement": "Apps"
     },
-    "result": {
-      "title": "Result",
-      "success": "Success",
-      "fail": "Fail"
+    "businessManagement": {
+      "DEFAULT": "Business",
+      "customer": "Customer"
+    },
+    "demos": {
+      "DEFAULT": "Demos",
+      "error": {
+        "DEFAULT": "Error",
+        "403": "403",
+        "404": "404",
+        "500": "500"
+      },
+      "result": {
+        "DEFAULT": "Result",
+        "success": "Success",
+        "fail": "Fail"
+      }
     },
     "account": {
-      "title": "Account",
+      "DEFAULT": "Account",
       "center": "Account Center",
       "setting": "Account Setting"
     }
@@ -153,6 +180,62 @@
   },
   "apps": {
     "addApp": "Add App"
+  },
+  "orders": {
+    "recentOrders": "Recent Orders",
+    "orderId": "Order ID",
+    "productName": "Product Name",
+    "paymentAmount": "Amount",
+    "paymentMethod": {
+      "DEFAULT": "Payment Method",
+      "wechatPay": "WeChat Pay",
+      "alipay": "Alipay",
+      "cashPay": "Cash",
+      "credit": "Credit Card",
+      "paypal": "PayPal"
+    },
+    "paymentTime": "Payment Time",
+    "orderTime": "Order Time",
+    "status": {
+      "DEFAULT": "Order Status",
+      "pending": "Pending",
+      "paid": "Paid",
+      "shipped": "Shipped",
+      "processing": "Processing",
+      "completed": "Completed",
+      "cancelled": "Cancelled",
+      "refunded": "Refunded"
+    }
+  },
+  "customers": {
+    "totalCustomers": "Total Customers",
+    "newCustomers": "New Customers",
+    "churnsRate": "Churns Rate",
+    "refunds": "Refunds",
+    "detail": "Customer Detail",
+    "tags": {
+      "ordinary": "ORDINARY",
+      "vip": "VIP",
+      "corporate": "CORPORATE"
+    },
+    "status": {
+      "active": "Active",
+      "forbidden": "Forbidden",
+      "reviewing": "Reviewing",
+      "churned": "Churned"
+    },
+    "profile": {
+      "name": "Name",
+      "phone": "Phone",
+      "email": "Email",
+      "wechat": "WeChat",
+      "address": "Address",
+      "birthday": "Birthday",
+      "sex": "Sex",
+      "memberType": "Member Type",
+      "status": "Status",
+      "owner": "Owner"
+    }
   },
   "account": {
     "myProject": "My Project",

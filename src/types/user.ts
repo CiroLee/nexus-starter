@@ -1,3 +1,4 @@
+import type { OrderItem } from './order';
 export interface User {
   id: string;
   token: string;
@@ -41,4 +42,23 @@ export interface StaffItem {
   positionLevel?: number;
   role?: UserRole;
   corpEmail?: string;
+}
+
+export interface CustomerInfo {
+  id: string;
+  name: string;
+  avatarUrl?: string;
+  phone: string;
+  email?: string;
+  wechat?: string;
+  address?: string;
+  birthday?: string;
+  aiTags?: string[];
+  sex?: 'male' | 'female';
+  memberType?: 'ordinary' | 'vip' | 'corporate'; // 普通会员 | VIP会员 | 企业会员
+  status: 'active' | 'forbidden' | 'reviewing' | 'churned'; // 活跃 | 禁用 | 审核中 | 流失
+  owner?: string; // 归属负责人
+  orders?: OrderItem[];
+  createAt: string;
+  updateAt?: string;
 }

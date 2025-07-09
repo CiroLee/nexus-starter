@@ -22,7 +22,7 @@ export default function QuickAccess({ className, userId }: QuickAccessProps) {
       <div className="mb-4 flex items-center justify-between">
         <Heading as="h5">{t('common.quickAccess')}</Heading>
         <Link to="#" className="text-primary text-sm hover:opacity-80">
-          {t('common.viewMore')}
+          {t('actions.viewMore')}
         </Link>
       </div>
       <div className="grid grid-cols-3 justify-items-center gap-4">
@@ -37,7 +37,7 @@ export default function QuickAccess({ className, userId }: QuickAccessProps) {
                 <SvgIcon size={22} name={item.icon || ''} />
               </Button>
               <span className="text-description text-xs">
-                <DynamicTrans prefix="common.">{item.label || ''}</DynamicTrans>
+                <DynamicTrans prefix="common.">{item.label}</DynamicTrans>
               </span>
             </Link>
           ))}

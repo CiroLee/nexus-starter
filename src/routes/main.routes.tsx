@@ -1,6 +1,16 @@
 import NavLayout from '@/layout/NavLayout';
 import { CustomRoute } from '@/types/route';
-import { IconLayoutDashboardFilled, IconBoltFilled, IconExclamationCircleFilled, IconCircleLetterRFilled, IconBrandDenodo, IconUserFilled } from '@tabler/icons-react';
+import {
+  IconLayoutDashboardFilled,
+  IconBoltFilled,
+  IconBriefcaseFilled,
+  IconExclamationCircleFilled,
+  IconCircleLetterRFilled,
+  IconBrandDenodo,
+  IconUserFilled,
+  IconCloverFilled,
+  IconCardsFilled
+} from '@tabler/icons-react';
 import { lazy } from 'react';
 import { Navigate } from 'react-router-dom';
 const mainRoutes: CustomRoute = {
@@ -29,7 +39,7 @@ const mainRoutes: CustomRoute = {
     {
       id: 'dashboard',
       meta: {
-        name: 'dashboard.title',
+        name: 'dashboard.DEFAULT',
         icon: <IconLayoutDashboardFilled size={20} />
       },
       children: [
@@ -44,40 +54,49 @@ const mainRoutes: CustomRoute = {
       ]
     },
     {
-      id: 'management',
+      id: 'business-management',
       meta: {
-        name: 'management.title',
-        icon: <IconBrandDenodo size={20} />
+        name: 'businessManagement.DEFAULT',
+        icon: <IconBriefcaseFilled size={20} />
       },
       children: [
         {
-          id: 'app-management',
-          path: '/management/app',
-          Component: lazy(() => import('@/pages/management/app')),
+          id: 'customer-management',
+          path: '/business/customer',
+          Component: lazy(() => import('@/pages/business-manage/customer')),
           meta: {
-            name: 'management.appManagement'
+            name: 'businessManagement.customer'
           }
-        },
+        }
+      ]
+    },
+    {
+      id: 'user-management',
+      meta: {
+        name: 'userManagement.DEFAULT',
+        icon: <IconCloverFilled size={20} />
+      },
+      children: [
         {
           id: 'staff-management',
-          path: '/management/staff',
-          Component: lazy(() => import('@/pages/management/staff')),
+          path: '/user-management/staff',
+          Component: lazy(() => import('@/pages/user-manage/staff')),
           meta: {
-            name: 'management.staffManagement'
+            name: 'userManagement.staff'
           }
         },
         {
           id: 'edit-staff',
-          path: '/management/staff-edit/:userId',
-          Component: lazy(() => import('@/pages/management/staff-edit')),
+          path: '/user-management/staff-edit/:userId',
+          Component: lazy(() => import('@/pages/user-manage/staff-edit')),
           meta: {
             visible: false
           }
         },
         {
           id: 'create-staff',
-          path: '/management/staff-create',
-          Component: lazy(() => import('@/pages/management/staff-create')),
+          path: '/user-management/staff-create',
+          Component: lazy(() => import('@/pages/user-manage/staff-create')),
           meta: {
             visible: false
           }
@@ -85,75 +104,94 @@ const mainRoutes: CustomRoute = {
       ]
     },
     {
-      id: 'error',
+      id: 'operation',
       meta: {
-        name: 'error.title',
-        visible: true,
-        icon: <IconExclamationCircleFilled size={20} />
+        name: 'operation.DEFAULT',
+        icon: <IconBrandDenodo size={20} />
       },
       children: [
         {
-          path: '/error/403',
-          id: 'error-403',
-          Component: lazy(() => import('@/pages/error/403')),
+          id: 'app',
+          path: '/operation/apps',
+          Component: lazy(() => import('@/pages/operation/app')),
           meta: {
-            name: 'error.403',
-            visible: true
-          }
-        },
-        {
-          path: '/error/404',
-          id: 'error-404',
-          Component: lazy(() => import('@/pages/error/404')),
-          meta: {
-            name: 'error.404',
-            visible: true
-          }
-        },
-        {
-          path: '/error/500',
-          id: 'error-500',
-          Component: lazy(() => import('@/pages/error/500')),
-          meta: {
-            name: 'error.500',
-            visible: true
+            name: 'operation.appManagement'
           }
         }
       ]
     },
     {
-      id: 'result',
+      id: 'demo',
       meta: {
-        name: 'result.title',
-        visible: true,
-        icon: <IconCircleLetterRFilled size={20} />
+        name: 'demos.DEFAULT',
+        icon: <IconCardsFilled size={20} />
       },
       children: [
         {
-          id: 'result-success',
-          path: '/result/success',
-          Component: lazy(() => import('@/pages/result/success')),
+          id: 'error',
           meta: {
-            name: 'result.success',
-            visible: true
-          }
+            name: 'demos.error.DEFAULT',
+            icon: <IconExclamationCircleFilled size={20} />
+          },
+          children: [
+            {
+              path: '/demos/error/403',
+              id: 'error-403',
+              Component: lazy(() => import('@/pages/error/403')),
+              meta: {
+                name: 'demos.error.403'
+              }
+            },
+            {
+              path: '/demos/error/404',
+              id: 'error-404',
+              Component: lazy(() => import('@/pages/error/404')),
+              meta: {
+                name: 'demos.error.404'
+              }
+            },
+            {
+              path: '/demos/error/500',
+              id: 'error-500',
+              Component: lazy(() => import('@/pages/error/500')),
+              meta: {
+                name: 'demos.error.500'
+              }
+            }
+          ]
         },
         {
-          id: 'result-fail',
-          path: '/result/fail',
-          Component: lazy(() => import('@/pages/result/fail')),
+          id: 'result',
           meta: {
-            name: 'result.fail',
-            visible: true
-          }
+            name: 'demos.result.DEFAULT',
+            icon: <IconCircleLetterRFilled size={20} />
+          },
+          children: [
+            {
+              id: 'result-success',
+              path: '/demos/result/success',
+              Component: lazy(() => import('@/pages/result/success')),
+              meta: {
+                name: 'demos.result.success'
+              }
+            },
+            {
+              id: 'result-fail',
+              path: '/demos/result/fail',
+              Component: lazy(() => import('@/pages/result/fail')),
+              meta: {
+                name: 'demos.result.fail'
+              }
+            }
+          ]
         }
       ]
     },
+
     {
       id: 'account',
       meta: {
-        name: 'account.title',
-        visible: true,
+        name: 'account.DEFAULT',
         icon: <IconUserFilled size={20} />
       },
       children: [
@@ -162,8 +200,7 @@ const mainRoutes: CustomRoute = {
           path: '/account/center',
           Component: lazy(() => import('@/pages/account/center')),
           meta: {
-            name: 'account.center',
-            visible: true
+            name: 'account.center'
           }
         },
         {
@@ -171,8 +208,7 @@ const mainRoutes: CustomRoute = {
           path: '/account/setting',
           Component: lazy(() => import('@/pages/account/setting')),
           meta: {
-            name: 'account.setting',
-            visible: true
+            name: 'account.setting'
           }
         }
       ]

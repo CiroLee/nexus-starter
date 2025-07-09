@@ -15,7 +15,7 @@ export default function SuccessPage() {
         <Button asChild>
           <Link to="/">{t('common.backHome')}</Link>
         </Button>
-        <Button colors="neutral">{t('common.print')}</Button>
+        <Button colors="neutral">{t('actions.print')}</Button>
       </div>
     </div>
   );

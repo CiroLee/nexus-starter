@@ -35,7 +35,7 @@ export default function StaffCreatePage() {
     <div>
       <Breadcrumb className="mb-4">
         <BreadcrumbItem asChild>
-          <Link to="/management/staff">{t('menus.management.staffManagement')}</Link>
+          <Link to="/user-management/staff">{t('menus.userManagement.staff')}</Link>
         </BreadcrumbItem>
         <BreadcrumbItem>{t('account.addStaff')}</BreadcrumbItem>
       </Breadcrumb>
@@ -132,9 +132,9 @@ export default function StaffCreatePage() {
             />
           </FormField>
           <div className="mt-4 flex gap-2">
-            <Button type="submit">{t('common.submit')}</Button>
+            <Button type="submit">{t('actions.submit')}</Button>
             <Button type="button" colors="neutral" asChild>
-              <Link to="/management/staff">{t('common.cancel')}</Link>
+              <Link to="/user-management/staff">{t('actions.cancel')}</Link>
             </Button>
           </div>
         </form>

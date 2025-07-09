@@ -39,14 +39,14 @@ export default function ForgotPassword() {
               <Input {...register('email', { required: true, pattern: mailRegex })} placeholder="please enter your email" />
             </FormField>
             <Button type="submit" className="mt-2 w-full">
-              {t('common.submit')}
+              {t('actions.submit')}
             </Button>
           </form>
         </CardBody>
         <CardFooter className="mt-2 justify-center gap-1 text-sm">
           <span>{t('longText.notice.notReceiveCode')}?</span>
           <Link href="#" underline>
-            {t('common.resend')}
+            {t('actions.resend')}
           </Link>
         </CardFooter>
       </Card>

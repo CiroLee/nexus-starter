@@ -17,7 +17,7 @@ export default function BriefUserInfo({ className, avatarUrl, userName, role, de
         <div className="flex items-center gap-2">
           <p className="font-semibold">{userName}</p>
           <Tag colors="neutral" size="sm">
-            <DynamicTrans>{role || ''}</DynamicTrans>
+            <DynamicTrans>{role}</DynamicTrans>
           </Tag>
         </div>
         <div className="text-description text-sm">{description}</div>

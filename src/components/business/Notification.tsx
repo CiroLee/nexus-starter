@@ -20,7 +20,7 @@ export default function Notification({ trigger, data }: NotificationProps) {
   const { t } = useTranslation();
 
   return (
-    <Popover className="w-84 origin-top-right" align="end" alignOffset={-44} trigger={trigger}>
+    <Popover hiddenArrow className="w-84 origin-top-right" align="end" alignOffset={-44} trigger={trigger}>
       <div className="flex h-9 items-center justify-between px-2">
         <Heading as="h5">{t('common.notifications')}</Heading>
         <p className="text-primary cursor-pointer text-[13px] underline underline-offset-2">{t('common.markAsRead')}</p>

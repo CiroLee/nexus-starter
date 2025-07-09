@@ -40,9 +40,9 @@ export default function EditStaffPage() {
     <div>
       <Breadcrumb className="mb-4">
         <BreadcrumbItem asChild>
-          <Link to="/management/staff">{t('menus.management.staffManagement')}</Link>
+          <Link to="/user-management/staff">{t('menus.userManagement.staff')}</Link>
         </BreadcrumbItem>
-        <BreadcrumbItem>{t('common.edit')}</BreadcrumbItem>
+        <BreadcrumbItem>{t('actions.edit')}</BreadcrumbItem>
       </Breadcrumb>
       <div className="panel">
         <form className="mx-auto w-full md:max-w-120" onSubmit={handleSubmit(handleSave)}>
@@ -151,9 +151,9 @@ export default function EditStaffPage() {
           </FormField>
           <div className="mt-4 flex gap-3">
             <Button type="button" colors="neutral" onClick={() => reset()}>
-              {t('common.reset')}
+              {t('actions.reset')}
             </Button>
-            <Button type="submit">{t('common.update')}</Button>
+            <Button type="submit">{t('actions.update')}</Button>
           </div>
         </form>
       </div>
