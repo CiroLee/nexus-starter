@@ -2,7 +2,7 @@ import { lorem } from './base';
 import { delay } from '@/utils/utils';
 import type { Response } from '@/types/response';
 import { CustomerInfo } from '@/types/user';
-import { customerTags, goods } from './constant';
+import { customerTags, goods, zhNames } from './constant';
 import { OrderItem } from '@/types/order';
 interface CustomerData {
   key: Date;
@@ -94,7 +94,7 @@ export function getCustomerList(): Promise<Response<CustomerInfo[]>> {
     sex: lorem.helper.elements<CustomerInfo['sex']>(['male', 'female']),
     memberType: lorem.helper.elements<CustomerInfo['memberType']>(['ordinary', 'vip', 'corporate']),
     status: lorem.helper.elements<CustomerInfo['status']>(['active', 'forbidden', 'reviewing', 'churned']),
-    owner: lorem.texts.name(),
+    owner: lorem.helper.elements<string>(zhNames),
     orders: Array.from({ length: lorem.number.int([0, 5]) }).map(() => {
       const orderTime = lorem.date.timestamp({ from: '2020/1/1', to: '2025/12/31', ms: true });
       // paymentTime is later less than 2hours than orderTime

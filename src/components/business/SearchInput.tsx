@@ -17,7 +17,7 @@ export default function SearchInput({ className, value = '', onChange, ...props 
     <Input
       className={className}
       value={query}
-      prefix={<IconSearch size={16} />}
+      prefix={<IconSearch size={16} className="shrink-0" />}
       suffix={<IconXboxXFilled className={cn('text-description hover:text-foreground hidden', { block: query.length > 0 })} size={20} onClick={() => setQuery('')} />}
       onChange={handleOnChange}
       {...props}

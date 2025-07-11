@@ -11,6 +11,29 @@ export const customerTags = [
   ['gamer', 'in-game-purchases', 'streaming-subscriber', 'single', 'young-adult', 'tech-heavy']
 ];
 
+export const zhNames = [
+  '欧阳玥佳',
+  '刘雨凡',
+  '陈泽煜',
+  '诸葛丽萌',
+  '李勇轩',
+  '赵瑞哲',
+  '上官瑞阳',
+  '黄琳轩',
+  '慕容雅乐',
+  '吴子怡',
+  '张鑫怡',
+  '谢恒瑞',
+  '杨涵宇',
+  '朱婷辰',
+  '陈静彤',
+  '郑皓娜',
+  '徐乐明',
+  '唐哲欣',
+  '许博嘉',
+  '林枫晨'
+];
+
 export const goods = [
   'Eco Lamp',
   'Water Bottle',

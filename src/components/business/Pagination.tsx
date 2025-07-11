@@ -11,7 +11,7 @@ interface PaginationProps {
   onChange?: (page: number) => void;
 }
 export default function Pagination({ pageSize = 10, total = 0, onChange, className }: PaginationProps) {
-  const { currentPage, isFirstPage, isLastPage, totalPage, nextPage, prevPage } = usePagination({ pageSize, total: total });
+  const { currentPage, isFirstPage, isLastPage, totalPage, nextPage, prevPage } = usePagination({ pageSize, total });
   const handleOnPageChange = (action: 'prev' | 'next') => {
     if (action === 'prev') {
       prevPage();
