@@ -1,7 +1,7 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { toast } from 'sonner';
 import { DropdownMenu } from 'radix-ui';
-import { IconUsers, IconMoodSpark, IconRefreshDot, IconCreditCardRefund, IconDots, IconMessageCircle, IconFileText } from '@tabler/icons-react';
+import { IconUsers, IconMoodSpark, IconRefreshDot, IconCreditCardRefund, IconDots, IconMessageCircle, IconFileText, IconPlus, IconRestore, IconSearch } from '@tabler/icons-react';
 import { useQuery } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
 import { useMockStore } from '@/store/mock';
@@ -10,8 +10,10 @@ import Heading from '@ui/Heading';
 import Show from '@ui/Show';
 import Tag from '@ui/Tag';
 import Button from '@ui/Button';
-import { AlertDialog, AlertDialogCancel } from '@/components/ui/AlertDialog';
+import Select from '@ui/Select';
+import { AlertDialog, AlertDialogCancel } from '@ui/AlertDialog';
 import { Table, TableHeader, TableHeaderCell, TableBody, TableCell, TableRow } from '@ui/Table';
+import LabelField from '@/components/business/LabelField';
 import Pagination from '@/components/business/Pagination';
 import Empty from '@/components/business/Empty';
 import DynamicTrans from '@/components/business/DynamicTrans';
@@ -22,6 +24,9 @@ import { formatNumber, formatPercent } from '@/utils/number';
 import { getCustomerMetrics, getCustomerList } from '@/_mock/customer';
 import { getStatusColors } from './utils';
 import { CustomerInfo } from '@/types/user';
+import { cn } from '@/lib/utils';
+import SearchInput from '@/components/business/SearchInput';
+import { SubmitHandler, useForm } from 'react-hook-form';
 
 export default function CustomerManagementPage() {
   const { t } = useTranslation();
@@ -30,10 +35,24 @@ export default function CustomerManagementPage() {
   const [showPreviewEditDrawer, setShowPreviewEditDrawer] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedCustomer, setSelectedCustomer] = useState<CustomerInfo>();
+  const [filters, setFilters] = useState({
+    memberType: 'all',
+    status: 'all',
+    sex: 'all'
+  });
 
+  const { register, handleSubmit } = useForm<{ query: string }>();
   const { data: customerMetrics } = useQuery({ queryKey: ['customerMetrics'], queryFn: getCustomerMetrics });
-  const { data: customerList, isPending: customerIsPending } = useQuery({ queryKey: ['customerList'], queryFn: getCustomerList });
+  const { data: customerList } = useQuery({ queryKey: ['customerList'], queryFn: getCustomerList });
 
+  const handleSearch: SubmitHandler<{ query: string }> = (data) => {
+    // mock search
+    console.log('staff search query:', data);
+  };
+
+  const handleReset = () => {
+    setFilters({ status: 'all', sex: 'all', memberType: 'all' });
+  };
   const handleDeleteCustomer = (customer: CustomerInfo) => {
     setSelectedCustomer(customer);
     setShowAlertDialog(true);
@@ -44,10 +63,28 @@ export default function CustomerManagementPage() {
     setShowPreviewEditDrawer(true);
   };
 
+  const filterData = useCallback(
+    (data: CustomerInfo[]) => {
+      return data.filter(
+        (item) =>
+          (filters.status === 'all' || item.status === filters.status) &&
+          (filters.memberType === 'all' || item.memberType === filters.memberType) &&
+          (filters.sex === 'all' || item.sex === filters.sex)
+      );
+    },
+    [filters.memberType, filters.status, filters.sex]
+  );
+
+  const filteredTotal = useMemo(() => {
+    return filterData(customerList?.data || []).length;
+  }, [customerList?.data, filterData]);
+
   // mock paginating staff data
   const currentData = useMemo(() => {
-    return customerList?.data.slice((currentPage - 1) * 10, 10 * currentPage);
-  }, [currentPage, customerList?.data]);
+    const filteredData = filterData(customerList?.data || []);
+    console.log('filteredData', filteredData);
+    return filteredData.slice((currentPage - 1) * 10, 10 * currentPage);
+  }, [currentPage, customerList?.data, filterData]);
 
   // stash customer data for mocking edit customer
   useEffect(() => {
@@ -56,9 +93,13 @@ export default function CustomerManagementPage() {
 
   return (
     <div>
-      <Heading as="h3" className="mb-3">
-        {t('menus.businessManagement.customer')}
-      </Heading>
+      <div className="mb-3 flex items-center justify-between">
+        <Heading as="h3">{t('menus.businessManagement.customer')}</Heading>
+        <Button className="gap-1">
+          <IconPlus size={18} />
+          <span>{t('customers.create')}</span>
+        </Button>
+      </div>
       <Card className="bg-background grid grid-cols-2 grid-rows-2 gap-3 p-2 lg:grid-cols-3 xl:grid-cols-4 xl:grid-rows-subgrid">
         <RealTimeMetric
           icon={<IconUsers size={18} />}
@@ -90,22 +131,76 @@ export default function CustomerManagementPage() {
           briefData={customerMetrics?.data?.refunds.list || []}
         />
       </Card>
-      <div className="panel mt-4">
-        <Show when={!customerIsPending} fallback={<Empty className="h-60" />}>
-          <Table className="bg-background max-h-[unset]">
-            <TableHeader>
-              <TableRow>
-                <TableHeaderCell>ID</TableHeaderCell>
-                <TableHeaderCell>{t('customers.profile.name')}</TableHeaderCell>
-                <TableHeaderCell>{t('customers.profile.sex')}</TableHeaderCell>
-                <TableHeaderCell className="w-30">{t('customers.profile.memberType')}</TableHeaderCell>
-                <TableHeaderCell>{t('customers.profile.address')}</TableHeaderCell>
-                <TableHeaderCell>{t('customers.profile.email')}</TableHeaderCell>
-                <TableHeaderCell>{t('customers.profile.status')}</TableHeaderCell>
-                <TableHeaderCell>{t('common.action')}</TableHeaderCell>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
+      <div className="panel mt-8">
+        <div className="mb-4 flex flex-col flex-wrap gap-3 lg:flex-row lg:justify-between">
+          <div className="flex flex-col gap-3 md:flex-row">
+            <LabelField layout="horizontal" className="md:grid-cols-[1fr_auto]" label={t('customers.profile.memberType')}>
+              <Select
+                className="w-full md:w-36"
+                value={filters.memberType}
+                onValueChange={(value) => setFilters(() => ({ ...filters, memberType: value }))}
+                items={[
+                  { id: 'all', label: t('common.all'), value: 'all' },
+                  { id: 'ordinary', label: t('customers.tags.ordinary'), value: 'ordinary' },
+                  { id: 'vip', label: t('customers.tags.vip'), value: 'vip' },
+                  { id: 'corporate', label: t('customers.tags.corporate'), value: 'corporate' }
+                ]}
+              />
+            </LabelField>
+            <LabelField layout="horizontal" className="md:grid-cols-[1fr_auto]" label={t('customers.profile.status')}>
+              <Select
+                className="w-full md:w-30"
+                value={filters.status}
+                onValueChange={(value) => setFilters(() => ({ ...filters, status: value }))}
+                items={[
+                  { id: 'all', label: t('common.all'), value: 'all' },
+                  { id: 'active', label: t('customers.status.active'), value: 'active' },
+                  { id: 'forbidden', label: t('customers.status.forbidden'), value: 'forbidden' },
+                  { id: 'reviewing', label: t('customers.status.reviewing'), value: 'reviewing' },
+                  { id: 'churned', label: t('customers.status.churned'), value: 'churned' }
+                ]}
+              />
+            </LabelField>
+            <LabelField layout="horizontal" className="md:grid-cols-[1fr_auto]" label={t('customers.profile.sex')}>
+              <Select
+                className="w-full md:w-30"
+                value={filters.sex}
+                onValueChange={(value) => setFilters(() => ({ ...filters, sex: value }))}
+                items={[
+                  { id: 'all', label: t('common.all'), value: 'all' },
+                  { id: 'male', label: t('common.male'), value: 'male' },
+                  { id: 'female', label: t('common.female'), value: 'female' }
+                ]}
+              />
+            </LabelField>
+          </div>
+          <form className="flex gap-2 md:min-w-60 md:flex-none" onSubmit={handleSubmit(handleSearch)}>
+            <SearchInput placeholder="search staff..." {...register('query')} />
+            <Button className="gap-1" type="submit">
+              <IconSearch size={18} />
+              <span className="hidden sm:block">{t('actions.search')}</span>
+            </Button>
+            <Button colors="neutral" className="gap-1" disabled={filters.sex === 'all' && filters.status === 'all' && filters.memberType === 'all'} onClick={handleReset}>
+              <IconRestore size={18} />
+              <span className="hidden sm:block">{t('actions.reset')}</span>
+            </Button>
+          </form>
+        </div>
+        <Table className="bg-background max-h-[unset]">
+          <TableHeader>
+            <TableRow>
+              <TableHeaderCell>ID</TableHeaderCell>
+              <TableHeaderCell>{t('customers.profile.name')}</TableHeaderCell>
+              <TableHeaderCell>{t('customers.profile.sex')}</TableHeaderCell>
+              <TableHeaderCell className="w-30">{t('customers.profile.memberType')}</TableHeaderCell>
+              <TableHeaderCell>{t('customers.profile.address')}</TableHeaderCell>
+              <TableHeaderCell>{t('customers.profile.email')}</TableHeaderCell>
+              <TableHeaderCell>{t('customers.profile.status')}</TableHeaderCell>
+              <TableHeaderCell>{t('common.action')}</TableHeaderCell>
+            </TableRow>
+          </TableHeader>
+          <TableBody className={cn('relative', { 'h-50': !currentData.length })}>
+            <Show when={currentData.length} fallback={<Empty className="absolute size-full" />}>
               {currentData?.map((item) => (
                 <TableRow key={item.id}>
                   <TableCell>#{item.id}</TableCell>
@@ -157,7 +252,7 @@ export default function CustomerManagementPage() {
                             {t('actions.rejected')}
                           </DropdownMenu.Item>
                           <DropdownMenu.Separator className="bg-line my-1 h-px" />
-                          <DropdownMenu.Item className="dropdown-menu--item hover:bg-danger transition-colors hover:text-white" onSelect={() => handleDeleteCustomer(item)}>
+                          <DropdownMenu.Item className="dropdown-menu--item text-danger hover:bg-danger transition-colors hover:text-white" onSelect={() => handleDeleteCustomer(item)}>
                             {t('actions.delete')}
                           </DropdownMenu.Item>
                         </DropdownMenu.Content>
@@ -166,10 +261,10 @@ export default function CustomerManagementPage() {
                   </TableCell>
                 </TableRow>
               ))}
-            </TableBody>
-          </Table>
-          <Pagination className="mt-4" total={customerList?.data.length} pageSize={10} onChange={setCurrentPage} />
-        </Show>
+            </Show>
+          </TableBody>
+        </Table>
+        <Pagination className="mt-4" total={filteredTotal} pageSize={10} onChange={setCurrentPage} />
       </div>
       <AlertDialog
         open={showAlertDialog}

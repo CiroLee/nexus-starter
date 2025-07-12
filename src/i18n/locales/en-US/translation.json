@@ -214,6 +214,7 @@
     "churnsRate": "Churns Rate",
     "refunds": "Refunds",
     "detail": "Customer Detail",
+    "create": "Create",
     "tags": {
       "ordinary": "ORDINARY",
       "vip": "VIP",
@@ -243,7 +244,7 @@
     "basicSetting": "Basic Information",
     "securitySetting": "Security Setting",
     "notificationSetting": "Notification Setting",
-    "addStaff": "Add Staff",
+    "create": "Create",
     "profile": {
       "title": "Profile",
       "name": "Name",

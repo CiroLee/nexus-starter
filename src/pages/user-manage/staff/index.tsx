@@ -98,7 +98,7 @@ export default function StaffPage() {
         <Heading as="h3">{t('menus.userManagement.staff')}</Heading>
         <Button className="gap-1" onClick={handleCreate}>
           <IconPlus size={18} />
-          <span>{t('account.addStaff')}</span>
+          <span>{t('account.create')}</span>
         </Button>
       </div>
       <div className="panel">
@@ -157,7 +157,7 @@ export default function StaffPage() {
             </TableRow>
           </TableHeader>
           <TableBody className={cn('relative', { 'h-50': !currentData.length })}>
-            <Show when={currentData.length} fallback={<Empty className="absolute h-50 w-full" />}>
+            <Show when={currentData.length} fallback={<Empty className="absolute size-full" />}>
               {currentData?.map((item) => (
                 <TableRow key={item.id}>
                   <TableCell className="w-25">id_{item.id}</TableCell>

@@ -214,6 +214,7 @@
     "churnsRate": "流失率",
     "refunds": "退款人数",
     "detail": "客户详情",
+    "create": "新增用户",
     "tags": {
       "ordinary": "普通会员",
       "vip": "VIP会员",
@@ -243,7 +244,7 @@
     "basicSetting": "基本信息",
     "securitySetting": "安全设置",
     "notificationSetting": "消息通知",
-    "addStaff": "新增员工",
+    "create": "新增员工",
     "profile": {
       "title": "用户档案",
       "name": "姓名",
