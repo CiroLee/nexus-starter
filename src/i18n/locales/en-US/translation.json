@@ -63,7 +63,8 @@
     "rejected": "Rejected",
     "reject": "Reject",
     "activate": "Activate",
-    "sendEmail": "Send Email"
+    "sendEmail": "Send Email",
+    "search": "Search"
   },
   "banner": {
     "loginTitle": "Login to Nexus-Starter"

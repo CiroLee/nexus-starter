@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useForm, SubmitHandler } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
-import { IconPlus, IconRestore, IconPencil, IconTrash } from '@tabler/icons-react';
+import { IconPlus, IconRestore, IconPencil, IconTrash, IconSearch } from '@tabler/icons-react';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@tanstack/react-query';
 import { cn } from '@/lib/utils';
@@ -31,7 +32,6 @@ export default function StaffPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [showAlertDialog, setShowAlertDialog] = useState(false);
   const [selectedStaff, setSelectedStaff] = useState<StaffItem>();
-  const [query, setQuery] = useState('');
   const [filters, setFilters] = useState({
     position: 'all',
     status: 'all'
@@ -39,6 +39,7 @@ export default function StaffPage() {
   const lng = useLanguage();
   const { setStaffList } = useMockStore();
   const { data: response } = useQuery({ queryKey: ['staff'], queryFn: getStaffList });
+  const { register, handleSubmit } = useForm<{ query: string }>();
 
   // stash staff data for mocking edit staff
   useEffect(() => {
@@ -74,15 +75,13 @@ export default function StaffPage() {
     setShowAlertDialog(true);
   };
 
-  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSearch: SubmitHandler<{ query: string }> = (data) => {
     // mock search
-    console.log('staff search query:', query);
+    console.log('staff search query:', data);
   };
 
   const handleReset = () => {
     setFilters({ status: 'all', position: 'all' });
-    toast.success('Reset Success', { position: 'top-center' });
   };
 
   const handleEdit = (item: StaffItem) => {
@@ -95,9 +94,13 @@ export default function StaffPage() {
 
   return (
     <div>
-      <Heading as="h3" className="mb-3">
-        {t('menus.userManagement.staff')}
-      </Heading>
+      <div className="mb-6 flex items-center justify-between">
+        <Heading as="h3">{t('menus.userManagement.staff')}</Heading>
+        <Button className="gap-1" onClick={handleCreate}>
+          <IconPlus size={18} />
+          <span>{t('account.addStaff')}</span>
+        </Button>
+      </div>
       <div className="panel">
         <div className="mb-4 flex flex-col flex-wrap gap-3 lg:flex-row lg:justify-between">
           <div className="flex flex-col gap-3 md:flex-row">
@@ -127,19 +130,17 @@ export default function StaffPage() {
               />
             </LabelField>
           </div>
-          <div className="flex gap-2">
-            <form className="flex-1 md:min-w-60 md:flex-none" onSubmit={handleSearch}>
-              <SearchInput value={query} placeholder="search staff..." className="" onChange={(e) => setQuery(e.target.value)} />
-            </form>
+          <form className="flex gap-2 md:min-w-60 md:flex-none" onSubmit={handleSubmit(handleSearch)}>
+            <SearchInput placeholder="search staff..." {...register('query')} />
+            <Button className="gap-1" type="submit">
+              <IconSearch size={18} />
+              <span className="hidden sm:block">{t('actions.search')}</span>
+            </Button>
             <Button colors="neutral" className="gap-1" disabled={filters.position === 'all' && filters.status === 'all'} onClick={handleReset}>
-              <span className="hidden sm:block">{t('actions.reset')}</span>
               <IconRestore size={18} />
+              <span className="hidden sm:block">{t('actions.reset')}</span>
             </Button>
-            <Button className="gap-1" onClick={handleCreate}>
-              <span className="hidden sm:block">{t('account.addStaff')}</span>
-              <IconPlus size={18} />
-            </Button>
-          </div>
+          </form>
         </div>
         <Table className="bg-background max-h-[unset]">
           <TableHeader>

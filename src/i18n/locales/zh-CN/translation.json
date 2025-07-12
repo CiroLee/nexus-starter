@@ -63,7 +63,8 @@
     "rejected": "驳回",
     "reject": "拒绝",
     "activate": "激活",
-    "sendEmail": "发送邮件"
+    "sendEmail": "发送邮件",
+    "search": "搜索"
   },
   "banner": {
     "loginTitle": "登录Nexus-Starter"
