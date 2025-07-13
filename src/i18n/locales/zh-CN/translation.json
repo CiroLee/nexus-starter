@@ -46,6 +46,7 @@
     "reset": "重置",
     "delete": "删除",
     "cancel": "取消",
+    "confirm": "确认",
     "export": "导出",
     "print": "打印",
     "update": "更新",
@@ -63,13 +64,16 @@
     "rejected": "驳回",
     "reject": "拒绝",
     "activate": "激活",
-    "sendEmail": "发送邮件"
+    "sendEmail": "发送邮件",
+    "search": "搜索"
   },
   "banner": {
     "loginTitle": "登录Nexus-Starter"
   },
   "toast": {
-    "actionSucceed": "操作成功"
+    "actionSucceed": "操作成功",
+    "createSucceed": "创建成功",
+    "updateSucceed": "更新成功"
   },
   "longText": {
     "security": {
@@ -185,12 +189,12 @@
     "recentOrders": "近期订单",
     "orderId": "订单编号",
     "productName": "产品名称",
-    "paymentAmount": "支付金额",
+    "paymentAmount": "金额",
     "paymentMethod": {
       "DEFAULT": "支付方式",
       "wechatPay": "微信支付",
       "alipay": "支付宝",
-      "cashPay": "现j",
+      "cashPay": "现金",
       "credit": "信用卡",
       "paypal": "PayPal"
     },
@@ -204,15 +208,15 @@
       "processing": "处理中",
       "completed": "已完成",
       "cancelled": "已取消",
-      "refunded": "退货完成"
+      "refunded": "已退货"
     }
   },
   "customers": {
     "totalCustomers": "总客户",
-    "newCustomers": "新增客户",
     "churnsRate": "流失率",
     "refunds": "退款人数",
     "detail": "客户详情",
+    "create": "新增客户",
     "tags": {
       "ordinary": "普通会员",
       "vip": "VIP会员",
@@ -242,7 +246,7 @@
     "basicSetting": "基本信息",
     "securitySetting": "安全设置",
     "notificationSetting": "消息通知",
-    "addStaff": "新增员工",
+    "create": "新增员工",
     "profile": {
       "title": "用户档案",
       "name": "姓名",

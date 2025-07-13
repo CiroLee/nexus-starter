@@ -5,7 +5,7 @@ import { useTheme, useLogin } from '@/hooks';
 import Toaster from '@ui/Sonner';
 
 const queryClient = new QueryClient();
-export default function HeadlessLayout() {
+export default function RootLayout() {
   useLogin();
   useTheme();
   return (

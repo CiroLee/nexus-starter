@@ -29,7 +29,7 @@ export default function StaffCreatePage() {
 
   const addStaff: SubmitHandler<StaffItem> = (data) => {
     console.log(data);
-    toast.success('create success', { position: 'top-center' });
+    toast.success(t('toast.createSucceed'), { position: 'top-center' });
   };
   return (
     <div>
@@ -37,7 +37,7 @@ export default function StaffCreatePage() {
         <BreadcrumbItem asChild>
           <Link to="/user-management/staff">{t('menus.userManagement.staff')}</Link>
         </BreadcrumbItem>
-        <BreadcrumbItem>{t('account.addStaff')}</BreadcrumbItem>
+        <BreadcrumbItem>{t('account.create')}</BreadcrumbItem>
       </Breadcrumb>
       <div className="panel">
         <form className="mx-auto w-full md:w-80" onSubmit={handleSubmit(addStaff)}>
