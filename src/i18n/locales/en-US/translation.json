@@ -49,6 +49,7 @@
     "reset": "Reset",
     "delete": "Delete",
     "cancel": "Cancel",
+    "confirm": "Confirm",
     "export": "Export",
     "resend": "Resend",
     "edit": "Edit",
@@ -70,7 +71,9 @@
     "loginTitle": "Login to Nexus-Starter"
   },
   "toast": {
-    "actionSucceed": "Action Succeed"
+    "actionSucceed": "Action Succeed",
+    "createSucceed": "Create Succeed",
+    "updateSucceed": "Update Succeed"
   },
   "longText": {
     "security": {
@@ -210,15 +213,14 @@
   },
   "customers": {
     "totalCustomers": "Total Customers",
-    "newCustomers": "New Customers",
     "churnsRate": "Churns Rate",
     "refunds": "Refunds",
     "detail": "Customer Detail",
     "create": "Create",
     "tags": {
-      "ordinary": "ORDINARY",
+      "ordinary": "Ordinary",
       "vip": "VIP",
-      "corporate": "CORPORATE"
+      "corporate": "Corporate"
     },
     "status": {
       "active": "Active",

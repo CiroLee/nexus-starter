@@ -33,7 +33,7 @@ export default function EditStaffPage() {
 
   const handleSave: SubmitHandler<StaffItem> = (data) => {
     console.log(data);
-    toast.success('update success', { position: 'top-center' });
+    toast.success(t('toast.updateSucceed'), { position: 'top-center' });
   };
 
   return (

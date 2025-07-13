@@ -13,7 +13,7 @@ interface RealTimeMetricProps {
 }
 export default function RealTimeMetric({ className, value, trend, title, icon, briefData }: RealTimeMetricProps) {
   return (
-    <div className={cn('after:w-line after:bg-line relative', className)}>
+    <div className={cn('flex flex-col pl-5 sm:block sm:p-0', className)}>
       <div className="text-description mb-5 flex items-center gap-1.5 text-sm">
         {icon}
         <span>{title}</span>

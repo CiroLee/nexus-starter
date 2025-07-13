@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { DropdownMenu } from 'radix-ui';
 import { IconUsers, IconMoodSpark, IconRefreshDot, IconCreditCardRefund, IconDots, IconMessageCircle, IconFileText, IconPlus, IconRestore, IconSearch } from '@tabler/icons-react';
@@ -20,13 +21,13 @@ import DynamicTrans from '@/components/business/DynamicTrans';
 import RealTimeMetric from './components/RealTimeMetric';
 import MemberTag from './components/MemberTag';
 import CustomerDrawer from './components/CustomerDrawer';
+import CreateDialog from './components/CreateDialog';
 import { formatNumber, formatPercent } from '@/utils/number';
 import { getCustomerMetrics, getCustomerList } from '@/_mock/customer';
 import { getStatusColors } from './utils';
-import { CustomerInfo } from '@/types/user';
 import { cn } from '@/lib/utils';
 import SearchInput from '@/components/business/SearchInput';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { CustomerInfo } from '@/types/user';
 
 export default function CustomerManagementPage() {
   const { t } = useTranslation();
@@ -47,7 +48,7 @@ export default function CustomerManagementPage() {
 
   const handleSearch: SubmitHandler<{ query: string }> = (data) => {
     // mock search
-    console.log('staff search query:', data);
+    console.log('customer search query:', data);
   };
 
   const handleReset = () => {
@@ -82,7 +83,6 @@ export default function CustomerManagementPage() {
   // mock paginating staff data
   const currentData = useMemo(() => {
     const filteredData = filterData(customerList?.data || []);
-    console.log('filteredData', filteredData);
     return filteredData.slice((currentPage - 1) * 10, 10 * currentPage);
   }, [currentPage, customerList?.data, filterData]);
 
@@ -95,12 +95,16 @@ export default function CustomerManagementPage() {
     <div>
       <div className="mb-3 flex items-center justify-between">
         <Heading as="h3">{t('menus.businessManagement.customer')}</Heading>
-        <Button className="gap-1">
-          <IconPlus size={18} />
-          <span>{t('customers.create')}</span>
-        </Button>
+        <CreateDialog
+          trigger={
+            <Button className="gap-1">
+              <IconPlus size={18} />
+              <span>{t('customers.create')}</span>
+            </Button>
+          }
+        />
       </div>
-      <Card className="bg-background grid grid-cols-2 grid-rows-2 gap-3 p-2 lg:grid-cols-3 xl:grid-cols-4 xl:grid-rows-subgrid">
+      <Card className="bg-background grid grid-cols-2 grid-rows-2 p-2 sm:gap-3 lg:grid-cols-3 xl:grid-cols-4 xl:grid-rows-subgrid">
         <RealTimeMetric
           icon={<IconUsers size={18} />}
           title={t('customers.totalCustomers')}
@@ -110,7 +114,7 @@ export default function CustomerManagementPage() {
         />
         <RealTimeMetric
           icon={<IconMoodSpark size={18} />}
-          title={t('customers.newCustomers')}
+          title={t('customers.create')}
           trend="up"
           value={formatNumber(customerMetrics?.data.news.total || 0)}
           briefData={customerMetrics?.data?.news.list || []}
@@ -175,7 +179,7 @@ export default function CustomerManagementPage() {
             </LabelField>
           </div>
           <form className="flex gap-2 md:min-w-60 md:flex-none" onSubmit={handleSubmit(handleSearch)}>
-            <SearchInput placeholder="search staff..." {...register('query')} />
+            <SearchInput placeholder="search customer..." {...register('query')} />
             <Button className="gap-1" type="submit">
               <IconSearch size={18} />
               <span className="hidden sm:block">{t('actions.search')}</span>

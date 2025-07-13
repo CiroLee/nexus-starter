@@ -46,6 +46,7 @@
     "reset": "重置",
     "delete": "删除",
     "cancel": "取消",
+    "confirm": "确认",
     "export": "导出",
     "print": "打印",
     "update": "更新",
@@ -70,7 +71,9 @@
     "loginTitle": "登录Nexus-Starter"
   },
   "toast": {
-    "actionSucceed": "操作成功"
+    "actionSucceed": "操作成功",
+    "createSucceed": "创建成功",
+    "updateSucceed": "更新成功"
   },
   "longText": {
     "security": {
@@ -210,11 +213,10 @@
   },
   "customers": {
     "totalCustomers": "总客户",
-    "newCustomers": "新增客户",
     "churnsRate": "流失率",
     "refunds": "退款人数",
     "detail": "客户详情",
-    "create": "新增用户",
+    "create": "新增客户",
     "tags": {
       "ordinary": "普通会员",
       "vip": "VIP会员",
