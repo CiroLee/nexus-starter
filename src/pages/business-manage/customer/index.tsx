@@ -16,7 +16,7 @@ import { AlertDialog, AlertDialogCancel } from '@ui/AlertDialog';
 import { Table, TableHeader, TableHeaderCell, TableBody, TableCell, TableRow } from '@ui/Table';
 import LabelField from '@/components/business/LabelField';
 import Pagination from '@/components/business/Pagination';
-import Empty from '@/components/business/Empty';
+import Empty from '@ui/Empty';
 import DynamicTrans from '@/components/business/DynamicTrans';
 import RealTimeMetric from './components/RealTimeMetric';
 import MemberTag from './components/MemberTag';
@@ -25,7 +25,6 @@ import CreateDialog from './components/CreateDialog';
 import { formatNumber, formatPercent } from '@/utils/number';
 import { getCustomerMetrics, getCustomerList } from '@/_mock/customer';
 import { getStatusColors } from './utils';
-import { cn } from '@/lib/utils';
 import SearchInput from '@/components/business/SearchInput';
 import { CustomerInfo } from '@/types/user';
 
@@ -203,8 +202,8 @@ export default function CustomerManagementPage() {
               <TableHeaderCell>{t('common.action')}</TableHeaderCell>
             </TableRow>
           </TableHeader>
-          <TableBody className={cn('relative', { 'h-50': !currentData.length })}>
-            <Show when={currentData.length} fallback={<Empty className="absolute size-full" />}>
+          <TableBody>
+            <Show when={currentData.length} fallback={<Empty inTable className="h-50" />}>
               {currentData?.map((item) => (
                 <TableRow key={item.id}>
                   <TableCell>#{item.id}</TableCell>

@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import Tag from '@ui/Tag';
 import { Table, TableHeader, TableHeaderCell, TableBody, TableCell, TableRow } from '@ui/Table';
-import Empty from '@/components/business/Empty';
+import Empty from '@ui/Empty';
 import { OrderItem } from '@/types/order';
 import { formatDate } from '@/utils/date';
 import DynamicTrans from '@/components/business/DynamicTrans';
@@ -43,7 +43,7 @@ export default function OrderTable({ data }: OrderTableProps) {
           </TableBody>
         </Table>
       ) : (
-        <Empty className="border-line h-60 rounded-md border" />
+        <Empty className="border-line h-50 rounded-md border" />
       )}
     </>
   );

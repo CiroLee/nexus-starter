@@ -14,7 +14,7 @@ import Select from '@ui/Select';
 import Divider from '@/components/ui/Divider';
 import { AlertDialog, AlertDialogCancel } from '@ui/AlertDialog';
 import { Table, TableHeader, TableHeaderCell, TableBody, TableCell, TableRow } from '@ui/Table';
-import Empty from '@/components/business/Empty';
+import Empty from '@ui/Empty';
 import MiniUser from '@/components/business/MiniUser';
 import SearchInput from '@/components/business/SearchInput';
 import LabelField from '@/components/business/LabelField';
@@ -156,8 +156,8 @@ export default function StaffPage() {
               <TableHeaderCell>{t('common.action')}</TableHeaderCell>
             </TableRow>
           </TableHeader>
-          <TableBody className={cn('relative', { 'h-50': !currentData.length })}>
-            <Show when={currentData.length} fallback={<Empty className="absolute size-full" />}>
+          <TableBody>
+            <Show when={currentData.length} fallback={<Empty inTable className="h-50" />}>
               {currentData?.map((item) => (
                 <TableRow key={item.id}>
                   <TableCell className="w-25">id_{item.id}</TableCell>

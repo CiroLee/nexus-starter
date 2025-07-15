@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import { IconPlus } from '@tabler/icons-react';
 import { useTranslation } from 'react-i18next';
 import AppCard from './components/AppCard';
-import Empty from '@/components/business/Empty';
+import Empty from '@ui/Empty';
 import { getApps } from '@/_mock/manage';
 import Heading from '@ui/Heading';
 import Button from '@ui/Button';
