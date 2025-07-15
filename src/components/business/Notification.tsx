@@ -9,7 +9,7 @@ import Show from '../ui/Show';
 import { Tabs, TabsItem, TabsList, TabsContent } from '../ui/Tabs';
 import DynamicTrans from './DynamicTrans';
 import React from 'react';
-import Empty from './Empty';
+import Empty from '@ui/Empty';
 import type { Notification as NotificationData, MessageItem, NoticeItem } from '@/types/system';
 
 interface NotificationProps extends React.ComponentProps<typeof Popover> {
@@ -34,13 +34,19 @@ export default function Notification({ trigger, data }: NotificationProps) {
           ))}
         </TabsList>
         <TabsContentWithEmpty isEmpty={!data?.message.length} value={tabsList[0]}>
-          {data?.message.map((msg) => <MessageContent key={msg.id} {...msg} />)}
+          {data?.message.map((msg) => (
+            <MessageContent key={msg.id} {...msg} />
+          ))}
         </TabsContentWithEmpty>
         <TabsContentWithEmpty isEmpty={!data?.message.length} value={tabsList[1]}>
-          {data?.notice.map((item) => <NoticeContent key={item.id} {...item} />)}
+          {data?.notice.map((item) => (
+            <NoticeContent key={item.id} {...item} />
+          ))}
         </TabsContentWithEmpty>
         <TabsContentWithEmpty isEmpty={!data?.todo.length} value={tabsList[2]}>
-          {data?.todo.map((item) => <NoticeContent key={item.id} {...item} />)}
+          {data?.todo.map((item) => (
+            <NoticeContent key={item.id} {...item} />
+          ))}
         </TabsContentWithEmpty>
       </Tabs>
     </Popover>
@@ -50,7 +56,7 @@ export default function Notification({ trigger, data }: NotificationProps) {
 function TabsContentWithEmpty({ children, className, isEmpty, ...props }: React.ComponentProps<typeof TabsContent> & { isEmpty?: boolean }) {
   return (
     <TabsContent className={cn('data-[orientation=horizontal]:mt-0', className)} {...props}>
-      {!isEmpty ? children : <Empty className="h-40 [&_img]:size-18" description={<p className="text-description text-sm">no message</p>} />}
+      {!isEmpty ? children : <Empty className="h-40" description={<p className="text-description text-sm">no message</p>} />}
     </TabsContent>
   );
 }
