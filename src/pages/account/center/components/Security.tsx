@@ -20,7 +20,7 @@ export default function Security() {
         <DataListItem>
           <DataListLabel className="flex min-w-16 items-center">{t('account.security.token')}</DataListLabel>
           <DataListValue className="flex items-center md:gap-4">
-            <p className={longText()}>{hideToken ? '******** ****** ********' : userInfo.token}</p>
+            <p className={longText()}>{hideToken ? '******** ****** ********' : userInfo?.token}</p>
             <div className="flex items-center gap-2">
               <Show
                 when={hideToken}
@@ -33,14 +33,14 @@ export default function Security() {
                   <IconEye size={16} />
                 </Button>
               </Show>
-              <CopyButton pill text={userInfo.token} />
+              <CopyButton pill text={userInfo?.token || ''} />
             </div>
           </DataListValue>
         </DataListItem>
         <DataListItem>
           <DataListLabel className="min-w-16 pt-1.5">{t('account.security.appKeys')}</DataListLabel>
           <DataListValue className="space-y-2">
-            {userInfo.appKeys.map((item) => (
+            {userInfo?.appKeys.map((item) => (
               <div className="flex items-center gap-3.5" key={item.key}>
                 <p className="w-[55%] min-w-50 truncate md:w-full">{item.key}</p>
                 <Tag colors="neutral" size="sm">

@@ -17,7 +17,7 @@ import { SkeletonBlock } from '@ui/Skeleton';
 export default function WorkBenchPage() {
   const { userInfo } = useUserStore();
   const { t } = useTranslation();
-  const { data: projectsResponse, isPending: projectsIsPending } = useQuery({ queryKey: ['projects', userInfo.id], queryFn: () => getProjectsByUserId(userInfo.id) });
+  const { data: projectsResponse, isPending: projectsIsPending } = useQuery({ queryKey: ['projects', userInfo?.id], queryFn: () => getProjectsByUserId(userInfo?.id || '') });
 
   return (
     <div>
@@ -27,7 +27,7 @@ export default function WorkBenchPage() {
       <div className="flex flex-col gap-4 lg:flex-row">
         <div className="flex-1 space-y-4">
           <section className="panel h-fit flex-1">
-            <BriefUserInfo avatarUrl={userInfo.avatarUrl} userName={userInfo.username} role={`auth.role.${userInfo.role}`} description={userInfo.positionPath.join(' / ')} className="mb-5" />
+            <BriefUserInfo avatarUrl={userInfo?.avatarUrl} userName={userInfo?.username} role={`auth.role.${userInfo?.role}`} description={userInfo?.positionPath.join(' / ')} className="mb-5" />
             <div>
               <div className="flex items-center justify-between">
                 <Heading as="h5">{t('account.myProject')}</Heading>
@@ -52,7 +52,7 @@ export default function WorkBenchPage() {
           <UpdateFeeds />
         </div>
         <div className="space-y-4 lg:w-70">
-          <QuickAccess userId={userInfo.id} />
+          <QuickAccess userId={userInfo?.id || ''} />
           <BulletinBoard />
           <HelpDocument />
         </div>

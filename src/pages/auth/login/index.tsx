@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { QRCodeSVG } from 'qrcode.react';
-import { IconUser, IconLock, IconBrandSlack, IconBrandGoogleFilled, IconBrandGithubFilled } from '@tabler/icons-react';
+import { IconUser, IconLock, IconBrandSlack, IconBrandGoogleFilled, IconBrandGithubFilled, IconLoader } from '@tabler/icons-react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import Image from '@ui/Image';
 import Input from '@ui/Input';
@@ -15,16 +16,20 @@ import Show from '@ui/Show';
 import Divider from '@ui/Divider';
 import FormField from '@/components/business/FormField';
 import loginPortrait from '@/assets/images/login-portrait.webp';
+import { useUserStore } from '@/store/user';
 import { useLogin } from '@/hooks';
+import { getUserInfo } from '@/_mock/user';
+import { cn } from '@/lib/utils';
 
 interface LoginInput {
   username: string;
   password: string;
 }
 export default function Login() {
+  const { setUser } = useUserStore();
   const [psdChecked, setPsdChecked] = useState(true);
   const [loginWay, setLoginWay] = useState<string>('account-login');
-  const { login } = useLogin();
+  const { isLogin, login } = useLogin();
   const navigate = useNavigate();
   const { t } = useTranslation();
 
@@ -39,13 +44,26 @@ export default function Login() {
     }
   });
 
-  const onSubmit: SubmitHandler<LoginInput> = (data) => {
+  const { data: userInfo, isFetching, isSuccess } = useQuery({ queryKey: ['userInfo', isLogin], queryFn: getUserInfo, enabled: isLogin });
+
+  const onSubmit: SubmitHandler<LoginInput> = async (data) => {
     console.log('username:', data.username, 'password:', data.password, 'remember password:', psdChecked);
     if (data.username === 'admin' && data.password === 'admin') {
-      login(true);
-      navigate('/');
+      try {
+        login(true);
+      } catch (error) {
+        console.error(error);
+      }
     }
   };
+
+  useEffect(() => {
+    if (isSuccess) {
+      setUser(userInfo?.data);
+      navigate('/');
+    }
+  }, [userInfo, isSuccess, setUser, navigate]);
+
   return (
     <div className="flex h-screen">
       <Image src={loginPortrait} className="hidden h-full flex-1 md:block" />
@@ -85,7 +103,8 @@ export default function Login() {
                   </Checkbox>
                   <Link href="/forgot-password">{t('common.forgetPsd')}</Link>
                 </div>
-                <Button type="submit" className="mt-6 w-full">
+                <Button type="submit" className="mt-6 w-full gap-1" disabled={isFetching}>
+                  <IconLoader size={18} className={cn('hidden animate-spin', { block: isFetching })} />
                   {t('actions.login')}
                 </Button>
               </form>
@@ -105,7 +124,7 @@ export default function Login() {
           </Show>
           <Show when={loginWay === 'qrcode-login'}>
             <>
-              <div className="border-line mx-auto size-59 rounded border bg-white p-4">
+              <div className="border-line mx-auto size-60 rounded border bg-white p-4">
                 <QRCodeSVG className="size-full" value="https://nexus-starter.netlify.app/" />
               </div>
               <p className="text-description mt-2 text-center text-sm">{t('longText.tips.qrcodeLogin')}</p>
