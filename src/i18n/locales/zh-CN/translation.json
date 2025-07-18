@@ -38,7 +38,9 @@
     "todo": "待办",
     "markAsRead": "全部标为已读",
     "notifications": "通知列表",
-    "contactDetails": "联系方式"
+    "contactDetails": "联系方式",
+    "accountLogin": "账号登录",
+    "qrCodeLogin": "扫码登录"
   },
   "actions": {
     "create": "新建",
@@ -91,6 +93,10 @@
       "notReceiveCode": "没有收到验证码",
       "deleteWarning": "你确定删除",
       "unDoneWaring": "该操作不可撤回"
+    },
+    "tips": {
+      "qrcodeLogin": "扫码后点击确认按钮完成登录",
+      "orContinueWith": "或使用其他方式登录"
     }
   },
   "projectStatus": {

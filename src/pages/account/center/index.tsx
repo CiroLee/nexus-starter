@@ -20,11 +20,11 @@ export default function AccountCenterPage() {
     <div>
       <div className="relative h-70 overflow-hidden rounded-md bg-[url('@/assets/images/banner-1.webp')] bg-center bg-no-repeat p-4 shadow">
         <div className="bg-background/90 absolute bottom-0 left-0 flex h-18 w-full items-center gap-3 px-2 backdrop-blur-md backdrop-saturate-150">
-          <Avatar src={userInfo.avatarUrl} size="lg" />
+          <Avatar src={userInfo?.avatarUrl} size="lg" />
           <div>
-            <Heading as="h5">{userInfo.username}</Heading>
+            <Heading as="h5">{userInfo?.username}</Heading>
             <Tag colors="primary" size="sm">
-              <DynamicTrans>{`auth.role.${userInfo.role}`}</DynamicTrans>
+              <DynamicTrans>{`auth.role.${userInfo?.role}`}</DynamicTrans>
             </Tag>
           </div>
         </div>
@@ -56,7 +56,7 @@ export default function AccountCenterPage() {
             <Security />
           </TabsContent>
           <TabsContent value="teams">
-            <Teams userId={userInfo.id} />
+            <Teams userId={userInfo?.id || ''} />
           </TabsContent>
           <TabsContent value="usage">
             <Usage />

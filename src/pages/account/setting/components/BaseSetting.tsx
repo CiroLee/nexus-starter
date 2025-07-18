@@ -23,7 +23,7 @@ export default function BaseSetting() {
   const { t } = useTranslation();
   const { userInfo } = useUserStore();
   const [inputKey, setInputKey] = useState<number>(0);
-  const [avatarImg, setAvatarImg] = useState<string>(userInfo.avatarUrl);
+  const [avatarImg, setAvatarImg] = useState<string>(userInfo?.avatarUrl || '');
   const {
     register,
     setValue,
@@ -33,10 +33,10 @@ export default function BaseSetting() {
   } = useForm<AccountForm>({
     defaultValues: {
       avatarFile: null,
-      email: userInfo.email,
-      nickname: userInfo.nickname,
-      contact: userInfo.contact,
-      bio: userInfo.bio
+      email: userInfo?.email,
+      nickname: userInfo?.nickname,
+      contact: userInfo?.contact,
+      bio: userInfo?.bio
     }
   });
 
@@ -60,7 +60,7 @@ export default function BaseSetting() {
   };
 
   const handleReset = () => {
-    setAvatarImg(userInfo.avatarUrl);
+    setAvatarImg(userInfo?.avatarUrl || '');
     reset();
   };
   return (
