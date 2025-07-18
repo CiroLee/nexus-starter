@@ -4,6 +4,6 @@
   },
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
   "editor.formatOnSave": true,
-  "cSpell.words": ["tailwindcss", "commitlint", "clsx", "tseslint", "languagedetector", "reaviz", "denodo", "supabase", "sonner", "sparkline"],
+  "cSpell.words": ["tailwindcss", "commitlint", "clsx", "tseslint", "languagedetector", "reaviz", "denodo", "supabase", "sonner", "sparkline", "qrcode"],
   "tailwindCSS.classFunctions": ["cva", "cn"]
 }

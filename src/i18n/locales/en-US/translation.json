@@ -38,7 +38,9 @@
     "todo": "Todo",
     "markAsRead": "Mark all As read",
     "notifications": "Notifications",
-    "contactDetails": "Contact Details"
+    "contactDetails": "Contact Details",
+    "accountLogin": "Account Login",
+    "qrCodeLogin": "QR Code Login"
   },
   "actions": {
     "create": "Create",
@@ -91,6 +93,10 @@
       "notReceiveCode": "Don't receive the code",
       "deleteWarning": "Are you sure to delete",
       "unDoneWaring": "This action can not be undone."
+    },
+    "tips": {
+      "qrcodeLogin": "After scanning the QR code, click the confirmation button to complete the login.",
+      "orContinueWith": "Or continue with"
     }
   },
   "projectStatus": {
