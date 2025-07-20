@@ -80,7 +80,7 @@ export function getNotifications(): Promise<Response<Notification>> {
       {
         id: lorem.unique.nanoid(),
         username: 'John Doe',
-        avatarUrl: 'https://dub.sh/8FBSoLs',
+        avatarUrl: 'https://nexus-avatars.netlify.app/assets/profile-34-Cg4Ofcsk.jpg',
         content: 'request has been sent, please approve',
         emphasis: 'reply to you',
         createAt: '1743912732'
@@ -88,7 +88,7 @@ export function getNotifications(): Promise<Response<Notification>> {
       {
         id: lorem.unique.nanoid(),
         username: 'Dan',
-        avatarUrl: 'https://dub.sh/RoU5V72',
+        avatarUrl: 'https://nexus-avatars.netlify.app/assets/profile-11-DyEkD0HJ.jpg',
         content: ' fixed all bugs, please check',
         emphasis: 'mention you',
         createAt: '1743921281'

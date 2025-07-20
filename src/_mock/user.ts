@@ -11,7 +11,7 @@ export function getUserInfo() {
     ],
     username: 'Will Smith',
     nickname: 'LittlePooh',
-    avatarUrl: 'https://dub.sh/C8TrSJF',
+    avatarUrl: 'https://nexus-avatars.netlify.app/assets/profile-21-BuqmksxF.jpg',
     role: 'admin',
     contact: '13777887788',
     email: 'will_smith@nexus-starter.com',
