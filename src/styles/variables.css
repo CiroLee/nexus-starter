@@ -4,7 +4,7 @@
   --header-height: calc(var(--spacing) * 16);
 
   /* reaviz tooltip variables */
-  --tooltip-background: color-mix(in oklab, var(--color-stone-50) 94%, transparent);
+  --tooltip-background: color-mix(in oklab, var(--color-stone-200) 94%, transparent);
 
   --tooltip-color: var(--foreground);
   --tooltip-border-radius: 5px;

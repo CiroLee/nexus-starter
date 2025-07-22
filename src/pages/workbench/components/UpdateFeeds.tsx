@@ -20,7 +20,7 @@ export default function UpdateFeeds() {
             <TimelineContent>
               <TimelineTitle>{formatDate('2025/1/23 10:45:12', { formatStr: 'yyyy/MM/dd HH:mm' })}</TimelineTitle>
               <div className="flex flex-wrap items-center gap-1 text-sm">
-                <MiniUser username="John Doe" avatarUrl="https://nexus-avatars.pages.dev/assets/profile-15-CnUGI7xI.jpg" />
+                <MiniUser username="John Doe" avatarUrl="https://nexus-avatars.pages.dev/images/profile/profile-15.jpg" />
                 add new <Tag>feature</Tag> to
                 <Link href="https://github.com/CiroLee/nexus-kit" underline target="_blank">
                   nexus-kit
@@ -33,7 +33,7 @@ export default function UpdateFeeds() {
             <TimelineContent>
               <TimelineTitle>{formatDate('2025/1/22 14:05:12', { formatStr: 'yyyy/MM/dd HH:mm' })}</TimelineTitle>
               <div className="flex flex-wrap items-center gap-1 text-sm">
-                <MiniUser username="Will Smith" avatarUrl="https://nexus-avatars.pages.dev/assets/profile-21-BuqmksxF.jpg" />
+                <MiniUser username="Will Smith" avatarUrl="https://nexus-avatars.pages.dev/images/profile/profile-21.jpg" />
                 approved a <Tag colors="secondary">PR</Tag> from
                 <Link href="https://github.com/CiroLee/tiny-motion" underline target="_blank">
                   tiny-motion
@@ -46,7 +46,7 @@ export default function UpdateFeeds() {
             <TimelineContent>
               <TimelineTitle>{formatDate('2025/1/02 9:15:42', { formatStr: 'yyyy/MM/dd HH:mm' })}</TimelineTitle>
               <div className="flex flex-wrap items-center gap-1 text-sm">
-                <MiniUser username="Dan" avatarUrl="https://nexus-avatars.pages.dev/assets/profile-11-DyEkD0HJ.jpg" />
+                <MiniUser username="Dan" avatarUrl="https://nexus-avatars.pages.dev/images/profile/profile-11.jpg" />
                 created a new <Tag colors="neutral">repo</Tag>
                 <Link href="https://github.com/CiroLee/tiny-lorem" underline target="_blank">
                   tiny-lorem

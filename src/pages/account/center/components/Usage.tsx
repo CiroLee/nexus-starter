@@ -33,7 +33,7 @@ function ProgressBar({ className, name, icon, percent, total, usage }: ProgressB
           {usage} / {total}
         </p>
       </div>
-      <Progress size="sm" value={percent} />
+      <Progress size="sm" striped value={percent} />
     </div>
   );
 }
