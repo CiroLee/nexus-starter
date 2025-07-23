@@ -113,7 +113,7 @@ export default function EditDialog({ data, ...props }: EditDialogProps) {
         </FormField>
         <div className="mt-4 flex justify-end gap-2">
           <DialogClose>
-            <Button type="button" colors="neutral" variant="light">
+            <Button type="button" colors="neutral">
               {t('actions.cancel')}
             </Button>
           </DialogClose>
