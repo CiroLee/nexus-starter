@@ -29,7 +29,7 @@ export default function StaffCreatePage() {
 
   const addStaff: SubmitHandler<StaffItem> = (data) => {
     console.log(data);
-    toast.success(t('toast.createSucceed'), { position: 'top-center' });
+    toast.success(t('toast.createSucceed'), { position: 'top-right' });
   };
   return (
     <div>
@@ -131,11 +131,11 @@ export default function StaffCreatePage() {
               )}
             />
           </FormField>
-          <div className="mt-4 flex gap-2">
-            <Button type="submit">{t('actions.submit')}</Button>
+          <div className="mt-4 flex justify-end gap-3">
             <Button type="button" colors="neutral" asChild>
               <Link to="/user-management/staff">{t('actions.cancel')}</Link>
             </Button>
+            <Button type="submit">{t('actions.submit')}</Button>
           </div>
         </form>
       </div>

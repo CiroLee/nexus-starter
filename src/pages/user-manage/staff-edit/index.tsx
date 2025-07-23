@@ -33,7 +33,7 @@ export default function EditStaffPage() {
 
   const handleSave: SubmitHandler<StaffItem> = (data) => {
     console.log(data);
-    toast.success(t('toast.updateSucceed'), { position: 'top-center' });
+    toast.success(t('toast.updateSucceed'), { position: 'top-right' });
   };
 
   return (
@@ -149,7 +149,7 @@ export default function EditStaffPage() {
               )}
             />
           </FormField>
-          <div className="mt-4 flex gap-3">
+          <div className="mt-4 flex justify-end gap-3">
             <Button type="button" colors="neutral" onClick={() => reset()}>
               {t('actions.reset')}
             </Button>

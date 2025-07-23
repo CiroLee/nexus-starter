@@ -36,13 +36,13 @@ export default function CreateDialog({ trigger }: CreateDialogProps) {
   };
   const handleConfirm: SubmitHandler<CustomerInfo> = (data) => {
     setOpen(false);
-    toast.success(t('toast.createSucceed'), { position: 'top-center' });
+    toast.success(t('toast.createSucceed'), { position: 'top-right' });
     console.log('create customer:', data);
   };
   return (
-    <Dialog className="w-[94%]" trigger={trigger} open={open} onOpenChange={handleOnOpenChange} title={t('customers.create')} hideFooter>
-      <div className="mx-auto pt-6 pb-4 md:w-[72%]">
-        <form onSubmit={handleSubmit(handleConfirm)}>
+    <Dialog trigger={trigger} open={open} onOpenChange={handleOnOpenChange} title={t('customers.create')} hideFooter>
+      <div className="">
+        <form className="px-4 pt-6" onSubmit={handleSubmit(handleConfirm)}>
           <FormField id="name" name={t('customers.profile.name')} required showError={errors.name} errorMsg="name is required">
             <Input {...register('name', { required: true })} />
           </FormField>
@@ -63,26 +63,7 @@ export default function CreateDialog({ trigger }: CreateDialogProps) {
               )}
             />
           </FormField>
-          <FormField id="memberType" name={t('customers.profile.memberType')}>
-            <Controller
-              name="memberType"
-              control={control}
-              rules={{ required: true }}
-              render={({ field }) => (
-                <RadioGroup onValueChange={(value) => field.onChange(value)} {...field}>
-                  <Radio size="sm" id="ordinary" value="ordinary">
-                    {t('customers.tags.ordinary')}
-                  </Radio>
-                  <Radio size="sm" id="vip" value="vip">
-                    {t('customers.tags.vip')}
-                  </Radio>
-                  <Radio size="sm" id="corporate" value="corporate">
-                    {t('customers.tags.corporate')}
-                  </Radio>
-                </RadioGroup>
-              )}
-            />
-          </FormField>
+
           <FormField id="phone" name={t('customers.profile.phone')} required showError={errors.phone} errorMsg="please enter 11 digits phone number">
             <Input {...register('phone', { required: true, pattern: phoneRegex })} />
           </FormField>
@@ -110,14 +91,32 @@ export default function CreateDialog({ trigger }: CreateDialogProps) {
               })}
             />
           </FormField>
-
-          <div className="mt-4 flex gap-3">
-            <Button type="submit">{t('actions.confirm')}</Button>
+          <FormField id="memberType" name={t('customers.profile.memberType')}>
+            <Controller
+              name="memberType"
+              control={control}
+              render={({ field }) => (
+                <RadioGroup onValueChange={(value) => field.onChange(value)} {...field}>
+                  <Radio size="sm" id="ordinary" value="ordinary">
+                    {t('customers.tags.ordinary')}
+                  </Radio>
+                  <Radio size="sm" id="vip" value="vip">
+                    {t('customers.tags.vip')}
+                  </Radio>
+                  <Radio size="sm" id="corporate" value="corporate">
+                    {t('customers.tags.corporate')}
+                  </Radio>
+                </RadioGroup>
+              )}
+            />
+          </FormField>
+          <div className="mt-4 flex justify-end gap-3">
             <DialogClose>
               <Button colors="neutral" type="button">
                 {t('actions.cancel')}
               </Button>
             </DialogClose>
+            <Button type="submit">{t('actions.confirm')}</Button>
           </div>
         </form>
       </div>

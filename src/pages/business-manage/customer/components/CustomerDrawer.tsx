@@ -6,31 +6,32 @@ import Tag from '@ui/Tag';
 import Button from '@ui/Button';
 import { DataList, DataListItem, DataListLabel, DataListValue } from '@ui/DataList';
 import { Avatar } from '@ui/Avatar';
-import { Drawer } from '@ui/Drawer';
+import { Drawer, DrawerClose } from '@ui/Drawer';
 import OrderTable from './OrderTable';
 import DynamicTrans from '@/components/business/DynamicTrans';
 import MemberTag from './MemberTag';
 import { CustomerInfo } from '@/types/user';
 import { formatDate } from '@/utils/date';
 import { getStatusColors } from '../utils';
+import React from 'react';
 
-interface PreviewEditDrawerProps {
-  mode?: 'preview' | 'edit';
+interface PreviewEditDrawerProps extends React.ComponentPropsWithoutRef<typeof Drawer> {
   open?: boolean;
   userId?: string;
   customer?: CustomerInfo;
-  onClose?: () => void;
 }
-export default function PreviewEditDrawer({ customer, open, onClose }: PreviewEditDrawerProps) {
+export default function PreviewEditDrawer({ customer, open, ...props }: PreviewEditDrawerProps) {
   const { t } = useTranslation();
 
   return (
-    <Drawer open={open} placement="right" className="w-full max-w-2xl pt-0 outline-none md:w-[40%]" onOpenChange={onClose}>
+    <Drawer open={open} placement="right" className="w-full max-w-2xl pt-0 outline-none md:w-[40%]" {...props}>
       <div className="border-line flex h-14 items-center justify-between border-b">
         <Heading as="h5">{t('customers.detail')}</Heading>
-        <Button colors="neutral" variant="bordered" size="sm" asIcon onClick={onClose}>
-          <IconX size={16} />
-        </Button>
+        <DrawerClose>
+          <Button colors="neutral" variant="bordered" size="sm" asIcon>
+            <IconX size={16} />
+          </Button>
+        </DrawerClose>
       </div>
       <div className="flex items-center pt-4">
         <div className="flex items-center gap-3">

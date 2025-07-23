@@ -186,7 +186,8 @@
   },
   "status": {
     "employed": "在职",
-    "resigned": "离职"
+    "resigned": "离职",
+    "warning": "警告"
   },
   "apps": {
     "addApp": "添加应用"

@@ -6,7 +6,7 @@ import CardCalendar from '../CardCalendar';
 import { cn } from '@/lib/utils';
 
 interface DatePickerProps {
-  defaultValue?: Date;
+  defaultValue?: Date | string | number;
   className?: string;
   placeholder?: string;
   onValueChange?: (value: Date) => void;
@@ -38,6 +38,7 @@ export default function DatePicker({ className, placeholder, defaultValue, onVal
   );
 }
 
-function transDateToLocale(date?: Date) {
-  return date ? date?.toLocaleDateString() : '';
+function transDateToLocale(date?: Date | string | number) {
+  const _date = date instanceof Date ? date : date ? new Date(date) : undefined;
+  return _date ? _date.toLocaleDateString() : '';
 }

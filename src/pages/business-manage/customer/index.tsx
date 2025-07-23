@@ -1,8 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { toast } from 'sonner';
 import { DropdownMenu } from 'radix-ui';
-import { IconUsers, IconMoodSpark, IconRefreshDot, IconCreditCardRefund, IconDots, IconMessageCircle, IconFileText, IconPlus, IconRestore, IconSearch } from '@tabler/icons-react';
+import { IconUsers, IconMoodSpark, IconRefreshDot, IconCreditCardRefund, IconDots, IconFileText, IconPlus, IconRestore, IconSearch, IconPencil } from '@tabler/icons-react';
 import { useQuery } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
 import { useMockStore } from '@/store/mock';
@@ -12,11 +11,11 @@ import Show from '@ui/Show';
 import Tag from '@ui/Tag';
 import Button from '@ui/Button';
 import Select from '@ui/Select';
-import { AlertDialog, AlertDialogCancel } from '@ui/AlertDialog';
 import { Table, TableHeader, TableHeaderCell, TableBody, TableCell, TableRow } from '@ui/Table';
 import LabelField from '@/components/business/LabelField';
 import Pagination from '@/components/business/Pagination';
 import Empty from '@ui/Empty';
+import DeleteAlert from '@/components/business/DeleteAlert';
 import DynamicTrans from '@/components/business/DynamicTrans';
 import RealTimeMetric from './components/RealTimeMetric';
 import MemberTag from './components/MemberTag';
@@ -26,13 +25,13 @@ import { formatNumber, formatPercent } from '@/utils/number';
 import { getCustomerMetrics, getCustomerList } from '@/_mock/customer';
 import { getStatusColors } from './utils';
 import SearchInput from '@/components/business/SearchInput';
+import EditDialog from './components/EditDialog';
 import { CustomerInfo } from '@/types/user';
 
 export default function CustomerManagementPage() {
   const { t } = useTranslation();
   const { setCustomerList } = useMockStore();
-  const [showAlertDialog, setShowAlertDialog] = useState(false);
-  const [showPreviewEditDrawer, setShowPreviewEditDrawer] = useState(false);
+  const [showDeleteAlert, setShowDeleteAlert] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedCustomer, setSelectedCustomer] = useState<CustomerInfo>();
   const [filters, setFilters] = useState({
@@ -55,12 +54,7 @@ export default function CustomerManagementPage() {
   };
   const handleDeleteCustomer = (customer: CustomerInfo) => {
     setSelectedCustomer(customer);
-    setShowAlertDialog(true);
-  };
-
-  const openCustomerDrawer = (customer: CustomerInfo) => {
-    setSelectedCustomer(customer);
-    setShowPreviewEditDrawer(true);
+    setShowDeleteAlert(true);
   };
 
   const filterData = useCallback(
@@ -223,14 +217,25 @@ export default function CustomerManagementPage() {
                   </TableCell>
                   <TableCell className="whitespace-nowrap">
                     <div className="after:bg-line relative inline-flex items-center after:mx-2 after:block after:h-4 after:w-px">
-                      <Button size="sm" variant="light" className="gap-1">
-                        <IconMessageCircle size={18} />
-                        {t('actions.chat')}
-                      </Button>
-                      <Button size="sm" variant="light" className="gap-1" onClick={() => openCustomerDrawer(item)}>
-                        <IconFileText size={18} />
-                        {t('actions.view')}
-                      </Button>
+                      <EditDialog
+                        data={item}
+                        title={t('actions.edit')}
+                        trigger={
+                          <Button size="sm" variant="light" className="gap-1">
+                            <IconPencil size={18} />
+                            {t('actions.edit')}
+                          </Button>
+                        }
+                      />
+                      <CustomerDrawer
+                        trigger={
+                          <Button size="sm" variant="light" className="gap-1">
+                            <IconFileText size={18} />
+                            {t('actions.view')}
+                          </Button>
+                        }
+                        customer={item}
+                      />
                     </div>
                     <DropdownMenu.Root>
                       <DropdownMenu.Trigger asChild>
@@ -269,29 +274,7 @@ export default function CustomerManagementPage() {
         </Table>
         <Pagination className="mt-4" total={filteredTotal} pageSize={10} onChange={setCurrentPage} />
       </div>
-      <AlertDialog
-        open={showAlertDialog}
-        onOpenChange={setShowAlertDialog}
-        title="Warning"
-        description={
-          <div>
-            {t('longText.notice.deleteWarning')} <strong>{selectedCustomer?.name}</strong>?<p>{t('longText.notice.unDoneWaring')}</p>
-          </div>
-        }
-        footer={
-          <div className="flex items-center justify-end gap-2 px-3.5">
-            <AlertDialogCancel>
-              <Button colors="neutral">{t('actions.cancel')}</Button>
-            </AlertDialogCancel>
-            <AlertDialogCancel>
-              <Button colors="danger" onClick={() => toast.success(t('toast.actionSucceed'), { position: 'top-center' })}>
-                {t('actions.delete')}
-              </Button>
-            </AlertDialogCancel>
-          </div>
-        }
-      />
-      <CustomerDrawer customer={selectedCustomer} open={showPreviewEditDrawer} onClose={() => setShowPreviewEditDrawer(false)} />
+      <DeleteAlert open={showDeleteAlert} onOpenChange={setShowDeleteAlert} text={selectedCustomer?.name} />
     </div>
   );
 }

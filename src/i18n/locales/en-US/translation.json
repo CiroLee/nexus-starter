@@ -178,7 +178,8 @@
   },
   "status": {
     "employed": "Employed",
-    "resigned": "Resigned"
+    "resigned": "Resigned",
+    "warning": "Warning"
   },
   "auth": {
     "role": {

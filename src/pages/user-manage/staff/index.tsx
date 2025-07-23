@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'sonner';
 import { IconPlus, IconRestore, IconPencil, IconTrash, IconSearch } from '@tabler/icons-react';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@tanstack/react-query';
@@ -12,7 +11,6 @@ import Tag from '@ui/Tag';
 import Show from '@ui/Show';
 import Select from '@ui/Select';
 import Divider from '@/components/ui/Divider';
-import { AlertDialog, AlertDialogCancel } from '@ui/AlertDialog';
 import { Table, TableHeader, TableHeaderCell, TableBody, TableCell, TableRow } from '@ui/Table';
 import Empty from '@ui/Empty';
 import MiniUser from '@/components/business/MiniUser';
@@ -25,13 +23,12 @@ import { useMockStore } from '@/store/mock';
 import { getStaffList } from '@/_mock/member';
 import type { StaffItem } from '@/types/user';
 import { languageMap, positionOptions } from '@/utils/constants';
+import DeleteAlert from '@/components/business/DeleteAlert';
 
 export default function StaffPage() {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const [currentPage, setCurrentPage] = useState(1);
-  const [showAlertDialog, setShowAlertDialog] = useState(false);
-  const [selectedStaff, setSelectedStaff] = useState<StaffItem>();
   const [filters, setFilters] = useState({
     position: 'all',
     status: 'all'
@@ -68,11 +65,6 @@ export default function StaffPage() {
       return `${(time / 12).toFixed(1)} years`;
     }
     return `${time} months`;
-  };
-
-  const handleDeleteStaff = (staff: StaffItem) => {
-    setSelectedStaff(staff);
-    setShowAlertDialog(true);
   };
 
   const handleSearch: SubmitHandler<{ query: string }> = (data) => {
@@ -182,10 +174,15 @@ export default function StaffPage() {
                       {t('actions.edit')}
                     </Button>
                     <Divider className="top-1/2 mx-2 h-4 -translate-y-1/2" orientation="vertical" />
-                    <Button variant="light" colors="danger" className="gap-1" size="sm" onClick={() => handleDeleteStaff(item)}>
-                      <IconTrash size={18} />
-                      {t('actions.delete')}
-                    </Button>
+                    <DeleteAlert
+                      text={<span className="capitalize">{item.username}</span>}
+                      trigger={
+                        <Button variant="light" colors="danger" className="gap-1" size="sm">
+                          <IconTrash size={18} />
+                          {t('actions.delete')}
+                        </Button>
+                      }
+                    />
                   </TableCell>
                 </TableRow>
               ))}
@@ -194,28 +191,6 @@ export default function StaffPage() {
         </Table>
         <Pagination className="mt-4" pageSize={10} total={filteredTotal} onChange={setCurrentPage} />
       </div>
-      <AlertDialog
-        open={showAlertDialog}
-        onOpenChange={setShowAlertDialog}
-        title="Warning"
-        description={
-          <div>
-            {t('longText.notice.deleteWarning')} <strong className="capitalize">{selectedStaff?.username}</strong>?<p>{t('longText.notice.unDoneWaring')}</p>
-          </div>
-        }
-        footer={
-          <div className="flex items-center justify-end gap-2 px-3.5">
-            <AlertDialogCancel>
-              <Button colors="neutral">{t('actions.cancel')}</Button>
-            </AlertDialogCancel>
-            <AlertDialogCancel>
-              <Button colors="danger" onClick={() => toast.success(t('toast.actionSucceed'), { position: 'top-center' })}>
-                {t('actions.delete')}
-              </Button>
-            </AlertDialogCancel>
-          </div>
-        }
-      />
     </div>
   );
 }

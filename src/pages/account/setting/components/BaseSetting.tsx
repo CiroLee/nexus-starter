@@ -42,7 +42,7 @@ export default function BaseSetting() {
 
   const handleSave: SubmitHandler<AccountForm> = (data) => {
     console.log(data);
-    toast.success(t('toast.updateSucceed'), { position: 'top-center' });
+    toast.success(t('toast.updateSucceed'), { position: 'top-right' });
   };
 
   const handleAvatarUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
