@@ -8,7 +8,7 @@ import { useMobile } from '@/hooks';
 import mainRoutes from '@/routes/main.routes';
 import { filterVisibleRoutes } from '@/utils/routes';
 import type { CustomRoute } from '@/types/route';
-import Loading from '@ui/Loading';
+import TopProgressBar from '@/components/ui/TopProgressBar';
 
 export default function NavLayout() {
   const { isSideBarOpen } = useLayoutStore();
@@ -20,12 +20,13 @@ export default function NavLayout() {
 
   return (
     <div>
+      <TopProgressBar />
       <SideBar menus={menus} />
       <Header className={cn({ 'w-[calc(100%_-_var(--sidebar-width))]': !isMobile && isSideBarOpen })} menus={menus} />
       <main className={cn('relative min-h-screen pl-0 transition-[padding]', { 'pl-(--sidebar-width)': !isMobile && isSideBarOpen })}>
         <div className="h-16"></div>
         <section className="relative min-h-[calc(100vh_-_var(--header-height))] bg-zinc-100 p-4 dark:bg-zinc-900/60">
-          <Suspense fallback={<Loading isFullscreen open />}>{<Outlet />}</Suspense>
+          <Suspense>{<Outlet />}</Suspense>
         </section>
       </main>
     </div>
