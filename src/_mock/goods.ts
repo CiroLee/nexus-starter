@@ -50,7 +50,7 @@ export function getRevenueContrast(): Promise<Response<GoodsRes[]>> {
     key: item,
     data: days.map((d) => ({
       key: d,
-      data: lorem.number.int([100, 200])
+      data: lorem.number.int([10, 150])
     }))
   }));
 

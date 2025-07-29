@@ -1,4 +1,4 @@
-import { useValue } from '@cirolee/tiny-motion';
+import { useCountUp } from '@/hooks';
 import { Card, CardBody } from '@ui/Card';
 import Statistic from '@ui/Statistic';
 import { cn } from '@/lib/utils';
@@ -13,10 +13,10 @@ interface StatisticCardProps extends React.ComponentProps<typeof Statistic> {
   radio?: number | string;
 }
 export default function StatisticCard({ className, title, value, precision = 0, radio, trend, ...props }: StatisticCardProps) {
-  const [val] = useValue(0, value, {
-    duration: 3000,
+  const val = useCountUp(0, value, {
+    duration: 3500,
     precision,
-    easing: 'easeOutCubic'
+    delay: 500
   });
   return (
     <Card className={cn('bg-background', className)}>

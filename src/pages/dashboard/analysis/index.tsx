@@ -20,7 +20,7 @@ export default function AnalysisPage() {
               {t('dashboard.analysis.totalConsumers')}
             </div>
           }
-          value={236732}
+          value={36732}
           trend="increase"
           radio="2.4%"
         />
@@ -31,7 +31,7 @@ export default function AnalysisPage() {
               {t('dashboard.analysis.totalSales')}
             </div>
           }
-          value={184553}
+          value={84553}
           trend="increase"
           radio="0.45%"
           prefix={<span className="text-xl leading-[1em]">$</span>}
@@ -54,14 +54,14 @@ export default function AnalysisPage() {
               {t('dashboard.analysis.transactionPerDay')}
             </div>
           }
-          value={98423}
+          value={9423}
           prefix={<span className="text-xl leading-[1em]">$</span>}
         />
       </div>
       <SaleBartChart className="mt-6" />
       <div className="relative mt-6 flex flex-col gap-4 overflow-hidden md:flex-row">
         <RevenueLineChart className="md:w-[70%]" />
-        <RegionPieChart className="grow-1" />
+        <RegionPieChart className="grow-1 md:min-w-90" />
       </div>
     </div>
   );
