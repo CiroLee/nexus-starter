@@ -40,7 +40,9 @@
     "notifications": "Notifications",
     "contactDetails": "Contact Details",
     "accountLogin": "Account Login",
-    "qrCodeLogin": "QR Code Login"
+    "qrCodeLogin": "QR Code Login",
+    "onLine": "Online",
+    "offline": "Offline"
   },
   "actions": {
     "create": "Create",
@@ -67,7 +69,8 @@
     "reject": "Reject",
     "activate": "Activate",
     "sendEmail": "Send Email",
-    "search": "Search"
+    "search": "Search",
+    "send": "Send"
   },
   "banner": {
     "loginTitle": "Login to Nexus-Starter"
@@ -119,6 +122,9 @@
   },
   "menus": {
     "workbench": "Workbench",
+    "chat": {
+      "DEFAULT": "Chat"
+    },
     "dashboard": {
       "DEFAULT": "Dashboard",
       "analysis": "Analysis"
@@ -191,6 +197,13 @@
   },
   "apps": {
     "addApp": "Add App"
+  },
+  "chat": {
+    "videoCall": "Video Call",
+    "audioCall": "Audio Call",
+    "pin": "Pin",
+    "muteNotice": "Mute Notification",
+    "deleteChat": "Delete Chat"
   },
   "orders": {
     "recentOrders": "Recent Orders",

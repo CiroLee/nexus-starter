@@ -9,7 +9,8 @@ import {
   IconBrandDenodo,
   IconUserFilled,
   IconCloverFilled,
-  IconCardsFilled
+  IconCardsFilled,
+  IconMessageCircleFilled
 } from '@tabler/icons-react';
 import { lazy } from 'react';
 import { Navigate } from 'react-router-dom';
@@ -34,6 +35,15 @@ const mainRoutes: CustomRoute = {
       meta: {
         name: 'workbench',
         icon: <IconBoltFilled size={20} />
+      }
+    },
+    {
+      id: 'chat',
+      path: '/chat',
+      Component: lazy(() => import('@/pages/chat')),
+      meta: {
+        name: 'chat.DEFAULT',
+        icon: <IconMessageCircleFilled size={20} />
       }
     },
     {
