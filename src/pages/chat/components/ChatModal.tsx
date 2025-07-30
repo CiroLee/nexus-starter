@@ -22,7 +22,7 @@ export default function ChatModal({ className, chatData, onSideOpen }: ChatModal
   const [data, setData] = useState<ChatItem>();
   const { t } = useTranslation();
   const contentRef = useRef<HTMLTextAreaElement>(null);
-  const { register, reset, handleSubmit } = useForm<{ message: string }>();
+  const { register, reset, watch, handleSubmit } = useForm<{ message: string }>();
 
   const scrollToBottom = useCallback((id: string) => {
     const lastItem = document.getElementById(id);
@@ -30,6 +30,8 @@ export default function ChatModal({ className, chatData, onSideOpen }: ChatModal
       lastItem.scrollIntoView({ behavior: 'smooth' });
     }
   }, []);
+
+  const message = watch('message');
   const handleOnSend: SubmitHandler<{ message: string }> = ({ message }) => {
     const chat: ChatContent = {
       id: nanoid(),
@@ -68,10 +70,10 @@ export default function ChatModal({ className, chatData, onSideOpen }: ChatModal
       <form onSubmit={handleSubmit(handleOnSend)}>
         <Input
           autoComplete="off"
-          {...register('message')}
+          {...register('message', { validate: (value) => value.trim().length > 0 })}
           className="bg-background mx-auto mb-4 w-[calc(100%_-_var(--spacing)*8)] pr-1"
           suffix={
-            <Button size="sm" className="min-w-16" type="submit">
+            <Button size="sm" className="min-w-16" type="submit" disabled={!message}>
               {t('actions.send')}
             </Button>
           }
