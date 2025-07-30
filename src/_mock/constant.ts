@@ -56,3 +56,18 @@ export const goods = [
   'Lightweight Broom',
   'Bedside Night Light'
 ];
+
+export const emojiAvatars = [
+  'https://nexus-avatars.pages.dev/images/emoji/emoji-profile-0.png',
+  'https://nexus-avatars.pages.dev/images/emoji/emoji-profile-1.png',
+  'https://nexus-avatars.pages.dev/images/emoji/emoji-profile-2.png',
+  'https://nexus-avatars.pages.dev/images/emoji/emoji-profile-3.png',
+  'https://nexus-avatars.pages.dev/images/emoji/emoji-profile-4.png',
+  'https://nexus-avatars.pages.dev/images/emoji/emoji-profile-5.png',
+  'https://nexus-avatars.pages.dev/images/emoji/emoji-profile-6.png',
+  'https://nexus-avatars.pages.dev/images/emoji/emoji-profile-7.png',
+  'https://nexus-avatars.pages.dev/images/emoji/emoji-profile-8.png',
+  'https://nexus-avatars.pages.dev/images/emoji/emoji-profile-9.png',
+  'https://nexus-avatars.pages.dev/images/emoji/emoji-profile-10.png',
+  'https://nexus-avatars.pages.dev/images/emoji/emoji-profile-11.png'
+];

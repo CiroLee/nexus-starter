@@ -67,7 +67,10 @@
     "reject": "拒绝",
     "activate": "激活",
     "sendEmail": "发送邮件",
-    "search": "搜索"
+    "search": "搜索",
+    "send": "发送",
+    "onLine": "在线",
+    "offline": "离线"
   },
   "banner": {
     "loginTitle": "登录Nexus-Starter"
@@ -119,6 +122,9 @@
   },
   "menus": {
     "workbench": "工作台",
+    "chat": {
+      "DEFAULT": "聊天"
+    },
     "dashboard": {
       "DEFAULT": "仪表板",
       "analysis": "分析"
@@ -191,6 +197,13 @@
   },
   "apps": {
     "addApp": "添加应用"
+  },
+  "chat": {
+    "videoCall": "视频通话",
+    "audioCall": "语音通话",
+    "pin": "置顶",
+    "muteNotice": "消息免打扰",
+    "deleteChat": "删除对话"
   },
   "orders": {
     "recentOrders": "近期订单",
