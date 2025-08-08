@@ -4,7 +4,7 @@ import { IconEye, IconEyeClosed } from '@tabler/icons-react';
 import { useTranslation } from 'react-i18next';
 import { DataList, DataListItem, DataListLabel, DataListValue } from '@ui/DataList';
 import { useUserStore } from '@/store/user';
-import Button from '@ui/Button';
+import { Button } from '@ui/Button';
 import Show from '@ui/Show';
 import Tag from '@ui/Tag';
 import CopyButton from '@/components/business/CopyButton';

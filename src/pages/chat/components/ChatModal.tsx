@@ -5,7 +5,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { DropdownMenu } from 'radix-ui';
 import { cn } from '@/lib/utils';
 import { IconBellOff, IconDotsVertical, IconMessageForward, IconPhone, IconPinned, IconTrash, IconVideo } from '@tabler/icons-react';
-import Button from '@ui/Button';
+import { Button } from '@ui/Button';
 import ToolTip from '@ui/Tooltip';
 import { Avatar } from '@ui/Avatar';
 import Input from '@ui/Input';

@@ -2,7 +2,7 @@ import { IconSettings } from '@tabler/icons-react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { Card, CardBody, CardFooter } from '@ui/Card';
 import SvgIcon from '@ui/SvgIcon';
-import Button from '@ui/Button';
+import { Button } from '@ui/Button';
 import { cn } from '@/lib/utils';
 import DynamicTrans from '@/components/business/DynamicTrans';
 

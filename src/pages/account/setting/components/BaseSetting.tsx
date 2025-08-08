@@ -5,7 +5,7 @@ import { IconCamera } from '@tabler/icons-react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useUserStore } from '@/store/user';
 import { Avatar } from '@ui/Avatar';
-import Button from '@ui/Button';
+import { Button } from '@ui/Button';
 import FormField from '@/components/business/FormField';
 import Input from '@ui/Input';
 import Textarea from '@ui/Textarea';

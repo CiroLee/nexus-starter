@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { IconCheck, IconCopy } from '@tabler/icons-react';
-import Button from '../ui/Button';
+import { Button } from '../ui/Button';
 import { copyToClipboard } from '@/utils/utils';
 import Show from '../ui/Show';
 

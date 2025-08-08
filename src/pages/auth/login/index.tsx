@@ -8,7 +8,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import Image from '@ui/Image';
 import Input from '@ui/Input';
 import Heading from '@ui/Heading';
-import Button from '@ui/Button';
+import { Button } from '@ui/Button';
 import { Checkbox } from '@ui/Checkbox';
 import Link from '@ui/Link';
 import Segment from '@ui/Segment';

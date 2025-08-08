@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { IconCalendar } from '@tabler/icons-react';
 import { Popover } from '../Popover';
-import Button from '../Button';
+import { Button } from '../Button';
 import CardCalendar from '../CardCalendar';
 import { cn } from '@/lib/utils';
 

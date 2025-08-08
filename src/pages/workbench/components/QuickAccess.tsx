@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
 import Heading from '@ui/Heading';
-import Button from '@ui/Button';
+import { Button } from '@ui/Button';
 import SvgIcon from '@ui/SvgIcon';
 import DynamicTrans from '@business/DynamicTrans';
 import { cn } from '@/lib/utils';

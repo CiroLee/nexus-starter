@@ -6,7 +6,7 @@ import AppCard from './components/AppCard';
 import Empty from '@ui/Empty';
 import { getApps } from '@/_mock/manage';
 import Heading from '@ui/Heading';
-import Button from '@ui/Button';
+import { Button } from '@ui/Button';
 import SearchInput from '@/components/business/SearchInput';
 export default function AppManagementPage() {
   const { t } = useTranslation();

@@ -6,7 +6,7 @@ import { useMockStore } from '@/store/mock';
 import { Breadcrumb, BreadcrumbItem } from '@ui/Breadcrumb';
 import FormField from '@/components/business/FormField';
 import Input from '@ui/Input';
-import Button from '@ui/Button';
+import { Button } from '@ui/Button';
 import Select from '@ui/Select';
 import { RadioGroup, Radio } from '@ui/RadioGroup';
 import NumberInput from '@ui/NumberInput';

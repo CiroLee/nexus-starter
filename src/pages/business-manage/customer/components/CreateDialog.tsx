@@ -6,7 +6,7 @@ import { Dialog, DialogClose } from '@ui/Dialog';
 import { CustomerInfo } from '@/types/user';
 import FormField from '@/components/business/FormField';
 import Input from '@ui/Input';
-import Button from '@ui/Button';
+import { Button } from '@ui/Button';
 import { RadioGroup, Radio } from '@ui/RadioGroup';
 import { mailRegex, phoneRegex } from '@/utils/regexp';
 import Select from '@/components/ui/Select';

@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { useQuery } from '@tanstack/react-query';
 import { cn } from '@/lib/utils';
 import Heading from '@ui/Heading';
-import Button from '@ui/Button';
+import { Button } from '@ui/Button';
 import Tag from '@ui/Tag';
 import Show from '@ui/Show';
 import Select from '@ui/Select';

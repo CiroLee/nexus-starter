@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { toast } from 'sonner';
 import { AlertDialog, AlertDialogCancel } from '@/components/ui/AlertDialog';
-import Button from '@/components/ui/Button';
+import { Button } from '@/components/ui/Button';
 import { IconAlertSquareRoundedFilled } from '@tabler/icons-react';
 
 interface DeleteAlertProps extends Omit<React.ComponentPropsWithoutRef<typeof AlertDialog>, 'title'> {

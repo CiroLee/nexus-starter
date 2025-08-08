@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { toast } from 'sonner';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 import Input from '@ui/Input';
-import Button from '@ui/Button';
+import { Button } from '@ui/Button';
 import { RadioGroup, Radio } from '@ui/RadioGroup';
 import Select from '@ui/Select';
 import NumberInput from '@ui/NumberInput';

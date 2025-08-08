@@ -6,7 +6,7 @@ import { Avatar } from '@ui/Avatar';
 import Input from '@ui/Input';
 import type { ChatItem } from '@/types/chat';
 import { formatDate } from '@/utils/date';
-import Button from '@/components/ui/Button';
+import { Button } from '@/components/ui/Button';
 
 const itemLi = cva(' relative flex cursor-pointer justify-between gap-2 overflow-hidden rounded p-2 transition-colors', {
   variants: {

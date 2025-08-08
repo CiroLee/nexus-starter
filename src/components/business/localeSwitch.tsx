@@ -1,6 +1,6 @@
 import { IconLanguage } from '@tabler/icons-react';
 import { DropdownMenu } from 'radix-ui';
-import Button from '../ui/Button';
+import { Button } from '../ui/Button';
 import i18n from '@/i18n/i18n';
 import { resourceOptions } from '@/i18n/resources';
 

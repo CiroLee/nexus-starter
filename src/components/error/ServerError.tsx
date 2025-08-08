@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Heading from '@ui/Heading';
-import Button from '@ui/Button';
+import { Button } from '@ui/Button';
 import Show from '@ui/Show';
 import { cn } from '@/lib/utils';
 import img500 from '@/assets/images/500.svg';

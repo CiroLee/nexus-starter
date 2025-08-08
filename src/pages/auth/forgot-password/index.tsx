@@ -6,7 +6,7 @@ import Input from '@ui/Input';
 import logoSvg from '@/assets/images/logo.svg';
 import FormField from '@/components/business/FormField';
 import { mailRegex } from '@/utils/regexp';
-import Button from '@/components/ui/Button';
+import { Button } from '@/components/ui/Button';
 import Link from '@/components/ui/Link';
 
 interface ForgotPassword {

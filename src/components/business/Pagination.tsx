@@ -1,6 +1,6 @@
 import { IconChevronLeft } from '@tabler/icons-react';
 import { usePagination } from '@/hooks';
-import Button from '@ui/Button';
+import { Button } from '@ui/Button';
 import { cn } from '@/lib/utils';
 import { useEffect } from 'react';
 

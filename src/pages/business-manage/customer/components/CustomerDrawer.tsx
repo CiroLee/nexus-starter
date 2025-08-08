@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Heading from '@ui/Heading';
 import Tag from '@ui/Tag';
-import Button from '@ui/Button';
+import { Button } from '@ui/Button';
 import { DataList, DataListItem, DataListLabel, DataListValue } from '@ui/DataList';
 import { Avatar } from '@ui/Avatar';
 import { Drawer, DrawerClose } from '@ui/Drawer';

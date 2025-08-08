@@ -9,7 +9,7 @@ import { Card } from '@ui/Card';
 import Heading from '@ui/Heading';
 import Show from '@ui/Show';
 import Tag from '@ui/Tag';
-import Button from '@ui/Button';
+import { Button } from '@ui/Button';
 import Select from '@ui/Select';
 import { Table, TableHeader, TableHeaderCell, TableBody, TableCell, TableRow } from '@ui/Table';
 import LabelField from '@/components/business/LabelField';

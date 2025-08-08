@@ -1,6 +1,6 @@
 import { IconCircleCheckFilled } from '@tabler/icons-react';
 import Heading from '@ui/Heading';
-import Button from '@ui/Button';
+import { Button } from '@ui/Button';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 export default function SuccessPage() {

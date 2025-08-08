@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils';
 import Collapsible from '@ui/Collapsible';
-import Button from '@ui/Button';
+import { Button } from '@ui/Button';
 import Show from '@ui/Show';
 import { IconChevronDown } from '@tabler/icons-react';
 import { useLocation, NavLink } from 'react-router-dom';

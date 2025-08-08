@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils';
 import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
 import { useLayoutStore } from '@/store/layout';
-import Button from '@ui/Button';
+import { Button } from '@ui/Button';
 import { Drawer } from '@ui/Drawer';
 import ThemeSwitch from '@/components/business/ThemeSwitch';
 import LocaleSwitch from '@/components/business/localeSwitch';

@@ -1,6 +1,6 @@
 import { DropdownMenu } from 'radix-ui';
 import { useTranslation } from 'react-i18next';
-import Button from '../ui/Button';
+import { Button } from '../ui/Button';
 import { useTheme } from '@/hooks';
 import { IconSunFilled, IconMoonFilled, IconDeviceDesktop } from '@tabler/icons-react';
 import { ThemeMode } from '@/types/theme';

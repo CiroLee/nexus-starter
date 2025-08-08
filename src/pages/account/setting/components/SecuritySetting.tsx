@@ -1,6 +1,6 @@
 import DynamicTrans from '@/components/business/DynamicTrans';
 import { cn } from '@/lib/utils';
-import Button from '@ui/Button';
+import { Button } from '@ui/Button';
 import Show from '@ui/Show';
 import { useTranslation } from 'react-i18next';
 
