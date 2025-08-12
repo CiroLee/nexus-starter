@@ -90,7 +90,7 @@ export default function TopProgressBar() {
 
   return (
     <div
-      className={cn('fixed top-0 left-0 z-[9999] h-0.5 w-screen transition-opacity duration-300', isVisible ? 'opacity-100' : 'pointer-events-none opacity-0')}
+      className={cn('fixed top-0 left-0 z-9999 h-0.5 w-screen transition-opacity duration-300', isVisible ? 'opacity-100' : 'pointer-events-none opacity-0')}
       aria-label="Page loading progress"
       role="progressbar">
       <div
