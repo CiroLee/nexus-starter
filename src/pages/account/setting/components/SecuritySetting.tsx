@@ -34,7 +34,7 @@ function SecurityItem({ label, content, placeholder, editText = 'edit', classNam
           </Show>
         </div>
         <Button size="sm" variant="light">
-          <DynamicTrans>{`common.${editText}`}</DynamicTrans>
+          <DynamicTrans>{`actions.${editText}`}</DynamicTrans>
         </Button>
       </div>
     </div>
